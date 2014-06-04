@@ -1,0 +1,26 @@
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.container {
+	max-width: 930px;
+}
+
+.header {
+	padding-top: 48px;
+	padding: 30px;
+	margin-bottom: 30px;
+	color: inherit;
+	background-color: #eee;
+}
+
+.footer {
+	padding-top: 19px;
+	color: #777;
+	border-top: 1px solid #e5e5e5;
+}
+
+.form-control {
+    width:300px;
+}
