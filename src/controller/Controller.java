@@ -16,6 +16,7 @@ public class Controller extends HttpServlet {
 
 	public void init() throws ServletException {
 		Action.add(new HomePageAction());
+		Action.add(new GeneratePageAction());
 	}	
 	
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
