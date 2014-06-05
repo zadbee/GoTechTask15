@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,12 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/Controller")
+@MultipartConfig
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void init() throws ServletException {
 		Action.add(new HomePageAction());
 		Action.add(new GeneratePageAction());
+		Action.add(new UploadAction());
+		Action.add(new DownloadAction());
 	}	
 	
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,7 +73,7 @@ public class Controller extends HttpServlet {
 	   		return;
     	}
     	
-    	if (nextPage.equals("image")) {
+    	if (nextPage.equals("file")) {
 	   		RequestDispatcher d = request.getRequestDispatcher(nextPage);
 	   		d.forward(request,response);
 	   		return;
