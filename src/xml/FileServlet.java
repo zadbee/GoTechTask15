@@ -42,8 +42,6 @@ public class FileServlet extends HttpServlet {
         } catch (Exception e) {
         	e.printStackTrace();
         }
-        
-        response.sendRedirect("homepage.do");
     }
     
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

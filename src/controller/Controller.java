@@ -73,6 +73,12 @@ public class Controller extends HttpServlet {
 	   		return;
     	}
     	
+    	if (nextPage.endsWith(".html")) {
+	   		RequestDispatcher d = request.getRequestDispatcher("WEB-INF/" + nextPage);
+	   		d.forward(request,response);
+	   		return;
+    	}
+    	
     	if (nextPage.equals("file")) {
 	   		RequestDispatcher d = request.getRequestDispatcher(nextPage);
 	   		d.forward(request,response);
