@@ -24,3 +24,19 @@ body {
 .form-control {
     width:300px;
 }
+
+.checkbox-inline+.checkbox-inline {
+	margin-top: 0;
+	margin-left: 35px;
+	margin-bottom: 10px;
+}
+
+.checkbox-inline {
+	display: inline-block;
+	padding-left: 20px;
+	margin-bottom: 0;
+	vertical-align: middle;
+	font-weight: 400;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
