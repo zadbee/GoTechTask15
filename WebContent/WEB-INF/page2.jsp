@@ -168,17 +168,15 @@
 					<br />
 				</div>
 				<div class="col-lg-10">
-					<h4>5.Affiliates *</h4>
-					<label><input type="checkbox" id = "c1" value="" onclick="show(div1)"/>
-				    	I have affiliates.</label>
-				    <br/><br/>
+					<h4>5.Do you share personal information with the affiliates? *</h4>
+					<p>
+						<input type="radio" name="r1" id="r11" value="0" onclick="block1(this)" checked>No<br />
+					</p>
+					<p>
+						<input type="radio" name="r1" id="r12" value="1" onclick="show1(this)">Yes<br />
+					</p>
 				    
 				    <div id="div1" style="display:none">
-				    <label><input type="checkbox" id = "c2" value="" onclick="show(div2)"/>
-				    	I share personal information with the affiliates.</label> <br/><br/>
-				    </div>
-				    
-				    <div id="div2" style="display:none">
 					<label>Please list the affiliates you share with below.*</label><br/>
 				    <label>Financial companies:</label>
 					<p>
@@ -196,12 +194,15 @@
 					
 					<br />
 					
-					<h4>6.Nonaffiliates *</h4>
-					<label><input type="checkbox" id = "c3" value="" onclick="show(div3)"/>
-				    	I share with nonaffiliated third parties.</label>
-				    <br/><br/>
+					<h4>6.Do you share with nonaffiliated third parties? *</h4>
+					<p>
+						<input type="radio" name="r2" id="r21" value="0" onclick="block2(this)" checked>No<br />
+					</p>
+					<p>
+						<input type="radio" name="r2" id="r22" value="1" onclick="show2(this)">Yes<br />
+					</p>
 				    
-				    <div id="div3" style="display:none">
+				    <div id="div2" style="display:none">
 				    <label>Please list the nonaffiliates you share with below.*</label><br/>
 				    <p>
 						<textarea id = "t2" class="form-control" rows="4"></textarea>
@@ -210,12 +211,15 @@
 					
 					<br />
 					
-					<h4>7.Joint Marketing *</h4>
-					<label><input type="checkbox" id= "c4" value="" onclick="show(div4)"/>
-				    	I shares personal information for joint marketing.</label>
-				    <br/><br/>
+					<h4>7.Do you shares personal information for joint marketing? *</h4>
+					<p>
+						<input type="radio" name="r3" id="r31" value="0" onclick="block3(this)" checked>No<br />
+					</p>
+					<p>
+						<input type="radio" name="r3" id="r32" value="1" onclick="show3(this)">Yes<br />
+					</p>
 				    
-				    <div id="div4" style="display:none">
+				    <div id="div3" style="display:none">
 				    <label>Please list the joint marketing partners below.*</label><br/>
 				    <p>
 						<textarea id = "t3" class="form-control" rows="4"></textarea>
@@ -240,23 +244,69 @@
 				</div>
 			</form>
 		</div>
-				<script>
+	<script>
 		    var d1 = document.getElementById('div1');
 		    var d2 = document.getElementById('div2');
 		    var d3 = document.getElementById('div3');
 		    var d4 = document.getElementById('div4');
-			document.getElementById('c1').onchange = function() {
-			    d1.style.display = this.checked ? 'block' : 'none';
-			};
-			document.getElementById('c2').onchange = function() {
-			    d2.style.display = this.checked ? 'block' : 'none';
-			};
-			document.getElementById('c3').onchange = function() {
-			    d3.style.display = this.checked ? 'block' : 'none';
-			};
-			document.getElementById('c4').onchange = function() {
-			    d4.style.display = this.checked ? 'block' : 'none';
-			};
+			function show1(ch){
+		        if(ch.checked){
+		            document.getElementById("div1").style.display="block";
+		        }
+		        else{
+		            document.getElementById("div1").style.display="none";
+		        }
+		    }
+		    function show1(ch){
+		        if(ch.checked){
+		            document.getElementById("div1").style.display="block";
+		        }
+		        else{
+		            document.getElementById("div1").style.display="none";
+		        }
+		    }
+		    function block1(ch){
+		        if(ch.checked){
+		            document.getElementById("div1").style.display="none";
+		        }
+		        else{
+		            document.getElementById("div1").style.display="block";
+		        }
+		    }
+		    
+		    function show2(ch){
+		        if(ch.checked){
+		            document.getElementById("div2").style.display="block";
+		        }
+		        else{
+		            document.getElementById("div2").style.display="none";
+		        }
+		    }
+		    function block2(ch){
+		        if(ch.checked){
+		            document.getElementById("div2").style.display="none";
+		        }
+		        else{
+		            document.getElementById("div2").style.display="block";
+		        }
+		    }
+		    
+		    function show3(ch){
+		        if(ch.checked){
+		            document.getElementById("div3").style.display="block";
+		        }
+		        else{
+		            document.getElementById("div3").style.display="none";
+		        }
+		    }
+		    function block3(ch){
+		        if(ch.checked){
+		            document.getElementById("div3").style.display="none";
+		        }
+		        else{
+		            document.getElementById("div3").style.display="block";
+		        }
+		    }
 	</script>
 	<script>
 		function changeContent(cb){
@@ -290,10 +340,9 @@
 				alert("At least five methods to collect information");
 				return false;
 			}
-			var c1 = document.getElementById('c1');
-			var c2 = document.getElementById('c2');
-			var c3 = document.getElementById('c3');
-			var c4 = document.getElementById('c4');
+			var r1 = document.getElementById('r12');
+			var r2 = document.getElementById('r22');
+			var r3 = document.getElementById('r32');
 			
 			var q11 = document.getElementById('t11').value.length;
 			var q12 = document.getElementById('t12').value.length;
@@ -301,21 +350,21 @@
 			var q2 = document.getElementById('t2').value.length;
 			var q3 = document.getElementById('t3').value.length;
 			
-			if ((c1.checked) & (c2.checked)){
+			if (r1.checked){
 				if ((q11==0)&(q12==0)&(q13==0)){
 					alert("Please fill in the names of the affiliates you share with.");
 					return false;
 				}
 			}
 			
-			if (c3.checked){
+			if (r2.checked){
 				if (q2==0){
 					alert("Please fill in the names of the nonaffiliates you share with.");
 					return false;
 				}
 			}
 			
-			if (c4.checked){
+			if (r3.checked){
 				if (q3==0){
 					alert("Please fill in the names of the joint marketing partners.");
 					return false;
