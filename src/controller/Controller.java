@@ -18,6 +18,7 @@ public class Controller extends HttpServlet {
 
 	public void init() throws ServletException {
 		Action.add(new HomePageAction());
+		Action.add(new Page2Action());
 		Action.add(new GeneratePageAction());
 		Action.add(new UploadAction());
 		Action.add(new DownloadAction());
