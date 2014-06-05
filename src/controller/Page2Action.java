@@ -2,12 +2,12 @@ package controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class HomePageAction extends Action {
+public class Page2Action extends Action {
 	public String getName() {
-		return "homepage.do";
+		return "page2.do";
 	}
 
 	public String perform(HttpServletRequest request) {
-		return "index.jsp";
+		return "page2.jsp";
 	}
 }

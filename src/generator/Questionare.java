@@ -18,20 +18,21 @@ public class Questionare {
 	};
 	
 	// ==== Pre Problems ====
-	String companyName = "Bank of America";
-	String opt_out_option;
+	public String companyName = "undefined";
+	public int opt_out_option = 0;
+	public boolean hasAffiliates = false;
 	
 	// ==== Page 1 ====
-	String lastRevised;
-	ArrayList<String> infotypes;
-	String[] share;
-	String[] limit;
+	public String lastRevised = "undefined";
+	public ArrayList<String> infotypes = new ArrayList<String>();
+	public String[] share = null;
+	public String[] limit = null;
 	
 	// ==== Page 2 ====
-	String phone;
-	String website;
-	ArrayList<Definition> definitions;
-	ArrayList<String> infos;
+	public String phone = "undefined";
+	public String website = "undefined";
+	public ArrayList<Definition> definitions = new ArrayList<Definition>();
+	public ArrayList<String> infos = new ArrayList<String>();
 	
 	private Questionare() {
 		

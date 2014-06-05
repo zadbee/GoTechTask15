@@ -17,7 +17,9 @@ public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void init() throws ServletException {
-		Action.add(new HomePageAction());
+		Action.add(new Page0Action());
+		Action.add(new Page1Action());
+		Action.add(new Page2Action());
 		Action.add(new GeneratePageAction());
 		Action.add(new UploadAction());
 		Action.add(new DownloadAction());
@@ -44,7 +46,7 @@ public class Controller extends HttpServlet {
         
         // User is not logged in or at the root of the app.
         if (action.equals("welcome.do"))
-        	return "index.jsp";
+        	return "page0.jsp";
         
       	// Let the logged in user run his chosen action
 		return Action.perform(action,request);
