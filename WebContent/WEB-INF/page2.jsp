@@ -17,127 +17,127 @@
 						  <input type="checkbox" name="checkbox" value="option2"> Deposit money
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Pay your bills
+						  <input type="checkbox" name="checkbox" value="option3"> Pay your bills
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Apply for a loan
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option1"> Use your credit or debit card
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Seek financial or tax advice
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Apply for insurance
+						  <input type="checkbox" name="checkbox" value="option4"> Apply for a loan
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Pay insurance premiums
+						  <input type="checkbox" name="checkbox" value="option5"> Use your credit or debit card
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> File an insurance claim
+						  <input type="checkbox" name="checkbox" value="option6"> Seek financial or tax advice
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox"  value="option2"> Seek advice about your investments
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Buy securities from us
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Sell securities to us
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Direct us to buy securities
+						  <input type="checkbox" name="checkbox" value="option7"> Apply for insurance
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Make deposits or withdrawals from your account
+						  <input type="checkbox" name="checkbox" value="option8"> Pay insurance premiums
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Enter into an investment advisory contract
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Give us your income information
+						  <input type="checkbox" name="checkbox" value="option9"> File an insurance claim
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Provide employment information
+						  <input type="checkbox" name="checkbox"  value="option10"> Seek advice about your investments
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Give us your employment history
+						  <input type="checkbox" name="checkbox" value="option11"> Buy securities from us
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Tell us about your investment or
+						  <input type="checkbox" name="checkbox" value="option12"> Sell securities to us
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option13"> Direct us to buy securities
+						</label>
+						<br/>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option14"> Make deposits or withdrawals from your account
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option15"> Enter into an investment advisory contract
+						</label>
+						<br/>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option16"> Give us your income information
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option17"> Provide employment information
+						</label>
+						<br/>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option18"> Give us your employment history
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option19"> Tell us about your investment or
 								retirement portfolio
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Give us your income information
+						  <input type="checkbox" name="checkbox" value="option20"> Give us your income information
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Provide employment information
+						  <input type="checkbox" name="checkbox" value="option21"> Provide employment information
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Give us your employment history
+						  <input type="checkbox" name="checkbox" value="option22"> Give us your employment history
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Tell us about your investment or
+						  <input type="checkbox" name="checkbox" value="option23"> Tell us about your investment or
 								retirement portfolio
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Tell us about your investment or
+						  <input type="checkbox" name="checkbox" value="option24"> Tell us about your investment or
 								retirement earnings
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Apply for financing
+						  <input type="checkbox" name="checkbox" value="option25"> Apply for financing
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Apply for a lease
+						  <input type="checkbox" name="checkbox" value="option26"> Apply for a lease
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Provide account information
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Give us your contact information
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Pay us by check
+						  <input type="checkbox" name="checkbox" value="option27"> Provide account information
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Give us your wage statements
+						  <input type="checkbox" name="checkbox" value="option28"> Give us your contact information
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Provide your mortgage information
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Make a wire transfer
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Tell us who receives the money
+						  <input type="checkbox" name="checkbox" value="option29"> Pay us by check
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Tell us where to send the money
+						  <input type="checkbox" name="checkbox" value="option30"> Give us your wage statements
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Show your government-issued ID
+						  <input type="checkbox" name="checkbox" value="option31"> Provide your mortgage information
 						</label>
 						<br/>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Show your driver's license
+						  <input type="checkbox" name="checkbox" value="option32"> Make a wire transfer
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Order a commodity futures or option
+						  <input type="checkbox" name="checkbox" value="option33"> Tell us who receives the money
+						</label>
+						<br/>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option34"> Tell us where to send the money
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option35"> Show your government-issued ID
+						</label>
+						<br/>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option36"> Show your driver's license
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" name="checkbox" value="option37"> Order a commodity futures or option
 								trade
 						</label>
 						<br/>
@@ -155,13 +155,13 @@
 					<h4>4. What happens when a customer limit sharing for an account he hold jointly with someone else? *</h4>
 					<div class="radio">
 					  <label>
-					    <input type="radio" name="optionsRadios" id="LimitShare1" value="option1" checked>
+					    <input type="radio" name="optionsRadios" id="LimitShare1" value="radio1" checked>
 					    	"Your choices will apply to everyone on your account."
 					  </label>
 					</div>
 					<div class="radio">
 					  <label>
-					    <input type="radio" name="optionsRadios" id="LimitShare2" value="option2">
+					    <input type="radio" name="optionsRadios" id="LimitShare2" value="radio2">
 					    "Your choices will apply to everyone on your account-unless you tell us otherwise."
 					  </label>
 					</div>
@@ -228,15 +228,14 @@
 					This section is optional. Only the following types of information can appear in this box.<br/>
 				    (1) State and/or international privacy law information; and/or <br/>
 					(2) Acknowledgment of receipt form.</label><br/>
-				  
 				    <p>
-						<textarea id = "t4" class="form-control" rows="4"></textarea>
+						<textarea id = "t4" class="form-control" rows="5"></textarea>
 					</p>
 					<br />
 					
 					<br />
 					<p>
-						<button type="submit" class="btn btn-default">Next Page</button>
+						<button type="submit" class="btn btn-default">Generate</button>
 					</p>
 				</div>
 			</form>
