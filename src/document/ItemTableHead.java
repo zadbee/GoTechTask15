@@ -15,6 +15,10 @@ public class ItemTableHead implements DocumentItem {
 		cells.add(cell);
 	}
 	
+	public void addCell(String text) {
+		cells.add(new ItemTableCell(text));
+	}
+	
 	@Override
 	public String getText() {
 		StringBuilder sb = new StringBuilder();

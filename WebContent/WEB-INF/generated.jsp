@@ -101,4 +101,10 @@ h3 {
             ${block.text} 
         </c:forEach>
 	</div>
+	<div>
+		<h4>Download HTML Page</h4>
+		<form action="download.do" method="post">
+			<input type="submit" name="download" value="Download File"/>
+		</form>
+	</div>
 </body>
