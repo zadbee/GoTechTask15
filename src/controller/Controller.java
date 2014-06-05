@@ -25,7 +25,6 @@ public class Controller extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String nextPage = performTheAction(request);
-    	System.out.println("nextpage:" + nextPage);
         sendToNextPage(nextPage,request,response);
     }
     /*
@@ -38,7 +37,6 @@ public class Controller extends HttpServlet {
         String      servletPath = request.getServletPath();     
         String      action = getActionName(servletPath);
         HttpSession session = request.getSession(true);
-        System.out.println(action + "+++");
         
         // User is not logged in or at the root of the app.
         if (action.equals("welcome"))

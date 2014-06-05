@@ -1,11 +1,23 @@
 package document;
 
-public class ParagraphItem implements DocumentItem {
+import utility.TagWrapper;
 
+public class ParagraphItem implements DocumentItem {
+	StringBuilder titie;
+	StringBuilder text;
+	
+	public ParagraphItem(String _text) {
+		text = new StringBuilder(_text);
+	}
+	
+	
+	public void append(String _text) {
+		text.append(_text);
+	}
+	
 	@Override
 	public String getText() {
-		// TODO Auto-generated method stub
-		return null;
+		return TagWrapper.wrapTag("p", text.toString());
 	}
 
 }

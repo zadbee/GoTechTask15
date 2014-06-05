@@ -1,16 +1,14 @@
 package document;
 
-import utility.TagWrapper;
-
-public class ContentParagraph implements DocumentItem {
+public class ItemTableCell implements DocumentItem {
 
 	StringBuilder text;
 	
-	public ContentParagraph() {
+	public ItemTableCell() {
 		text = new StringBuilder();
 	}
 	
-	public ContentParagraph(String _text) {
+	public ItemTableCell(String _text) {
 		text = new StringBuilder(_text);
 	}
 	
@@ -20,7 +18,7 @@ public class ContentParagraph implements DocumentItem {
 	
 	@Override
 	public String getText() {
-		return TagWrapper.wrapTag("p", text.toString());
+		return text.toString();
 	}
 
 }

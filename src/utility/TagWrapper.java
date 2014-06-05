@@ -5,7 +5,15 @@ public class TagWrapper {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<" + tag + ">");
 		sb.append(text);
-		sb.append("<" + tag + "/>");
+		sb.append("</" + tag + ">");
+		return sb.toString();
+	}
+	
+	public static String wrapTagWithClass(String tag, String text, String className) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<" + tag + " class=\"" + className + "\">");
+		sb.append(text);
+		sb.append("</" + tag + ">");
 		return sb.toString();
 	}
 }

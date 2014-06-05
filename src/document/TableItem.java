@@ -2,12 +2,14 @@ package document;
 
 import java.util.ArrayList;
 
-public class DocumentTable implements DocumentItem {
+import utility.TagWrapper;
+
+public class TableItem implements DocumentItem {
 	
 	ItemTableHead head;
 	ArrayList<ItemTableRow> rows;
 	
-	public DocumentTable() {
+	public TableItem() {
 		head = null;
 		rows = new ArrayList<ItemTableRow>();
 	}
@@ -22,8 +24,12 @@ public class DocumentTable implements DocumentItem {
 	
 	@Override
 	public String getText() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb = new StringBuilder();
+		if (head != null)
+			sb.append(head.getText());
+		for (ItemTableRow r : rows)
+			sb.append(r.getText());
+		return TagWrapper.wrapTag("table", sb.toString());
 	}
 
 }
