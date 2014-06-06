@@ -22,10 +22,10 @@
 						<li>Your organization provides the affiliate marketing notice separately.</li>
 					</ul>
 					<p>
-						<input type="radio" name="optionsRadio" id="radio1" value="share"
+						<input type="radio" name="optionsRadio" id="radio1" value="notshare"
 							checked> Yes &nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="radio" name="optionsRadio" id="radio2" 
-							value="notshare"> No
+							value="share"> No
 					</p>
 					<br/>
 					<p>
