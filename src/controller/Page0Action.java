@@ -31,7 +31,7 @@ public class Page0Action extends Action {
 		}
 		q.opt_out_option = optInt;
 		session.setAttribute("opt_out_option", q.opt_out_option);
-		if (request.getParameter("optionsRadio").equals("notshare")){
+		if (request.getParameter("optionsRadio").equals("share")){
 			q.hasAffiliates = true;
 			session.setAttribute("hasAffiliates", true);
 		}else{
