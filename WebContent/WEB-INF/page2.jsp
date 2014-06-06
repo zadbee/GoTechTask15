@@ -1,7 +1,7 @@
 <jsp:include page="top.jsp" />
 <div class="row marketing">
 	<form id="form1" name="form1" onsubmit="return validateForm()"
-		method="post">
+		method="post" action="generate.do">
 		<div class="col-lg-10">
 			<h4>How do you protect personal information? *(<font size="3sp"><a href="http://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act" style="color: #707070">Reference</a></font>)</h4>
 			<div id="error1" style="display: none">
@@ -9,7 +9,7 @@
 					number of word is limited to 30</h5>
 			</div>
 			<p>
-				<textarea id="question1" class="form-control" rows="5"
+				<textarea id="question1" name = "question1" class="form-control" rows="5"
 					maxlength="100" cols="10"></textarea>
 			</p>
 			<br />
@@ -127,19 +127,19 @@
 			<h4>What is the reason you don't allow user to limit all
 				sharing? *</h4>
 			<p>
-				<textarea id="reason" class="form-control" rows="6" maxlength="100">Hint: if the state privacy law provisions are described in "Other important information", you must add the sentence:"See below for more on your rights under state law."</textarea>
+				<textarea id="reason" name = "question2" class="form-control" rows="6" maxlength="100">Hint: if the state privacy law provisions are described in "Other important information", you must add the sentence:"See below for more on your rights under state law."</textarea>
 			</p>
 			<br />
 			<h4>What happens when a customer limit sharing
 			for an account he hold <br/>jointly with someone else? *</h4>
 			<div class="radio">
-				<label> <input type="radio" name="optionsRadios"
+				<label> <input type="radio" name="radios"
 					id="LimitShare1" value="radio1" checked> "Your choices will
 					apply to everyone on your account."
 				</label>
 			</div>
 			<div class="radio">
-				<label> <input type="radio" name="optionsRadios"
+				<label> <input type="radio" name="radios"
 					id="LimitShare2" value="radio2"> "Your choices will apply
 					to everyone on your account-unless you tell us otherwise."
 				</label>
@@ -164,15 +164,15 @@
 				<label>Please list the affiliates you share with below.*</label><br />
 				<label>Financial companies:</label>
 				<p>
-					<textarea id="t11" class="form-control" rows="4"></textarea>
+					<textarea id="t11" name = "question4_1" class="form-control" rows="4"></textarea>
 				</p>
 				<label>Nonfinancial companies:</label>
 				<p>
-					<textarea id="t12" class="form-control" rows="4"></textarea>
+					<textarea id="t12" name = "question4_2"class="form-control" rows="4"></textarea>
 				</p>
 				<label>Others:</label>
 				<p>
-					<textarea id="t13" class="form-control" rows="4"></textarea>
+					<textarea id="t13" name = "question4_3"class="form-control" rows="4"></textarea>
 				</p>
 			</div>
 
@@ -194,7 +194,7 @@
 			<div id="div2" style="display: none">
 				<label>Please list the nonaffiliates you share with below.*</label><br />
 				<p>
-					<textarea id="t2" class="form-control" rows="4"></textarea>
+					<textarea id="t2" name="question5" class="form-control" rows="4"></textarea>
 				</p>
 			</div>
 
@@ -216,23 +216,23 @@
 			<div id="div3" style="display: none">
 				<label>Please list the joint marketing partners below.*</label><br />
 				<p>
-					<textarea id="t3" class="form-control" rows="4"></textarea>
+					<textarea id="t3" name="question6" class="form-control" rows="4"></textarea>
 				</p>
 			</div>
 			<br />
 
-			<h4>8.Other important informations(<font size="3sp"><a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" style="color: #707070">Reference</a></font>)</h4> 
+			<h4>Other important informations(<font size="3sp"><a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" style="color: #707070">Reference</a></font>)</h4> 
 			<label> This section is optional. Only the following types of
 				information can appear in this box.<br /> (1) State and/or
 				international privacy law information; and/or <br /> (2)
 				Acknowledgment of receipt form.
 			</label><br />
 			<p>
-				<textarea id="t4" class="form-control" rows="5"></textarea>
+				<textarea id="t4" name="question7" class="form-control" rows="5"></textarea>
 			</p>
 			<br /> <br />
 			<p>
-				<button type="submit" class="btn btn-default">Generate</button>
+				<button type="submit" class="btn btn-default" name="next" value="true">Generate</button>
 			</p>
 		</div>
 	</form>
