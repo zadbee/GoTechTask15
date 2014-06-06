@@ -508,7 +508,7 @@ document.getElementById("omitb").selected = "null";
 				summary="This 3-column table provides information about the reasons why Bank of America can share your personal information.">
 				<thead>
 					<tr>
-						<th scope="col">Please select yes/no or we do not share depending if the  reason on the left column to share  personal information is valid to your organization.
+						<th scope="col">Please select Yes/no or we do not share depending if the  reason on the left column to share  personal information is valid to your organization.
 							information</th>
 						<th scope="col">Does <span id="username3"></span> share?
 						</th>
@@ -528,67 +528,67 @@ document.getElementById("omitb").selected = "null";
 						<td><strong>Does your organization share information for  marketing purposes </strong>&mdash; to
 							such as to offer  products and services to customers?</td>
 						<td class="centered-td"><select id="question1"
-							onchange="changeQ1()"><option value="Yes">yes</option>
+							onchange="changeQ1()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question1b"
-							readonly="false"><option value="Yes">yes</option>
+							readonly="false"><option value="Yes">Yes</option>
 								<option value="No">No</option>
-								<option value="No" id="noShare">we do not share</option></select></td>
+								<option value="No" id="noShare">We do not share</option></select></td>
 					</tr>
 					<tr>
 						<td><strong> Does your organization share information to do  joint marketing with other
 								financial companies?</strong></td>
 						<td class="centered-td"><select id="question2"
-							onchange="changeQ2()"><option value="Yes">yes</option>
+							onchange="changeQ2()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question2b"
-							readonly="false"><option value="Yes">yes</option>
+							readonly="false"><option value="Yes">Yes</option>
 								<option value="No">No</option>
-								<option value="No" id="noShare2">we do not share</option></select></td>
+								<option value="No" id="noShare2">We do not share</option></select></td>
 					</tr>
 					<tr>
 						<td><strong>Does your organization share information with affiliates&rsquo; for everyday
 								business purposes? </strong>&mdash; Information about transactions
 							and experiences from customers</td>
 						<td class="centered-td"><select id="question3"
-							onchange="changeQ3()"><option value="Yes">yes</option>
+							onchange="changeQ3()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question3b"
-							readonly="false"><option value="Yes">yes</option>
+							readonly="false"><option value="Yes">Yes</option>
 								<option value="No">No</option>
-								<option value="No" id="noShare3">we do not share</option></select></td>
+								<option value="No" id="noShare3">We do not share</option></select></td>
 					</tr>
 					<tr>
 						<td><strong>Does your organization share information for affiliates&rsquo; everyday
 								business purposes? </strong>&mdash; Information such as
 							creditworthiness</td>
 						<td class="centered-td"><select id="question4"
-							onchange="changeQ4()"><option value="Yes">yes</option>
+							onchange="changeQ4()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question4b"
-							readonly="false"><option value="Yes">yes</option>
+							readonly="false"><option value="Yes">Yes</option>
 								<option value="No">No</option>
-								<option value="No" id="noShare4">we do not share</option></select></td>
+								<option value="No" id="noShare4">We do not share</option></select></td>
 					</tr>
 					
 					<tr >
 						<td><strong><span id="optionalQuestion">For our affiliates to market to you </span></strong></td>
 						<td class="centered-td"><select id="question5"
-							onchange="changeQ5()" ><option value="null" id="omita">---</option><option value="Yes">yes</option>
+							onchange="changeQ5()" ><option value="null" id="omita">---</option><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question5b"
-							readonly="false"><option value="null" id="omitb">---</option><option value="Yes" id="share5">yes</option>
-								<option value="No" id="noShare5">we do not share</option></select></td>
+							readonly="false"><option value="null" id="omitb">---</option><option value="Yes" id="share5">Yes</option>
+								<option value="No" id="noShare5">We do not share</option></select></td>
 					</tr >
 					
 					<tr>
 						<td><strong>For nonaffiliates to market to you</strong></td>
 						<td class="centered-td"><select id="question6"
-							onchange="changeQ6()"><option value="Yes">yes</option>
+							onchange="changeQ6()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question6b"
-							readonly="false"><option value="Yes" id="share6">yes</option>
-								<option value="No" id="noShare6">we do not share</option></select></td>
+							readonly="false"><option value="Yes" id="share6">Yes</option>
+								<option value="No" id="noShare6">We do not share</option></select></td>
 					</tr>
 				</tbody>
 			</table>
