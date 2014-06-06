@@ -13,10 +13,11 @@
 					<p>
 						<input type="checkbox" name="opt-out" value="1"> Phone<br/>
 						<input type="checkbox" name="opt-out" value="2"> E-mail<br/>
-						<input type="checkbox" name="opt-out" value="4"> Mail-in<br/>
-						<input type="checkbox" name="opt-out" value="5"> Third Party Cookie OptOut<br/>
+						<input type="checkbox" name="opt-out" value="3"> Mail-in<br/>
+
+						<input type="checkbox" name="opt-out" value="4"> Third Party Cookie OptOut<br/>
 						<a href="http://www.allaboutcookies.org/manage-cookies/opt-out-cookies.html" target="_blank">What is Cookie OptOut</a><br>
-						<input type="checkbox" name="opt-out" value="6"> Do Not Track Plugin<br/><a href="http://en.wikipedia.org/wiki/DoNotTrackMe" target="_blank">What is Do Not Track</a>
+						<input type="checkbox" name="opt-out" value="5"> Do Not Track Plugin<br/><a href="http://en.wikipedia.org/wiki/DoNotTrackMe" target="_blank">What is Do Not Track</a>
 					</p>
 
 					<h4>3. If any of the following statements is true please select Yes: *</h4>
@@ -34,6 +35,17 @@
 						</tr>
 					</table>
 					<br/>
+										<h4>4. Two or more financial institutions that jointly provide this FTC model form must indicate their full names in the following sections, so if your organization is going to provide this notice jointly with another organization , please select yes otherwise select no </h4>
+
+					<p>
+						<input type="radio" name="optionsRadio2" id="radio1" value="many"
+							checked> Yes &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="optionsRadio2" id="radio2" 
+							value="one"> No
+					</p>
+					<br/>
+					
+					
 					<p>
 						<button type="submit" class="btn btn-default" name="next" value="true">Next Page</button>
 					</p>

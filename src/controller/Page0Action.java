@@ -22,6 +22,28 @@ public class Page0Action extends Action {
 		session.setAttribute("companyName", q.companyName);
 		
 		String[] optout = request.getParameterValues("opt-out");
+		
+		String onlyOne = request.getParameter("optionsRadio2");
+		for(int x = 0;x<optout.length;x++){
+			if(optout[x].equals("3")){
+				
+				session.setAttribute("isMail", true);
+				System.out.println("Is snail mail");
+			}
+			
+			
+		}
+		
+		if(onlyOne == "one"){
+			
+			session.setAttribute("onlyOne", true);	
+		}else{
+			
+			session.setAttribute("onlyOne", false);
+		}
+		
+
+		
 		int optInt = 0;
 		for (String s : optout)
 			optInt += Integer.parseInt(s);
@@ -31,6 +53,7 @@ public class Page0Action extends Action {
 		}
 		q.opt_out_option = optInt;
 		session.setAttribute("opt_out_option", q.opt_out_option);
+		
 		if (request.getParameter("optionsRadio").equals("share")){
 			q.hasAffiliates = true;
 			session.setAttribute("hasAffiliates", true);
