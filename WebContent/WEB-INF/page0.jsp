@@ -31,6 +31,17 @@
 							value="share"> No
 					</p>
 					<br/>
+										<h4>4. Two or more financial institutions that jointly provide this FTC model form must indicate their full names in the following sections, so if your organization is going to provide this notice jointly with another organization , please select yes otherwise select no </h4>
+
+					<p>
+						<input type="radio" name="optionsRadio2" id="radio1" value="many"
+							checked> Yes &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="optionsRadio2" id="radio2" 
+							value="one"> No
+					</p>
+					<br/>
+					
+					
 					<p>
 						<button type="submit" class="btn btn-default" name="next" value="true">Next Page</button>
 					</p>
