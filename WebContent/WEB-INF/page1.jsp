@@ -1,4 +1,5 @@
 <jsp:include page="top.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">
 </script>
@@ -43,42 +44,6 @@
 	});
 </script> -->
 <script>
-
-function validateForm1() {	
-	var flag = true;
-	
-	var sum1 = 0;
-	var checkboxes1 = document.getElementsByName('contactMethod');
-	
- 	for (var j = 0; j < checkboxes1.length; j ++) {
-		if (checkboxes1[j].checked) {
-			sum1 ++;
-		}
-	} 
- 	if (sum1 < 1) {
- 		document.getElementById("error2").style.display = "block";
- 		
-		
-		
-	} 
- 	else {
-		document.getElementById("error2").style.display = "none";
-	}
- 	
-	var x = document.getElementById('numberOfDays').value;
-	
-	if (x < 30) {
-		document.getElementById("error1").style.display = "block";
-		
-		
-	}
-	else {
-		document.getElementById("error1").style.display = "none";
-	}
-	return flag;
-	
-	
-}
 function showdiv(ch){
 
     if(ch.checked){
@@ -205,6 +170,14 @@ function showdiv9(ch){
 
 		}
 
+		if (myselect == "Yes") {
+
+			document.getElementById("noShare1").disabled = "true";
+			document.getElementById("share1").selected = "true";
+
+		}
+		
+		
 	}
 	function changeQ2() {
 
@@ -220,6 +193,14 @@ function showdiv9(ch){
 			document.getElementById("question2b").disabled = false;
 
 		}
+		
+		if (myselect == "Yes") {
+
+			document.getElementById("noShare2").disabled = "true";
+			document.getElementById("share2").selected = "true";
+
+		}
+		
 
 	}
 	function changeQ3() {
@@ -236,6 +217,14 @@ function showdiv9(ch){
 			document.getElementById("question3b").disabled = false;
 
 		}
+		
+		if (myselect == "Yes") {
+
+			document.getElementById("noShare3").disabled = "true";
+			document.getElementById("share3").selected = "true";
+
+		}
+		
 
 	}
 	function changeQ4() {
@@ -252,6 +241,15 @@ function showdiv9(ch){
 			document.getElementById("question4b").disabled = false;
 
 		}
+		
+		if (myselect == "Yes") {
+
+			document.getElementById("noShare4").disabled = "true";
+			document.getElementById("share4").selected = "true";
+
+		}
+		
+		
 
 	}
 	function changeQ5() {
@@ -263,22 +261,16 @@ function showdiv9(ch){
 			document.getElementById("noShare5").selected = "true";
 			document.getElementById("question5b").disabled = "true";
 
-		} else if(myselect="null"){
+		} else {
 
-			document.getElementById("question5b").disabled = "true";
-
-		}else{
-			
 			document.getElementById("question5b").disabled = false;
-			
+
 		}
-		
-		
-		
+
 		if (myselect == "Yes") {
 
 			document.getElementById("share5").selected = "true";
-			document.getElementById("question5b").disabled = false;
+			document.getElementById("question5b").disabled = "false";
 
 		}
 
@@ -306,49 +298,13 @@ function showdiv9(ch){
 		}
 
 	}
-	function disableQ6() {
-		
-		//if("${affiliateYes == "Yes"}"){
-			
-			
-		//}else{
-			
-			
-	//	}
-			
-
-document.getElementById("omita").selected = "null";
-document.getElementById("omitb").selected = "null";
-		document.getElementById("question5").disabled = "true";
-		document.getElementById("question5b").disabled = "true";
-		document.getElementById("optionalQuestion").innerHTML = "This Affiliate question has been ommited due to the fact that your organization does not share information(Question 3 in homepage,Will Organization's affiliates market to the Organization's customers?)";
-		//document.getElementById("optionalQuestion").disabled = "true";		
 
 		
 
-
-
-	}
-	
-	function whatCheckBox(){
-		
-		var sum1 = 0;
-		var checkboxes1 = document.getElementsByName('checkbox');
-		
-	 	for (var j = 0; j < checkboxes1.length; j ++) {
-			if (checkboxes1[j].checked) {
-				sum1 ++;
-			}
-		} 
-		if(sum1<4){
-			alert("What Section should have at least 5 options selected including Social Security")
-			
-			return false;
-		}
-		
-	}
 </script>
 <!-- <body onload = "showdiv()"> -->
+
+<form id="form2" action="page1.do" onsubmit="return validateForm1()" method="post">
 <div class="table-module">
 	<div>
 		<h2 class="cpn-header">U.S. Consumer Privacy Notice</h2>
@@ -390,8 +346,11 @@ document.getElementById("omitb").selected = "null";
 				</table>
 			</div> -->
 			<div class="content-row">
-				
+			<div id="error5" style="display: none">
+				<h5 style="color: red;">You need to select at least 5 options including SSN</h5>
+			</div>
 					<tr>
+					
 						<td class="cpn-heading">What?</td>
 						<td class="cpn-details">
 							<p>The types of personal information we collect and share
@@ -531,7 +490,7 @@ document.getElementById("omitb").selected = "null";
 							onchange="changeQ1()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question1b"
-							readonly="false"><option value="Yes">Yes</option>
+							readonly="false"><option value="Yes" id ="share1">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare">We do not share</option></select></td>
 					</tr>
@@ -542,7 +501,7 @@ document.getElementById("omitb").selected = "null";
 							onchange="changeQ2()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question2b"
-							readonly="false"><option value="Yes">Yes</option>
+							readonly="false"><option value="Yes" id ="share2">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare2">We do not share</option></select></td>
 					</tr>
@@ -554,7 +513,7 @@ document.getElementById("omitb").selected = "null";
 							onchange="changeQ3()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question3b"
-							readonly="false"><option value="Yes">Yes</option>
+							readonly="false"><option value="Yes" id ="share3">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare3">We do not share</option></select></td>
 					</tr>
@@ -566,20 +525,22 @@ document.getElementById("omitb").selected = "null";
 							onchange="changeQ4()"><option value="Yes">Yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question4b"
-							readonly="false"><option value="Yes">Yes</option>
+							readonly="false"><option value="Yes" id ="share4">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare4">We do not share</option></select></td>
 					</tr>
-					
-					<tr >
-						<td><strong><span id="optionalQuestion">For our affiliates to market to you </span></strong></td>
+					<c:if test="${hasAffiliates}">
+					<tr >			
+						<td><strong><span id="optionalQuestion">Will the affiliates market to your customers? </span></strong></td>
 						<td class="centered-td"><select id="question5"
-							onchange="changeQ5()" ><option value="null" id="omita">---</option><option value="Yes">Yes</option>
+							onchange="changeQ5()" ><option value="Yes">yes</option>
 								<option value="No">No</option></select></td>
 						<td class="centered-td"><select id="question5b"
-							readonly="false"><option value="null" id="omitb">---</option><option value="Yes" id="share5">Yes</option>
-								<option value="No" id="noShare5">We do not share</option></select></td>
+							readonly="false"><option value="Yes" id="share5">yes</option>
+								<option value="No" id="noShare5">we do not share</option></select></td>
 					</tr >
+					</c:if>
+
 					
 					<tr>
 						<td><strong>For nonaffiliates to market to you</strong></td>
@@ -890,157 +851,88 @@ document.getElementById("omitb").selected = "null";
 	<br />
 	<br />
 	<br />
-    <button type="submit" class="btn btn-default" id="submitButton2"
-		onclick="validateForm2()">Next Page</button>
+    <input type="submit" name="next" >Next Page</button>
 	</p>
 </div>
+</form>
 <!-- </body> -->
 <script>
-	function processForm() {
-		
-	//	var parameters = location.search.substring(1).split("&");
-		//var temp = parameters[0].split("=");
-		//l = unescape(temp[1]);
-
-		//document.getElementById("username").innerHTML = l.toUpperCase();
-		//document.getElementById("username2").innerHTML = l.toUpperCase();
-		//document.getElementById("username3").innerHTML = l.toUpperCase();
-	}
-	processForm();
-	disableQ6();
+	changeQ1();
+	changeQ2();
+	changeQ3();
+	changeQ4();
 	changeQ5();
 	changeQ6();
 	
+	
 </script>
 <script>
-	function validateForm1() {
-		var sum = 0;
-		var checkboxes = document.getElementsByName('optoutMethod');
-		for (var i = 0; i < checkboxes.length; i++) {
-			if (checkboxes[i].checked) {
-
-				sum++;
-			}
+function validateForm1() {	
+	var flag = true;
+	
+	var sum1 = 0;
+	var checkboxes1 = document.getElementsByName('contactMethod');
+	
+ 	for (var j = 0; j < checkboxes1.length; j ++) {
+		if (checkboxes1[j].checked) {
+			sum1 ++;
 		}
-		if (sum < 1) {
-			alert("You need to select at least one of the opt-out methods.");
-			return false;
-		}
-		var phone = document.getElementById('phoneText').value;
-		var website = document.getElementById('websiteText').value;
-		if ((document.getElementById('phone').checked == true)
-				&& (phone == null || phone == "")) {
-			alert("Please fill in phone number");
-			return false;
-		}
-
-		if ((document.getElementById('website').checked == true)
-				&& (website == null || website == "")) {
-			alert("Please fill in website address");
-			return false;
-		}
-
+	} 
+ 	if (sum1 < 1) {
+ 		document.getElementById("error2").style.display = "block";
+ 		
+ 		flag = false;
+		
+		
+	} 
+ 	else {
+		document.getElementById("error2").style.display = "none";
+		
+	}
+ 	
+	var x = document.getElementById('numberOfDays').value;
+	
+	if (x < 30) {
+		document.getElementById("error1").style.display = "block";
+		
+		flag = false;
+		
+	}
+	else {
+		document.getElementById("error1").style.display = "none";
+		
+	}
+	
+	
 		var sum1 = 0;
-		var checkboxes1 = document.getElementsByName('contactMethod');
-
-		for (var j = 0; j < checkboxes1.length; j++) {
+		var checkboxes1 = document.getElementsByName('checkbox');
+		
+	 	for (var j = 0; j < checkboxes1.length; j ++) {
 			if (checkboxes1[j].checked) {
-				sum1++;
+				sum1 ++;
 			}
+		} 
+		
+		if (sum1< 4) {
+			document.getElementById("error5").style.display = "block";
+			flag = false;
+			
+			
 		}
-		if (sum1 < 1) {
-			alert("You need to select at least one of the contact method.");
-			return false;
+		else {
+			document.getElementById("error5").style.display = "none";
+			
 		}
-		var phone1 = document.getElementById('phoneText1').value;
-		var website1 = document.getElementById('websiteText1').value;
-		if ((document.getElementById('phone1').checked == true)
-				&& (phone1 == null || phone1 == "")) {
-			alert("Please fill in phone number");
-			return false;
-		}
-
-		if ((document.getElementById('website1').checked == true)
-				&& (website1 == null || website1 == "")) {
-			alert("Please fill in website address");
-			return false;
-		}
-		var x = document.getElementById('numberOfDays').value;
-		if (x == null || x == "") {
-			alert("The number of days is needed");
-			return false;
-		} else if (x < 30) {
-			alert("The number of days need to be larger than 30");
-			return false;
-		}
-
-		/* if (document.getElementById('opt-out1').checked == false && document.getElementById('opt-out2').checked && document.getElementById('opt-out3').checked == false) {
-			alert("You need to select at least one of the opt-out methods.");
-			return false;
-		} */
-	}
-	function showdiv(ch) {
-		if (ch.checked) {
-			document.getElementById("mailinForm").style.display = "block";
-		} else {
-			document.getElementById("mailinForm").style.display = "none";
-		}
-	}
-	function showdiv1(ch) {
-		if (ch.checked) {
-			document.getElementById("optionalInfo").style.display = "block";
-		} else {
-			document.getElementById("optionalInfo").style.display = "none";
-		}
-	}
-	function showdiv2(ch) {
-		if (ch.checked) {
-			document.getElementById("jointAccount").style.display = "block";
-		} else {
-			document.getElementById("jointAccount").style.display = "none";
-		}
-	}
-	function blockdiv2(ch) {
-		if (ch.checked) {
-			document.getElementById("jointAccount").style.display = "none";
-		} else {
-			document.getElementById("jointAccount").style.display = "block";
-		}
-	}
-	function showdiv3(ch) {
-		if (ch.checked) {
-			document.getElementById("jointMarket").style.display = "block";
-		} else {
-			document.getElementById("jointMarket").style.display = "none";
-		}
-	}
-	function blockdiv3(ch) {
-		if (ch.checked) {
-			document.getElementById("jointMarket").style.display = "none";
-		} else {
-			document.getElementById("jointMarket").style.display = "block";
-		}
-	}
-	function showdiv4(ch) {
-		if (ch.checked) {
-			document.getElementById("selectStatement").style.display = "block";
-		} else {
-			document.getElementById("selectStatement").style.display = "none";
-		}
-	}
-	function blockdiv4(ch) {
-		if (ch.checked) {
-			document.getElementById("selectStatement").style.display = "none";
-		} else {
-			document.getElementById("selectStatement").style.display = "block";
-		}
-	}
-
-	/* $('submitButton1').onclick(function() {
-	if($('#mailin').is(':checked')) {
-		$('#mailinForm').show();
+		
+		
+		
+	if(flag){
+		
+		return true;
+	}else{
+		$("html, body").animate({ scrollTop: 0 }, "fast");
 		return false;
-	}
-	});  */
+	}	
+}
 </script>
 <jsp:include page="bottom.jsp" />

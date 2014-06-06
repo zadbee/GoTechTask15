@@ -10,14 +10,14 @@
 					<br/>
 
 					<h4>2. What opt out communication methods will you offer? (At least one) *</h4>
-					<table style="width: 100%">
-						<tr>
-							<td><input type="checkbox" name="opt-out" value="1"> Phone</td>
-							<td><input type="checkbox" name="opt-out" value="2"> Website</td>
-							<td><input type="checkbox" name="opt-out" value="4"> Mail-in</td>
-						</tr>
-					</table>
-					<br/>
+					<p>
+						<input type="checkbox" name="opt-out" value="1"> Phone<br/>
+						<input type="checkbox" name="opt-out" value="2"> E-mail<br/>
+						<input type="checkbox" name="opt-out" value="4"> Mail-in<br/>
+						<input type="checkbox" name="opt-out" value="5"> Third Party Cookie OptOut<br/>
+						<a href="http://www.allaboutcookies.org/manage-cookies/opt-out-cookies.html" target="_blank">What is Cookie OptOut</a><br>
+						<input type="checkbox" name="opt-out" value="6"> Do Not Track Plugin<br/><a href="http://en.wikipedia.org/wiki/DoNotTrackMe" target="_blank">What is Do Not Track</a>
+					</p>
 
 					<h4>3. If any of the following statements is true please select Yes: *</h4>
 					<ul>
