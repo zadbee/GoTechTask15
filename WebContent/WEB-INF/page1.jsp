@@ -587,142 +587,134 @@
 	changeQ6()
 </script>
 <script>
-		function validateForm1() {	
- 			var sum = 0;
-			var checkboxes = document.getElementsByName('optoutMethod');
-			for (var i = 0; i < checkboxes.length; i++) {
-				if (checkboxes[i].checked) {
-					
-					sum++;
-				}
-			}
-			if (sum < 1) {
-				alert("You need to select at least one of the opt-out methods.");
-				return false;
-			} 
-			var phone = document.getElementById('phoneText').value;
-			var website = document.getElementById('websiteText').value;
-			if ((document.getElementById('phone').checked == true) && (phone == null || phone == "")) {
-				alert("Please fill in phone number");
-				return false;
-			}
-			
-			if ((document.getElementById('website').checked == true) && (website == null || website == "")) {
-				alert("Please fill in website address");
-				return false;
-			} 
-			
-			var sum1 = 0;
-			var checkboxes1 = document.getElementsByName('contactMethod');
-			
-		 	for (var j = 0; j < checkboxes1.length; j ++) {
-				if (checkboxes1[j].checked) {
-					sum1 ++;
-				}
-			} 
-		 	if (sum1 < 1) {
-				alert("You need to select at least one of the contact method.");
-				return false;
-			} 
-			var phone1 = document.getElementById('phoneText1').value;
-			var website1 = document.getElementById('websiteText1').value;
-			if ((document.getElementById('phone1').checked == true) && (phone1 == null || phone1 == "")) {
-				alert("Please fill in phone number");
-				return false;
-			}
-			
-			if ((document.getElementById('website1').checked == true) && (website1 == null || website1 == "")) {
-				alert("Please fill in website address");
-				return false;
-			} 
-			var x = document.getElementById('numberOfDays').value;
-			if (x == null || x == "" ) {
-				alert("The number of days is needed");
-				return false;
-			}
-			else if (x < 30) {
-				alert("The number of days need to be larger than 30");
-				return false;
-			}
+	function validateForm1() {
+		var sum = 0;
+		var checkboxes = document.getElementsByName('optoutMethod');
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i].checked) {
 
-			
-			/* if (document.getElementById('opt-out1').checked == false && document.getElementById('opt-out2').checked && document.getElementById('opt-out3').checked == false) {
-				alert("You need to select at least one of the opt-out methods.");
-				return false;
-			} */
-		}
-		function showdiv(ch){
-	        if(ch.checked){
-	            document.getElementById("mailinForm").style.display="block";
-	        }
-	        else{
-	            document.getElementById("mailinForm").style.display="none";
-	        }
-	    }
-		function showdiv1(ch){
-	        if(ch.checked){
-	            document.getElementById("optionalInfo").style.display="block";
-	        }
-	        else{
-	            document.getElementById("optionalInfo").style.display="none";
-	        }
-	    }
-		function showdiv2(ch){
-	        if(ch.checked){
-	            document.getElementById("jointAccount").style.display="block";
-	        }
-	        else{
-	            document.getElementById("jointAccount").style.display="none";
-	        }
-	    }
-		function blockdiv2(ch){
-	        if(ch.checked){
-	            document.getElementById("jointAccount").style.display="none";
-	        }
-	        else{
-	            document.getElementById("jointAccount").style.display="block";
-	        }
-	    }
-		function showdiv3(ch){
-	        if(ch.checked){
-	            document.getElementById("jointMarket").style.display="block";
-	        }
-	        else{
-	            document.getElementById("jointMarket").style.display="none";
-	        }
-	    }
-		function blockdiv3(ch){
-	        if(ch.checked){
-	            document.getElementById("jointMarket").style.display="none";
-	        }
-	        else{
-	            document.getElementById("jointMarket").style.display="block";
-	        }
-	    }
-		function showdiv4(ch){
-	        if(ch.checked){
-	            document.getElementById("selectStatement").style.display="block";
-	        }
-	        else{
-	            document.getElementById("selectStatement").style.display="none";
-	        }
-	    }
-		function blockdiv4(ch){
-	        if(ch.checked){
-	            document.getElementById("selectStatement").style.display="none";
-	        }
-	        else{
-	            document.getElementById("selectStatement").style.display="block";
-	        }
-	    }
-		
-		
-	     /* $('submitButton1').onclick(function() {
-			if($('#mailin').is(':checked')) {
-				$('#mailinForm').show();
-				return false;
+				sum++;
 			}
-		});  */
-		
-	</script>
+		}
+		if (sum < 1) {
+			alert("You need to select at least one of the opt-out methods.");
+			return false;
+		}
+		var phone = document.getElementById('phoneText').value;
+		var website = document.getElementById('websiteText').value;
+		if ((document.getElementById('phone').checked == true)
+				&& (phone == null || phone == "")) {
+			alert("Please fill in phone number");
+			return false;
+		}
+
+		if ((document.getElementById('website').checked == true)
+				&& (website == null || website == "")) {
+			alert("Please fill in website address");
+			return false;
+		}
+
+		var sum1 = 0;
+		var checkboxes1 = document.getElementsByName('contactMethod');
+
+		for (var j = 0; j < checkboxes1.length; j++) {
+			if (checkboxes1[j].checked) {
+				sum1++;
+			}
+		}
+		if (sum1 < 1) {
+			alert("You need to select at least one of the contact method.");
+			return false;
+		}
+		var phone1 = document.getElementById('phoneText1').value;
+		var website1 = document.getElementById('websiteText1').value;
+		if ((document.getElementById('phone1').checked == true)
+				&& (phone1 == null || phone1 == "")) {
+			alert("Please fill in phone number");
+			return false;
+		}
+
+		if ((document.getElementById('website1').checked == true)
+				&& (website1 == null || website1 == "")) {
+			alert("Please fill in website address");
+			return false;
+		}
+		var x = document.getElementById('numberOfDays').value;
+		if (x == null || x == "") {
+			alert("The number of days is needed");
+			return false;
+		} else if (x < 30) {
+			alert("The number of days need to be larger than 30");
+			return false;
+		}
+
+		/* if (document.getElementById('opt-out1').checked == false && document.getElementById('opt-out2').checked && document.getElementById('opt-out3').checked == false) {
+			alert("You need to select at least one of the opt-out methods.");
+			return false;
+		} */
+	}
+	function showdiv(ch) {
+		if (ch.checked) {
+			document.getElementById("mailinForm").style.display = "block";
+		} else {
+			document.getElementById("mailinForm").style.display = "none";
+		}
+	}
+	function showdiv1(ch) {
+		if (ch.checked) {
+			document.getElementById("optionalInfo").style.display = "block";
+		} else {
+			document.getElementById("optionalInfo").style.display = "none";
+		}
+	}
+	function showdiv2(ch) {
+		if (ch.checked) {
+			document.getElementById("jointAccount").style.display = "block";
+		} else {
+			document.getElementById("jointAccount").style.display = "none";
+		}
+	}
+	function blockdiv2(ch) {
+		if (ch.checked) {
+			document.getElementById("jointAccount").style.display = "none";
+		} else {
+			document.getElementById("jointAccount").style.display = "block";
+		}
+	}
+	function showdiv3(ch) {
+		if (ch.checked) {
+			document.getElementById("jointMarket").style.display = "block";
+		} else {
+			document.getElementById("jointMarket").style.display = "none";
+		}
+	}
+	function blockdiv3(ch) {
+		if (ch.checked) {
+			document.getElementById("jointMarket").style.display = "none";
+		} else {
+			document.getElementById("jointMarket").style.display = "block";
+		}
+	}
+	function showdiv4(ch) {
+		if (ch.checked) {
+			document.getElementById("selectStatement").style.display = "block";
+		} else {
+			document.getElementById("selectStatement").style.display = "none";
+		}
+	}
+	function blockdiv4(ch) {
+		if (ch.checked) {
+			document.getElementById("selectStatement").style.display = "none";
+		} else {
+			document.getElementById("selectStatement").style.display = "block";
+		}
+	}
+
+	/* $('submitButton1').onclick(function() {
+	if($('#mailin').is(':checked')) {
+		$('#mailinForm').show();
+		return false;
+	}
+	});  */
+</script>
 <jsp:include page="bottom.jsp" />

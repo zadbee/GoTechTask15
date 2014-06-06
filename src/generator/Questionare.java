@@ -25,12 +25,15 @@ public class Questionare {
 	// ==== Page 1 ====
 	public String lastRevised = "undefined";
 	public ArrayList<String> infotypes = new ArrayList<String>();
-	public String[] share = null;
-	public String[] limit = null;
+	public ArrayList<String> share = new ArrayList<String>();
+	public ArrayList<String> limit = new ArrayList<String>();
 	
 	// ==== Page 2 ====
-	public String phone = "undefined";
-	public String website = "undefined";
+	public String optPhone = "undefined";
+	public String optWebsite = "undefined";
+	public String contactPhone = "undefined";
+	public String contactWebsite = "undefined";
+	public int days = 0;
 	public ArrayList<Definition> definitions = new ArrayList<Definition>();
 	public ArrayList<String> infos = new ArrayList<String>();
 	
