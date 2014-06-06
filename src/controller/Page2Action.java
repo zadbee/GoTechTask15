@@ -18,6 +18,11 @@ public class Page2Action extends Action {
 		String requiredQ1 = request.getParameter("question1");
 		q.requiredQ1 = requiredQ1;
 		//Miss the second question
+		String methods = request.getParameter("locs");
+		
+		
+		
+		
 		
 		
 		String requiredQ3 = request.getParameter("question3");
