@@ -3,7 +3,7 @@
 	<form id="form1" name="form1" onsubmit="return validateForm()"
 		method="post" action="generate.do">
 		<div class="col-lg-10">
-			<h4>How do you protect personal information? *(<font size="3sp"><a href="http://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act" style="color: #707070">Reference</a></font>)</h4>
+			<h4>How do you protect personal information? *(<font size="3sp"><a href="http://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act" target = "_blank" style="color: #707070">Reference</a></font>)</h4>
 			<div id="error1" style="display: none">
 				<h5 style="color: red;">The field could not be empty and the
 					number of word is limited to 30</h5>
@@ -127,7 +127,7 @@
 			<h4>What is the reason you don't allow user to limit all
 				sharing? *</h4>
 			<p>
-				<textarea id="reason" name = "question2" class="form-control" rows="6" maxlength="100">Hint: if the state privacy law provisions are described in "Other important information", you must add the sentence:"See below for more on your rights under state law."</textarea>
+				<textarea id="reason" name = "question3" class="form-control" rows="6" maxlength="100">Hint: if the state privacy law provisions are described in "Other important information", you must add the sentence:"See below for more on your rights under state law."</textarea>
 			</p>
 			<br />
 			<h4>What happens when a customer limit sharing
@@ -147,6 +147,13 @@
 			<br />
 		</div>
 		<div class="col-lg-10">
+		<%
+		Boolean param1 = false;
+		if(session.getAttribute("param1") != null){
+			param1 = (Boolean)session.getAttribute("param1");
+		}
+		if(param1){
+		%>
 			<h4>Do you share personal information with the affiliates? *</h4>
 			<div id="error3" style="display: none">
 				<h5 style="color: red;">The field could not be empty</h5>
@@ -164,20 +171,28 @@
 				<label>Please list the affiliates you share with below.*</label><br />
 				<label>Financial companies:</label>
 				<p>
-					<textarea id="t11" name = "question4_1" class="form-control" rows="4"></textarea>
+					<textarea id="t11" name = "question5_1" class="form-control" rows="4"></textarea>
 				</p>
 				<label>Nonfinancial companies:</label>
 				<p>
-					<textarea id="t12" name = "question4_2"class="form-control" rows="4"></textarea>
+					<textarea id="t12" name = "question5_2"class="form-control" rows="4"></textarea>
 				</p>
 				<label>Others:</label>
 				<p>
-					<textarea id="t13" name = "question4_3"class="form-control" rows="4"></textarea>
+					<textarea id="t13" name = "question5_3"class="form-control" rows="4"></textarea>
 				</p>
 			</div>
-
+			<%
+			};
+			%>
+			<%
+		Boolean param2 = false;
+		if(session.getAttribute("param2") != null){
+			param2 = (Boolean)session.getAttribute("param2");
+		}
+		if(param2){
+		%>
 			<br />
-
 			<h4>Do you share with nonaffiliated third parties? *</h4>
 			<div id="error4" style="display: none">
 				<h5 style="color: red;">The field could not be empty</h5>
@@ -194,12 +209,14 @@
 			<div id="div2" style="display: none">
 				<label>Please list the nonaffiliates you share with below.*</label><br />
 				<p>
-					<textarea id="t2" name="question5" class="form-control" rows="4"></textarea>
+					<textarea id="t2" name="question6" class="form-control" rows="4"></textarea>
 				</p>
 			</div>
-
+			<%
+			};
+			%>
 			<br />
-
+			
 			<h4>Do you shares personal information for joint marketing? *</h4>
 			<div id="error5" style="display: none">
 				<h5 style="color: red;">The field could not be empty</h5>
@@ -216,19 +233,21 @@
 			<div id="div3" style="display: none">
 				<label>Please list the joint marketing partners below.*</label><br />
 				<p>
-					<textarea id="t3" name="question6" class="form-control" rows="4"></textarea>
+					<textarea id="t3" name="question7" class="form-control" rows="4"></textarea>
 				</p>
 			</div>
 			<br />
 
-			<h4>Other important informations(<font size="3sp"><a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" style="color: #707070">Reference</a></font>)</h4> 
-			<label> This section is optional. Only the following types of
+			<h4>Other important informations(<font size="3sp"><a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" target = "_blank" style="color: #707070">Reference</a></font>)</h4> 
+			<label> Hint: This section is optional. Only the following types of
 				information can appear in this box.<br /> (1) State and/or
 				international privacy law information; and/or <br /> (2)
 				Acknowledgment of receipt form.
 			</label><br />
 			<p>
-				<textarea id="t4" name="question7" class="form-control" rows="5"></textarea>
+				<textarea id="t4" name="question8" class="form-control" rows="5">Hint: This section is optional. Only the following types of information can appear in this box.
+(1) State and/or international privacy law information; and/or
+(2)Acknowledgment of receipt form.</textarea>
 			</p>
 			<br /> <br />
 			<p>
