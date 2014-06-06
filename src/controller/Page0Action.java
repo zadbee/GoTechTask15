@@ -3,6 +3,7 @@ package controller;
 import generator.Questionare;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class Page0Action extends Action {
 	public String getName() {
@@ -11,11 +12,14 @@ public class Page0Action extends Action {
 
 	public String perform(HttpServletRequest request) {
 		String submit = request.getParameter("next");
-		if (submit == null)
+		if (submit == null){
 			return "page0.jsp";
-		
+		}
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(600);
 		Questionare q = Questionare.getInstance();
 		q.companyName = request.getParameter("name");
+		session.setAttribute("companyName", q.companyName);
 		
 		String[] optout = request.getParameterValues("opt-out");
 		int optInt = 0;
@@ -26,9 +30,14 @@ public class Page0Action extends Action {
 			return "page0.jsp";
 		}
 		q.opt_out_option = optInt;
-		
-		if (request.getParameter("optionsRadio").equals("share"))
+		session.setAttribute("opt_out_option", q.opt_out_option);
+		if (request.getParameter("optionsRadio").equals("share")){
 			q.hasAffiliates = true;
+			session.setAttribute("hasAffiliates", true);
+		}else{
+			session.setAttribute("hasAffiliates", false);
+		}
+		
 		return "page1.jsp";
 	}
 }

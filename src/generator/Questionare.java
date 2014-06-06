@@ -31,6 +31,10 @@ public class Questionare {
 	// ==== Page 2 ====
 	public String phone = "undefined";
 	public String website = "undefined";
+	public String requiredQ1;
+	public String requiredQ2;
+	public String requiredQ3;
+	public String requiredQ4;
 	public ArrayList<Definition> definitions = new ArrayList<Definition>();
 	public ArrayList<String> infos = new ArrayList<String>();
 	
@@ -96,7 +100,7 @@ public class Questionare {
 		return table;
 	}
 	
-	static class Definition {
+	public static class Definition {
 		String title;
 		String content;
 		public Definition(String _title, String _content) {
