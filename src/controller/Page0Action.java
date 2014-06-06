@@ -30,6 +30,9 @@ public class Page0Action extends Action {
 				session.setAttribute("isMail", true);
 				System.out.println("Is snail mail");
 			}
+			else {
+				session.setAttribute("isMail",false);
+			}
 			
 			
 		}
