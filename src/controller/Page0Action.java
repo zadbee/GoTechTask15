@@ -22,6 +22,21 @@ public class Page0Action extends Action {
 		session.setAttribute("companyName", q.companyName);
 		
 		String[] optout = request.getParameterValues("opt-out");
+		
+		String onlyOne = request.getParameter("optionsRadio2");
+		
+		
+		if(onlyOne == "one"){
+			
+			session.setAttribute("onlyOne", true);	
+		}else{
+			
+			session.setAttribute("onlyOne", false);
+		}
+		
+		System.out.println(request.getParameter("optionsRadio2"));
+		
+		
 		int optInt = 0;
 		for (String s : optout)
 			optInt += Integer.parseInt(s);
