@@ -1,8 +1,10 @@
 <jsp:include page="top.jsp" />
+<html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">
 </script>
+
 	<!-- $(function() {
 
 		var addDiv = $('#addinput');
@@ -43,16 +45,86 @@
 		});
 	});
 </script> -->
+<style type="text/css">
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+}
+</style>
 <script>
-function showdiv(ch){
 
-    if(ch.checked){
+$(document).ready(function() {
+// Tooltip only Text
+$('.masterTooltip').hover(function(){
+        // Hover over code
+        var title = $(this).attr('title');
+        alert("A barcode is an optical machine-readable representation of data relating to the object to which it is attached.");
+        $(this).data('tipText', title).removeAttr('title');
+        $('<p class="tooltip"></p>')
+        .text(title)
+        .appendTo('body')
+        .fadeIn('slow');
+        
+       
+}, function() {
+        // Hover out code
+        $(this).attr('title', $(this).data('tipText'));
+        $('.tooltip').remove();
+}).mousemove(function(e) {
+	
+        var mousex = e.pageX + 20; //Get X coordinates
+        var mousey = e.pageY + 10; //Get Y coordinates
+        
+        $('.tooltip')
+        .css({ top: mousey, left: mousex })
+        
+});
+});
+
+$(document).ready(function() {
+	// Tooltip only Text
+	$('.masterTooltip1').hover(function(){
+	        // Hover over code
+	        var title = $(this).attr('title');
+	       /*  alert("In entertainment, a tagline is a small amount of text which serves to clarify a thought for, or designed with a form of, dramatic effect."); */
+	        $(this).data('tipText', title).removeAttr('title');
+	        $('<p class="tooltip"></p>')
+	        .text(title)
+	        .appendTo('body')
+	        .fadeIn('slow');
+	        
+	       
+	}, function() {
+	        // Hover out code
+	        $(this).attr('title', $(this).data('tipText'));
+	        $('.tooltip').remove();
+	}).mousemove(function(e) {
+		
+	        var mousex = e.pageX + 20; //Get X coordinates
+	        var mousey = e.pageY + 10; //Get Y coordinates
+	        
+	        $('.tooltip')
+	        .css({ top: mousey, left: mousex })
+	        
+	});
+	});
+</script>
+<script>
+/* function mailinFormShow(){
+
+    if("${isMail}"){
         document.getElementById("mailinForm").style.display="block";
     }
     else{
         document.getElementById("mailinForm").style.display="none";
     }
-}
+}  */
 
 
 function showdiv1(ch){
@@ -303,7 +375,7 @@ function showdiv9(ch){
 
 </script>
 <!-- <body onload = "showdiv()"> -->
-
+<body>
 <form id="form2" action="page1.do" onsubmit="return validateForm1()" method="post">
 <div class="table-module">
 	<div>
@@ -486,10 +558,10 @@ function showdiv9(ch){
 					<tr>
 						<td><strong>Does your organization share information for  marketing purposes </strong>&mdash; to
 							such as to offer  products and services to customers?</td>
-						<td class="centered-td"><select id="question1"
-							onchange="changeQ1()"><option value="Yes">Yes</option>
+						<td class="centered-td"><select name="question1" id="question1"
+							onchange="changeQ1()"><option value="Yes">yes</option>
 								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question1b"
+						<td class="centered-td"><select name = "question1b" id="question1b"
 							readonly="false"><option value="Yes" id ="share1">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare">We do not share</option></select></td>
@@ -497,10 +569,10 @@ function showdiv9(ch){
 					<tr>
 						<td><strong> Does your organization share information to do  joint marketing with other
 								financial companies?</strong></td>
-						<td class="centered-td"><select id="question2"
-							onchange="changeQ2()"><option value="Yes">Yes</option>
+						<td class="centered-td"><select name = "question2" id="question2"
+							onchange="changeQ2()"><option value="Yes">yes</option>
 								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question2b"
+						<td class="centered-td"><select name = "question2b" id="question2b"
 							readonly="false"><option value="Yes" id ="share2">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare2">We do not share</option></select></td>
@@ -509,10 +581,10 @@ function showdiv9(ch){
 						<td><strong>Does your organization share information with affiliates&rsquo; for everyday
 								business purposes? </strong>&mdash; Information about transactions
 							and experiences from customers</td>
-						<td class="centered-td"><select id="question3"
-							onchange="changeQ3()"><option value="Yes">Yes</option>
+						<td class="centered-td"><select name = "question3" id="question3"
+							onchange="changeQ3()"><option value="Yes">yes</option>
 								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question3b"
+						<td class="centered-td"><select name = "question3b" id="question3b"
 							readonly="false"><option value="Yes" id ="share3">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare3">We do not share</option></select></td>
@@ -521,10 +593,10 @@ function showdiv9(ch){
 						<td><strong>Does your organization share information for affiliates&rsquo; everyday
 								business purposes? </strong>&mdash; Information such as
 							creditworthiness</td>
-						<td class="centered-td"><select id="question4"
-							onchange="changeQ4()"><option value="Yes">Yes</option>
+						<td class="centered-td"><select id="question4" name = "question4"
+							onchange="changeQ4()"><option value="Yes">yes</option>
 								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question4b"
+						<td class="centered-td"><select id="question4b" name = "question4b"
 							readonly="false"><option value="Yes" id ="share4">yes</option>
 								<option value="No">No</option>
 								<option value="No" id="noShare4">We do not share</option></select></td>
@@ -532,10 +604,10 @@ function showdiv9(ch){
 					<c:if test="${hasAffiliates}">
 					<tr >			
 						<td><strong><span id="optionalQuestion">Will the affiliates market to your customers? </span></strong></td>
-						<td class="centered-td"><select id="question5"
+						<td class="centered-td"><select id="question5" name = "question5"
 							onchange="changeQ5()" ><option value="Yes">yes</option>
 								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question5b"
+						<td class="centered-td"><select id="question5b" name = "question5b"
 							readonly="false"><option value="Yes" id="share5">yes</option>
 								<option value="No" id="noShare5">we do not share</option></select></td>
 					</tr >
@@ -557,24 +629,15 @@ function showdiv9(ch){
 	</div>
 </div>
 <div class="col-lg-10">
-	<h4>1. What opt out methods will you offer?</h4>
-	<label><input name="optoutMethod" id="phone" type="checkbox"
-		value="" />Phone </label> <input type="text" id="phoneText"> Is it a
-	toll-free phone ?<select name="opt-out">
-		<option value="toll-free">Yes</option>
-		<option value="toll-free">No</option>
-	</select> <br /> <label><input name="optoutMethod" id="website"
-		type="checkbox" value="" />Website </label> <input type="text"
-		id="websiteText"> <br /> <label><input
-		name="optoutMethod" id="mailin" type="checkbox" value=""
-		onclick="showdiv(this)" />Mail-in Form</label>
-	<h4>2. How many days can you begin sharing new customer's information from the date               you sent the notice to the customer?</h4><br />
+<br />
+<br />
+	<h4>How many days can you begin sharing new customer's information from the date               you sent the notice to the customer?</h4><br />
 	<div id="error1" style="display: none">
 				<h5 style="color: red;">The number of days need to be larger than 30</h5>
 			</div>
-	<div class="input-group"><input type="text" class="form-control" id="numberOfDays" placeholder="No less than 30 days"><span class="input-group-addon">days</span></div> 
+	<div class="input-group"><input type="text" class="form-control" id="numberOfDays" placeholder="No less than 30 days" name = "numOfDays"><span class="input-group-addon">days</span></div> 
     <br />
-	<h4>3. What customer service contact information will you provide?</h4><br />
+	<h4>What customer service contact information will you provide?</h4><br />
 	<div id="error2" style="display: none">
 				<h5 style="color: red;">You need to select at least one of the contact method</h5>
 			</div>
@@ -588,7 +651,8 @@ function showdiv9(ch){
 			onclick="validateForm1()">Next Page</button>
 	</p>
 </div>
-<div class="col-lg-10" id="mailinForm" style="display: none">
+<c:if test="${isMail}">
+<div class="col-lg-10" id="mailinForm" >
 	<br />
 	<br />
 	<table class="table table-striped" style="text-align: left">
@@ -599,37 +663,37 @@ function showdiv9(ch){
 				</table>
 
 	<br />
-	<h4>1. Do you need additional information from customers except
+	<h4>Do you need additional information from customers except
 		for customer's name and address?</h4>
 
     <br />
-	<label><input name="opt-out" type="checkbox" value=""
+	<label><input name="additionalInfo" type="checkbox" value=""
 		onclick="showdiv1(this)" />       Additional Information </label>
     <br />
 	<div id="optionalInfo" style="display: none">
 		<p>
-			<input type="radio" name="optionsRadios" id="radio1" value="share"
+			<input type="radio" name="optionsRadios" id="radio1" value="accountNum"
 				checked>        Account Number<br />
 		</p>
 		
 		<p>
-			<input type="radio" name="optionsRadios" id="radio1" value="share">       Opt-out
+			<input type="radio" name="optionsRadios" id="radio1" value="optoutNum">       Opt-out
 			Number<br />
 		</p>
 		<p>
-			<input type="radio" name="optionsRadios" id="radio1" value="share">       Truncated
+			<input type="radio" name="optionsRadios" id="radio1" value="TaccountNum">       Truncated
 			Account Number<br />
 		</p>
 	</div>
 	<br />
-	<h4>2. Mail to Address:</h4>
+	<h4>Mail to Address:</h4>
 	<br />
 	<table>
 	<tr>
 	<td>Street:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input type="text" ></td>
+	<td>&nbsp;&nbsp;&nbsp;<input name = "street" type="text" ></td>
 	<td>&nbsp;&nbsp;&nbsp;Apt #:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input type="text"></td>
+	<td>&nbsp;&nbsp;&nbsp;<input type="text" name = "apartmentNum"></td>
 	<td>
 	</td>
 	<td>
@@ -638,7 +702,7 @@ function showdiv9(ch){
 	
 	<tr>
 	<td>City:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input type="text"></td>
+	<td>&nbsp;&nbsp;&nbsp;<input name = "city" type="text"></td>
 	<td>&nbsp;&nbsp;&nbsp;State:</td>
 	<td>&nbsp;&nbsp;&nbsp;
 	<select>
@@ -696,156 +760,156 @@ function showdiv9(ch){
 	</select>
 	</td>
 	<td>&nbsp;&nbsp;&nbsp;Zip:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input type="text"></td>
+	<td>&nbsp;&nbsp;&nbsp;<input type="text" name = "zip"></td>
 	</tr>
 	</table>
 	<br />
-	<h4>3. Will you provide your joint accountholders the choice to
+	<h4>Will you provide your joint accountholders the choice to
 		opt out for only one accountholder?</h4>
     <br />
 	<p>
-		<input type="radio" name="optionsRadios1" id="radio1" value="share"
+		<input type="radio" name="optionsRadios1" id="radio1" value="q3Y"
 			onclick="showdiv2(this)">Yes<br />
 	</p>
 	<p>
-		<input type="radio" name="optionsRadios1" id="radio2" value="share"
+		<input type="radio" name="optionsRadios1" id="radio2" value="q3N"
 			onclick="blockdiv2(this)" checked>No<br />
 	</p>
 	<div id="jointAccount" style="display: none">
 		<h4>If you have a joint account, will you apply your choice(s)
 			only to yourself?</h4>
 		<p>
-			<input type="radio" name="optionsRadios2" id="radio3" value="share">Yes<br />
+			<input type="radio" name="optionsRadios" 2 id="radio3" value="q3aY">Yes<br />
 		</p>
 		<p>
-			<input type="radio" name="optionsRadios2" id="radio4" value="share"
+			<input type="radio" name="optionsRadios2" id="radio4" value="q3aN"
 				checked>No<br />
 		</p>
 		<h4>Are you a financial institutions that provide insurance
 			products or services?</h4>
 		<p>
-			<input type="radio" name="optionsRadios3" id="radio5" value="share">Yes<br />
+			<input type="radio" name="optionsRadios3" id="radio5" value="q3bY">Yes<br />
 		</p>
 		<p>
-			<input type="radio" name="optionsRadios3" id="radio6" value="share"
+			<input type="radio" name="optionsRadios3" id="radio6" value="q3bN"
 				checked>No<br />
 		</p>
 	</div>
-	<h4>4. Please select what do you want to limit.</h4>
+	<h4>Please select what do you want to limit.</h4>
 	<br />
 	<p>
-		<label><input name="opt-out" type="checkbox" value=""  onclick="showdiv5(this)"/>&nbsp;&nbsp;&nbsp;Do
+		<label><input name="opt-out" type="checkbox" value="q4a"  onclick="showdiv5(this)"/>&nbsp;&nbsp;&nbsp;Do
 			not share information about your creditworthiness with your
 			affiliates for their everyday business purposes. </label>
 	</p>
 	<div id="choice1" style="display: none">
 	<p>
-		<input type="radio" name="optionsRadios4" id="radio7" value="share">Yes<br />
+		<input type="radio" name="optionsRadios4" id="radio7" value="q4aY">Yes<br />
 	</p>
 	<p>
-		<input type="radio" name="optionsRadios4" id="radio8" value="share"
+		<input type="radio" name="optionsRadios4" id="radio8" value="q4aN"
 			checked>No<br />
 	</p>
 	</div>
 		
-	<label><input name="opt-out" type="checkbox" value=""  onclick="showdiv6(this)"/>&nbsp;&nbsp;&nbsp;Do not
+	<label><input name="opt-out" type="checkbox" value="q4b"  onclick="showdiv6(this)"/>&nbsp;&nbsp;&nbsp;Do not
 		allow your affiliates to use your personal information to market to
 		you.</label>
 		<br />
 		 <div id="choice2" style="display: none">
 	<p>
-		<input type="radio" name="optionsRadios5" id="radio9" value="share">Yes<br />
+		<input type="radio" name="optionsRadios5" id="radio9" value="q4bY">Yes<br />
 	</p>
 	<p>
-		<input type="radio" name="optionsRadios5" id="radio10" value="share"
+		<input type="radio" name="optionsRadios5" id="radio10" value="q4bN"
 			checked>No<br />
 	</p>
 	</div>
 	<br />
-	<label><input name="opt-out" type="checkbox" value=""  onclick="showdiv7(this)"/>&nbsp;&nbsp;&nbsp;Do not
+	<label><input name="opt-out" type="checkbox" value="q4c"  onclick="showdiv7(this)"/>&nbsp;&nbsp;&nbsp;Do not
 		share your personal information with nonaffiliates to market their
 		products and services to you.</label>
 	<div id="choice3" style="display: none">
 	<p>
-		<input type="radio" name="optionsRadios6" id="radio11" value="share">Yes<br />
+		<input type="radio" name="optionsRadios6" id="radio11" value="q4cY">Yes<br />
 	</p>
 	<p>
-		<input type="radio" name="optionsRadios6" id="radio12" value="share"
+		<input type="radio" name="optionsRadios6" id="radio12" value="q4cN"
 			checked>No<br />
 	</p>
 	</div>
 	<br />
 	<p>
 	<br />
-	<h4>5. Do you offer an opt-out for your own marketing?</h4>
+	<h4>Do you offer an opt-out for your own marketing?</h4>
 	<br />
 	<p>
-		<input type="radio" name="optionsRadios7" id="radio13" value="share"
+		<input type="radio" name="optionsRadios7" id="radio13" value="q5Y"
 			onclick="showdiv4(this)">Yes<br />
 	</p>
 	<p>
-		<input type="radio" name="optionsRadios7" id="radio14" value="share"
+		<input type="radio" name="optionsRadios7" id="radio14" value="q5N"
 			onclick="blockdiv4(this)" checked>No<br />
 	</p>
 	<div id="selectStatement" style="display: none">
 		<h4>Please select one of the following two statements:</h4>
 		<br />
-		<input type="radio" name="optionsRadios9" id="radio1" value="share" onclick="showdiv8(this)" checked>Do
+		<input type="radio" name="optionsRadios9" id="radio1" value="q5a" onclick="showdiv8(this)" checked>Do
 		not share my personal information to market to me.<br />
 		</p>
 		<div id="choice4" style="display: none">
 		<p>
-			<input type="radio" name="optionsRadios8" id="radio15" value="share">Yes<br />
+			<input type="radio" name="optionsRadios8" id="radio15" value="q5aY">Yes<br />
 		</p>
 		<p>
-			<input type="radio" name="optionsRadios8" id="radio16" value="share"
+			<input type="radio" name="optionsRadios8" id="radio16" value="q5aN"
 				checked>No<br />
 		</p>
         </div>
         <br />
 		<p>
-			<input type="radio" name="optionsRadios9" id="radio17" value="share" onclick="showdiv9(this)">Do
+			<input type="radio" name="optionsRadios9" id="radio17" value="q5b" onclick="showdiv9(this)">Do
 			not use my personal information to market to me.<br />
 		</p>
 		<div id="choice5" style="display: none">
 		<p>
-			<input type="radio" name="optionsRadios10" id="radio18" value="share">Yes<br />
+			<input type="radio" name="optionsRadios10" id="radio18" value="q5bY">Yes<br />
 		</p>
 		<p>
-			<input type="radio" name="optionsRadios10" id="radio19" value="share"
+			<input type="radio" name="optionsRadios10" id="radio19" value="q5bN"
 				checked>No<br />
 		</p>
 		</div>
 	</div>
 	<br />
-	<h4>6. Do you offer an opt-out for joint marketing?</h4>
+	<h4>Do you offer an opt-out for joint marketing?</h4>
 	<br />
 	<p>
-		<input type="radio" name="optionsRadios11" id="radio20" value="share"
+		<input type="radio" name="optionsRadios11" id="radio20" value="q6Y"
 			onclick="showdiv3(this)">Yes<br />
 	</p>
 	<p>
-		<input type="radio" name="optionsRadios11" id="radio21" value="share"
+		<input type="radio" name="optionsRadios11" id="radio21" value="q6N"
 			onclick="blockdiv3(this)" checked>No<br />
 	</p>
 	<div id="jointMarket" style="display: none">
 		<h4>Will you share your personal information with other financial
 			institutions to jointly market to you?</h4>
 		<p>
-			<input type="radio" name="optionsRadios12" id="radio22" value="share">Yes<br />
+			<input type="radio" name="optionsRadios12" id="radio22" value="q6aY">Yes<br />
 		</p>
 		<p>
-			<input type="radio" name="optionsRadios12" id="radio23" value="share"
+			<input type="radio" name="optionsRadios12" id="radio23" value="q6aN"
 				checked>No<br />
 		</p>
 	</div>
 	<br />
-	<h4>7. Do you want to include a barcode and/or "tagline" at the
+	<h4> Do you want to include a barcode and/or "tagline" at the
 		bottom of page one?</h4>
 	<br />
-	<label><input name="opt-out" type="checkbox" value="" />&nbsp;&nbsp;Barcode</label><img src="image/question.png"><input type="file" id="exampleInputFile"> 
+	<label><input name="opt-out" type="checkbox" value="q7Barcode" />&nbsp;&nbsp;Barcode</label><a href="default.asp"><img src="image/question.png" class="masterTooltip" title="Tooltip on image"/></a><input name = "barcodeFile" type="file" id="exampleInputFile"> 
 	<br />
-	<label><input name="opt-out" type="checkbox" value="" />&nbsp;&nbsp;Tagline </label><input type="text">
+	<label><input name="opt-out" type="checkbox" value="q7Tagline" />&nbsp;&nbsp;Tagline </label><a href="default.asp"><img src="image/question.png" class="masterTooltip" title="Tooltip on image"/></a><input name = "toglineText" type="text">
 
 	</p>
 	<br />
@@ -854,8 +918,9 @@ function showdiv9(ch){
     <input type="submit" name="next" >Next Page</button>
 	</p>
 </div>
+</c:if>
 </form>
-<!-- </body> -->
+
 <script>
 	changeQ1();
 	changeQ2();
@@ -863,6 +928,7 @@ function showdiv9(ch){
 	changeQ4();
 	changeQ5();
 	changeQ6();
+	mailinFormShow();
 	
 	
 </script>
@@ -935,4 +1001,6 @@ function validateForm1() {
 	}	
 }
 </script>
+</body>
+</html>
 <jsp:include page="bottom.jsp" />
