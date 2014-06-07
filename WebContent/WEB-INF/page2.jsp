@@ -245,6 +245,19 @@
 			document.getElementById("error2").style.display = "none";
 		}
 		<%
+		if(!onlyone){
+		%>
+		var q0 = document.getElementById('question0').value.length;
+		if (q0 == 0) {
+			flag = false;
+			document.getElementById("error0").style.display = "block";
+		} else {
+			document.getElementById("error0").style.display = "none";
+		}
+		<%
+		}
+		%>
+		<%
 		if(param1){
 		%>
 		var q11 = document.getElementById('t11').value.length;
