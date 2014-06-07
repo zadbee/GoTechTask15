@@ -13,7 +13,7 @@ public class Page0Action extends Action {
 	}
 
 	public String perform(HttpServletRequest request) {
-		String submit = request.getParameter("next");
+		String submit = request.getParameter("next0");
 		if (submit == null){
 			return "page0.jsp";
 		}
@@ -23,17 +23,8 @@ public class Page0Action extends Action {
 		q.companyName = request.getParameter("name");				// companyName
 		session.setAttribute("companyName", q.companyName);
 		
-		String[] optout = request.getParameterValues("opt-out");
-		String onlyOne = request.getParameter("optionsRadio2");
-		for(int x = 0; x < optout.length; x++){
-			if(optout[x].equals("3")){				
-				session.setAttribute("isMail", true);
-			} else {
-				session.setAttribute("isMail",false);
-			}		
-		}
-		
-		if(onlyOne == "one"){		
+		String onlyOne = request.getParameter("optionsRadio2");		
+		if(onlyOne.equals("one")) {		
 			session.setAttribute("onlyone", true);	
 			q.hasPartners = false;
 		} else {
@@ -41,21 +32,32 @@ public class Page0Action extends Action {
 			q.hasPartners = true;									// hasPartners
 		}		
 		
-		int optInt = 0;
-		for (String s : optout)
-			optInt += Integer.parseInt(s);
-		q.opt_out_option = optInt;									// opt_out_option
-		session.setAttribute("opt_out_option", q.opt_out_option);
+		String[] optout = request.getParameterValues("opt-out");
+		for (String s : optout) {
+			if (s.equals("1"))
+				q.opt_phone = true;
+			if (s.equals("2"))
+				q.opt_website = true;
+			if (s.equals("4"))
+				q.opt_mail = true;
+			if (s.equals("8"))
+				q.opt_cookie = true;
+			if (s.equals("16"))
+				q.opt_doNotTrack = true;
+		}															// opt_out_option
+		session.setAttribute("opt_phone", q.opt_phone);
+		session.setAttribute("opt_website", q.opt_website);
+		session.setAttribute("opt_mail", q.opt_mail);
+		session.setAttribute("opt_cookie", q.opt_cookie);
+		session.setAttribute("opt_doNotTrack", q.opt_doNotTrack);
 		
 		if (request.getParameter("optionsRadio").equals("share")){
 			q.hasAffiliates = true;									// hasAffiliates
 			session.setAttribute("hasAffiliates", true);
-		}else{
+		} else {
 			q.hasAffiliates = false;
 			session.setAttribute("hasAffiliates", false);
 		}
-		
-		// Set the attributes for questionare.
 		
 		return "page1.jsp";
 	}

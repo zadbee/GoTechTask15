@@ -1,7 +1,12 @@
+<style type="text/css">
+.leftpad {
+	margin-left: 5%
+}
+</style>
 <jsp:include page="top.jsp" />
 <div class="row marketing">
 	<form id="form1" name="form1" onsubmit="return validateForm()"
-		method="post" action="generate.do">
+		method="post" action="page2.do">
 		
 	<div class="content-row">
 		<%
@@ -114,11 +119,38 @@
 			<br />
 			
 			
-			<h4>What is the reason you don't allow user to limit all
+			<!--<h4>What is the reason you don't allow user to limit all
 				sharing? *</h4>
 			<p>
 				<textarea id="reason" name = "question3" class="form-control" rows="6" maxlength="100" placeholder="Hint: if the state privacy law provisions are described in &quot;Other Important Information&quot;, you must add the sentence: &quot;See below for more on your rights under state law.&quot;"></textarea>
 			</p>
+			<br />-->
+			<h4>Do you collect users' personal information from your affiliates and/or credit bureaus?</h4>
+			<div class="radio">
+				<label> <input type="radio" name="collect" id="Collect" value="yes" checked> Yes
+				</label>
+			</div>
+			<div class="radio">
+				<label> <input type="radio" name="collect" id="Collect" value="no"> No
+				</label>
+			</div>
+			<br />
+			
+			<h4>Will you refer to state laws in the form?</h4>
+			<div class="radio">
+				<label> <input type="radio" name="refer" id="StateLaw" value="yes" onclick="showDescription(this)"> Yes
+				</label>
+			</div>
+			<div class="radio">
+				<label> <input type="radio" name="refer" id="StateLaw" value="no" onclick="blockDescription(this)" checked> No
+				</label>
+			</div>
+			<div class="leftpad" id="LawDescription" style="display: none">
+				<h5>Please describe the state law provisions you will refer to here.</h5>
+				<p>
+					<textarea id="tld" name="tld" class="form-control" rows="3"></textarea>
+				</p>
+			</div>
 			<br />
 			
 			<h4>What happens when a customer limit sharing
@@ -132,7 +164,7 @@
 			<div class="radio">
 				<label> <input type="radio" name="radios"
 					id="LimitShare2" value="radio2"> "Your choices will apply
-					to everyone on your account-unless you tell us otherwise."
+					to everyone on your account - unless you tell us otherwise."
 				</label>
 			</div>
 			<br />
@@ -219,7 +251,7 @@
 			
 			<br />
 			<p>
-				<button type="submit" class="btn btn-default" name="next" value="true">Generate Privacy Form</button>
+				<button type="submit" class="btn btn-default" name="next2" value="true">Generate Privacy Form</button>
 			</p>
 		</div>
 	</form>
@@ -359,5 +391,21 @@
           	}
           }
         }
+</script>
+<script>
+function showDescription(ch) {
+	if (ch.checked) {
+		document.getElementById("LawDescription").style.display = "block";
+	} else {
+		document.getElementById("LawDescription").style.display = "none";
+	}
+}
+function blockDescription(ch) {
+	if (ch.checked) {
+		document.getElementById("LawDescription").style.display = "none";
+	} else {
+		document.getElementById("LawDescription").style.display = "block";
+	}
+}
 </script>
 <jsp:include page="bottom.jsp" />
