@@ -715,7 +715,7 @@ function showdiv9(ch){
 		<h4>If you have a joint account, will you apply your choice(s)
 			only to yourself?</h4>
 		<p>
-			<input type="radio" name="optionsRadios" 2 id="radio3" value="share">Yes<br />
+			<input type="radio" name="optionsRadios2" id="radio3" value="share">Yes<br />
 		</p>
 		<p>
 			<input type="radio" name="optionsRadios2" id="radio4" value="share"
