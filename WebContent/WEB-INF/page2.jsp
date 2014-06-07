@@ -3,7 +3,7 @@
 	<form id="form1" name="form1" onsubmit="return validateForm()"
 		method="post" action="generate.do">
 		
-	<div class="col-lg-10">
+	<div class="content-row">
 		<%
 		Boolean onlyone = true;
 		if(session.getAttribute("onlyone") != null){
@@ -22,16 +22,13 @@
 					<textarea id="question0" name="question0" class="form-control" rows="4"></textarea>
 				</p>
 			</div>
-			<br /><br />
-		
-		
+			<br/>
+			
 		<%
 			};
 			%>
 	</div>
-		<div class="col-lg-10">
-				
-			
+		<div class="content-row">
 			<h4>How do you protect personal information? * (<font size="3sp"><a href="http://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act" target = "_blank" style="color: #707070">Reference</a></font>)</h4>
 			<div id="error1" style="display: none">
 				<h5 style="color: red;">The field could not be empty and the
@@ -41,7 +38,7 @@
 				<textarea id="question1" name = "question1" class="form-control" rows="5"
 					maxlength="100" cols="10" placeholder="You may only provide additional information pertaining to your safeguards practices following the designated response to this question. Such information may include information about the use of cookies or other measures you use to safeguard personal information. Limited to a maximum of 30 additional words."></textarea>
 			</p>
-			<br /><br />
+			<br />
 			
 			
 			<h4>How do you collect the personal information?* (At least five
@@ -54,40 +51,40 @@
 			<td height="66">
 			<div align="right">     
 			<select name="locs" size="10" multiple style="width:25em" ondblclick="addItemAll(document.all.locs,document.all.mylocs)">
-				<option>open an account</option>
-				<option>deposit money</option>
-				<option>make deposits or withdrawals from your account</option>
-				<option>pay your bills</option>
-				<option>apply for a loan</option>
-				<option>use your credit or debit card</option>
-				<option>seek financial or tax advice</option>
-				<option>seek advice about your investments</option>
-				<option>apply for insurance</option>
-				<option>pay insurance premiums</option>
-				<option>file an insurance claim</option>
-				<option>buy securities from us</option>
-				<option>sell securities to us</option>
-				<option>direct us to buy securities</option>
-				<option>direct us to sell your securities</option>
-				<option>enter into an investment advisory contract</option>
-				<option>give us your income information</option>
-				<option>provide employment information</option>
-				<option>give us your employment history</option>
-				<option>tell us about your investment or retirement portfolio</option>
-				<option>tell us about your investment or retirement earnings</option>
-				<option>apply for financing</option>
-				<option>apply for a lease</option>
-				<option>provide account information</option>
-				<option>give us your contact information</option>
-				<option>pay us by check</option>
-				<option>give us your wage statements</option>
-				<option>provide your mortgage information</option>
-				<option>make a wire transfer</option>
-				<option>tell us who receives the money</option>
-				<option>tell us where to send the money</option>
-				<option>show your government-issued ID</option>
-				<option>show your driver's license</option>
-				<option>order a commodity futures or option trade</option>
+				<option>Open an account</option>
+				<option>Deposit money</option>
+				<option>Make deposits or withdrawals from your account</option>
+				<option>Pay your bills</option>
+				<option>Apply for a loan</option>
+				<option>Use your credit or debit card</option>
+				<option>Seek financial or tax advice</option>
+				<option>Seek advice about your investments</option>
+				<option>Apply for insurance</option>
+				<option>Pay insurance premiums</option>
+				<option>File an insurance claim</option>
+				<option>Buy securities from us</option>
+				<option>Sell securities to us</option>
+				<option>Direct us to buy securities</option>
+				<option>Direct us to sell your securities</option>
+				<option>Enter into an investment advisory contract</option>
+				<option>Give us your income information</option>
+				<option>Provide employment information</option>
+				<option>Give us your employment history</option>
+				<option>Tell us about your investment or retirement portfolio</option>
+				<option>Tell us about your investment or retirement earnings</option>
+				<option>Apply for financing</option>
+				<option>Apply for a lease</option>
+				<option>Provide account information</option>
+				<option>Give us your contact information</option>
+				<option>Pay us by check</option>
+				<option>Give us your wage statements</option>
+				<option>Provide your mortgage information</option>
+				<option>Make a wire transfer</option>
+				<option>Tell us who receives the money</option>
+				<option>Tell us where to send the money</option>
+				<option>Show your government-issued ID</option>
+				<option>Show your driver's license</option>
+				<option>Order a commodity futures or option trade</option>
 			</select>
 			</div>
 			</td>
@@ -114,15 +111,15 @@
 			</td>
 			</tr>
 			</table>
-			<br /><br />
+			<br />
 			
 			
 			<h4>What is the reason you don't allow user to limit all
 				sharing? *</h4>
 			<p>
-				<textarea id="reason" name = "question3" class="form-control" rows="6" maxlength="100">Hint: if the state privacy law provisions are described in "Other important information", you must add the sentence:"See below for more on your rights under state law."</textarea>
+				<textarea id="reason" name = "question3" class="form-control" rows="6" maxlength="100" placeholder="Hint: if the state privacy law provisions are described in &quot;Other Important Information&quot;, you must add the sentence: &quot;See below for more on your rights under state law.&quot;"></textarea>
 			</p>
-			<br /><br />
+			<br />
 			
 			<h4>What happens when a customer limit sharing
 			for an account he hold <br/>jointly with someone else? *</h4>
@@ -138,10 +135,10 @@
 					to everyone on your account-unless you tell us otherwise."
 				</label>
 			</div>
-			<br /><br />
+			<br />
 		</div>
 		
-		<div class="col-lg-10">
+		<div class="content-row">
 		<%
 		Boolean param1 = false;
 		if(session.getAttribute("param1") != null){
@@ -166,7 +163,7 @@
 				<p>
 					<textarea id="t13" name = "question5_3"class="form-control" rows="4"></textarea>
 				</p>
-			</div><br /><br />
+			</div><br />
 			<%
 			};
 			%>
@@ -187,7 +184,7 @@
 				<p>
 					<textarea id="t2" name="question6" class="form-control" rows="4"></textarea>
 				</p>
-			</div><br /><br />
+			</div><br />
 			<%
 			};
 			%>
@@ -209,19 +206,20 @@
 					<textarea id="t3" name="question7" class="form-control" rows="4"></textarea>
 				</p>
 			</div>
-			<br /><br />
+			<br />
 		<%
 			};
 			%>
 			<h4>Do you have other important informations? (<font size="3sp"><a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" target = "_blank" style="color: #707070">Reference</a></font>)</h4> 
 			<p>
-				<textarea id="t4" name="question8" class="form-control" rows="5" placeholder="Hint: This section is optional. Only the following types of information can appear in this box.
-(1) State and/or international privacy law information; and/or
+				<textarea id="t4" name="question8" class="form-control" rows="5" placeholder="Hint: This section is optional. Only the following types of information can appear in this box. 
+(1) State and/or international privacy law information; and/or 
 (2) Acknowledgment of receipt form."></textarea>
 			</p>
-			<br /> <br />
+			
+			<br />
 			<p>
-				<button type="submit" class="btn btn-default" name="next" value="true">Generate</button>
+				<button type="submit" class="btn btn-default" name="next" value="true">Generate Privacy Form</button>
 			</p>
 		</div>
 	</form>

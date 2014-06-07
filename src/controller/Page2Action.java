@@ -2,7 +2,9 @@ package controller;
 
 import generator.Questionare;
 import generator.Questionare.Definition;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class Page2Action extends Action {
 	public String getName() {
@@ -11,20 +13,21 @@ public class Page2Action extends Action {
 
 	public String perform(HttpServletRequest request) {
 		String submit = request.getParameter("next");
+		HttpSession session = request.getSession(true);
+		
 		if (submit == null){
+			session.setAttribute("onlyone", false);
+			session.setAttribute("param1", true);
+			session.setAttribute("param2", true);
+			session.setAttribute("param3", true);
 			return "page2.jsp";
 		}
 		Questionare q = Questionare.getInstance();
-		String requiredQ1 = request.getParameter("question1");
-		q.requiredQ1 = requiredQ1;
+		//String requiredQ1 = request.getParameter("question1");
+		/*q.requiredQ1 = requiredQ1;
 		//Miss the second question
 		String methods = request.getParameter("locs");
-		
-		
-		
-		
-		
-		
+	
 		String requiredQ3 = request.getParameter("question3");
 		q.requiredQ1 = requiredQ3;
 		String requiredQ4 = request.getParameter("radios");
@@ -65,8 +68,27 @@ public class Page2Action extends Action {
 		}
 		String question8 = request.getParameter("question8");
 		if(question8 != null){
-			q.infos.add(question8);
-		}
+			q.collectedTypes.add(question8);
+		}*/
+		
+		// Set the attributes for questionare.
+		q.partners = request.getParameter("question0") == null ? "undefined" : request.getParameter("question0");
+		q.howToProtect = request.getParameter("question1") == null ? "undefined" : request.getParameter("question1");
+		q.collectedTypes.add("type1");
+		q.collectedTypes.add("type2");
+		q.collectedTypes.add("type3");
+		q.collectedTypes.add("type4");
+		q.collectedTypes.add("type5");
+		q.whyNotLimitAll = request.getParameter("question3") == null ? "undefined" : request.getParameter("question3");
+		q.applyToAnyOne = (request.getParameter("radios") == null || request.getParameter("radios").equals("radio1")) ? true : false;
+		q.aff_Financial = request.getParameter("question5_1") == null ? "undefined" : request.getParameter("question5_1");
+		q.aff_Nonfinancial = request.getParameter("question5_2") == null ? "undefined" : request.getParameter("question5_2");
+		q.aff_Others = request.getParameter("question5_3") == null ? "undefined" : request.getParameter("question5_3");
+		q.nonAff = request.getParameter("question6") == null ? "undefined" : request.getParameter("question6");
+		q.jointPartners = request.getParameter("question7") == null ? "undefined" : request.getParameter("question7");
+		q.otherInfo = request.getParameter("question8") == null ? "undefined" : request.getParameter("question8");
+		
+		
 		return "generated.jsp";
 	}
 }

@@ -2,1005 +2,773 @@
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+	type="text/javascript">
+	
 </script>
 
-	<!-- $(function() {
-
-		var addDiv = $('#addinput');
-		var i = $('#addinput p').size();
-
-		$('#addNew')
-				.live(
-						'click',
-						function() {
-							// aqui tengo decidir lo del select??, osea que quiero hacer?, que si es 21 - 15  - 7 , el usuario tendria que ponder
-							// 3 ejercicios para ese?
-							// o bien, activar una opcion select que sea
-							// diferente repeticiones que disminuyen?
-							$(
-									'<p><input type="hidden" value='+i+'><l1><select  class="form-control" name="shareType" > <option value="income" >income'
-											+ '</option><option value="investment experience" >investment experience</option>'
-											+ '<option value="credit based insurance scores" >credit based insurance scores'
-											+ '</option><option value="mortgage rates" >mortgage rates</option><option '
-					+'value="checking acount information" >checking acount information</option>'
-											+ '<option value="assets" >assets</option></select></li>'
-											+ '<a href="#" id="remNew">Remove</a></p>')
-									.appendTo(addDiv);
-
-							i++;
-							//<input type="text"  class="form-control"placeholder="Descripcion de Ejericio 1"
-				// required name="description1">
-
-							//<input type="text"  class="form-control"placeholder="Ejercicio 2" name="ej2">
-							return false;
-						});
-
-		$('#remNew').live('click', function() {
-			if (i > 0) {
-				$(this).parents('p').remove();
-				i--;
-			}
-			return false;
-		});
-	});
-</script> -->
 <style type="text/css">
 .tooltip {
-	display:none;
-	position:absolute;
-	border:1px solid #333;
-	background-color:#161616;
-	border-radius:5px;
-	padding:10px;
-	color:#fff;
-	font-size:12px Arial;
+	display: none;
+	position: absolute;
+	border: 1px solid #333;
+	background-color: #161616;
+	border-radius: 5px;
+	padding: 10px;
+	color: #fff;
+	font-size: 12px Arial;
+}
+
+.leftpad {
+	margin-left: 5%
 }
 </style>
-<script>
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						// Tooltip only Text
+						$('.masterTooltip')
+								.hover(
+										function() {
+											// Hover over code
+											var title = $(this).attr('title');
+											alert("A barcode is an optical machine-readable representation of data relating to the object to which it is attached.");
+											$(this).data('tipText', title)
+													.removeAttr('title');
+											$('<p class="tooltip"></p>').text(
+													title).appendTo('body')
+													.fadeIn('slow');
 
-$(document).ready(function() {
-// Tooltip only Text
-$('.masterTooltip').hover(function(){
-        // Hover over code
-        var title = $(this).attr('title');
-        alert("A barcode is an optical machine-readable representation of data relating to the object to which it is attached.");
-        $(this).data('tipText', title).removeAttr('title');
-        $('<p class="tooltip"></p>')
-        .text(title)
-        .appendTo('body')
-        .fadeIn('slow');
-        
-       
-}, function() {
-        // Hover out code
-        $(this).attr('title', $(this).data('tipText'));
-        $('.tooltip').remove();
-}).mousemove(function(e) {
-	
-        var mousex = e.pageX + 20; //Get X coordinates
-        var mousey = e.pageY + 10; //Get Y coordinates
-        
-        $('.tooltip')
-        .css({ top: mousey, left: mousex })
-        
-});
-});
+										},
+										function() {
+											// Hover out code
+											$(this).attr('title',
+													$(this).data('tipText'));
+											$('.tooltip').remove();
+										}).mousemove(function(e) {
 
-$(document).ready(function() {
-	// Tooltip only Text
-	$('.masterTooltip1').hover(function(){
-	        // Hover over code
-	        var title = $(this).attr('title');
-	       /*  alert("In entertainment, a tagline is a small amount of text which serves to clarify a thought for, or designed with a form of, dramatic effect."); */
-	        $(this).data('tipText', title).removeAttr('title');
-	        $('<p class="tooltip"></p>')
-	        .text(title)
-	        .appendTo('body')
-	        .fadeIn('slow');
-	        
-	       
-	}, function() {
-	        // Hover out code
-	        $(this).attr('title', $(this).data('tipText'));
-	        $('.tooltip').remove();
-	}).mousemove(function(e) {
-		
-	        var mousex = e.pageX + 20; //Get X coordinates
-	        var mousey = e.pageY + 10; //Get Y coordinates
-	        
-	        $('.tooltip')
-	        .css({ top: mousey, left: mousex })
-	        
-	});
-	});
+									var mousex = e.pageX + 20; //Get X coordinates
+									var mousey = e.pageY + 10; //Get Y coordinates
+
+									$('.tooltip').css({
+										top : mousey,
+										left : mousex
+									})
+
+								});
+					});
+
+	$(document).ready(
+			function() {
+				// Tooltip only Text
+				$('.masterTooltip1').hover(
+						function() {
+							// Hover over code
+							var title = $(this).attr('title');
+							/*  alert("In entertainment, a tagline is a small amount of text which serves to clarify a thought for, or designed with a form of, dramatic effect."); */
+							$(this).data('tipText', title).removeAttr('title');
+							$('<p class="tooltip"></p>').text(title).appendTo(
+									'body').fadeIn('slow');
+
+						}, function() {
+							// Hover out code
+							$(this).attr('title', $(this).data('tipText'));
+							$('.tooltip').remove();
+						}).mousemove(function(e) {
+
+					var mousex = e.pageX + 20; //Get X coordinates
+					var mousey = e.pageY + 10; //Get Y coordinates
+
+					$('.tooltip').css({
+						top : mousey,
+						left : mousex
+					})
+
+				});
+			});
 </script>
-<script>
-/* function mailinFormShow(){
-
-    if("${isMail}"){
-        document.getElementById("mailinForm").style.display="block";
-    }
-    else{
-        document.getElementById("mailinForm").style.display="none";
-    }
-}  */
-
-
-function showdiv1(ch){
-    if(ch.checked){
-        document.getElementById("optionalInfo").style.display="block";
-    }
-    else{
-        document.getElementById("optionalInfo").style.display="none";
-    }
-}
-function showdiv2(ch){
-    if(ch.checked){
-        document.getElementById("jointAccount").style.display="block";
-    }
-    else{
-        document.getElementById("jointAccount").style.display="none";
-    }
-}
-function blockdiv2(ch){
-    if(ch.checked){
-        document.getElementById("jointAccount").style.display="none";
-    }
-    else{
-        document.getElementById("jointAccount").style.display="block";
-    }
-}
-function showdiv3(ch){
-    if(ch.checked){
-        document.getElementById("jointMarket").style.display="block";
-    }
-    else{
-        document.getElementById("jointMarket").style.display="none";
-    }
-}
-function blockdiv3(ch){
-    if(ch.checked){
-        document.getElementById("jointMarket").style.display="none";
-    }
-    else{
-        document.getElementById("jointMarket").style.display="block";
-    }
-}
-function showdiv4(ch){
-    if(ch.checked){
-        document.getElementById("selectStatement").style.display="block";
-    }
-    else{
-        document.getElementById("selectStatement").style.display="none";
-    }
-}
-function blockdiv4(ch){
-    if(ch.checked){
-        document.getElementById("selectStatement").style.display="none";
-    }
-    else{
-        document.getElementById("selectStatement").style.display="block";
-    }
-}
-function showdiv5(ch){
-    if(ch.checked){
-        document.getElementById("choice1").style.display="block";
-    }
-    else{
-        document.getElementById("choice1").style.display="none";
-    }
-}
-function showdiv6(ch){
-    if(ch.checked){
-        document.getElementById("choice2").style.display="block";
-    }
-    else{
-        document.getElementById("choice2").style.display="none";
-    }
-}
-function showdiv7(ch){
-    if(ch.checked){
-        document.getElementById("choice3").style.display="block";
-    }
-    else{
-        document.getElementById("choice3").style.display="none";
-    }
-}
-function showdiv8(ch){
-    if(ch.checked){
-        document.getElementById("choice4").style.display="block";
-        document.getElementById("choice5").style.display="none";
-    }
-    else{
-        document.getElementById("choice4").style.display="none";
-        document.getElementById("choice5").style.display="block";
-    }
-}
-function showdiv9(ch){
-    if(ch.checked){
-        document.getElementById("choice5").style.display="block";
-        document.getElementById("choice4").style.display="none";
-    }
-    else{
-        document.getElementById("choice5").style.display="none";
-        document.getElementById("choice4").style.display="block";
-    }
-}
+<script type="text/javascript">
+	function showdiv1(ch) {
+		if (ch.checked) {
+			document.getElementById("optionalInfo").style.display = "block";
+		} else {
+			document.getElementById("optionalInfo").style.display = "none";
+		}
+	}
+	function showdiv2(ch) {
+		if (ch.checked) {
+			document.getElementById("jointAccount").style.display = "block";
+		} else {
+			document.getElementById("jointAccount").style.display = "none";
+		}
+	}
+	function blockdiv2(ch) {
+		if (ch.checked) {
+			document.getElementById("jointAccount").style.display = "none";
+		} else {
+			document.getElementById("jointAccount").style.display = "block";
+		}
+	}
+	function showdiv3(ch) {
+		if (ch.checked) {
+			document.getElementById("jointMarket").style.display = "block";
+		} else {
+			document.getElementById("jointMarket").style.display = "none";
+		}
+	}
+	function blockdiv3(ch) {
+		if (ch.checked) {
+			document.getElementById("jointMarket").style.display = "none";
+		} else {
+			document.getElementById("jointMarket").style.display = "block";
+		}
+	}
+	function showdiv4(ch) {
+		if (ch.checked) {
+			document.getElementById("selectStatement").style.display = "block";
+		} else {
+			document.getElementById("selectStatement").style.display = "none";
+		}
+	}
+	function blockdiv4(ch) {
+		if (ch.checked) {
+			document.getElementById("selectStatement").style.display = "none";
+		} else {
+			document.getElementById("selectStatement").style.display = "block";
+		}
+	}
+	function showdiv5(ch) {
+		if (ch.checked) {
+			document.getElementById("choice1").style.display = "block";
+		} else {
+			document.getElementById("choice1").style.display = "none";
+		}
+	}
+	function showdiv6(ch) {
+		if (ch.checked) {
+			document.getElementById("choice2").style.display = "block";
+		} else {
+			document.getElementById("choice2").style.display = "none";
+		}
+	}
+	function showdiv7(ch) {
+		if (ch.checked) {
+			document.getElementById("choice3").style.display = "block";
+		} else {
+			document.getElementById("choice3").style.display = "none";
+		}
+	}
+	function showdiv8(ch) {
+		if (ch.checked) {
+			document.getElementById("choice4").style.display = "block";
+			document.getElementById("choice5").style.display = "none";
+		} else {
+			document.getElementById("choice4").style.display = "none";
+			document.getElementById("choice5").style.display = "block";
+		}
+	}
+	function showdiv9(ch) {
+		if (ch.checked) {
+			document.getElementById("choice5").style.display = "block";
+			document.getElementById("choice4").style.display = "none";
+		} else {
+			document.getElementById("choice5").style.display = "none";
+			document.getElementById("choice4").style.display = "block";
+		}
+	}
 	function changeQ1() {
-
 		var myselect = document.getElementById("question1").value;
 
 		if (myselect == "No") {
-
 			document.getElementById("noShare").selected = "true";
 			document.getElementById("question1b").disabled = "true";
-
 		} else {
-
 			document.getElementById("question1b").disabled = false;
-
 		}
 
 		if (myselect == "Yes") {
-
 			document.getElementById("noShare1").disabled = "true";
 			document.getElementById("share1").selected = "true";
-
 		}
-		
-		
 	}
 	function changeQ2() {
-
 		var myselect = document.getElementById("question2").value;
-
 		if (myselect == "No") {
-
 			document.getElementById("noShare2").selected = "true";
 			document.getElementById("question2b").disabled = "true";
-
 		} else {
-
 			document.getElementById("question2b").disabled = false;
-
 		}
-		
-		if (myselect == "Yes") {
 
+		if (myselect == "Yes") {
 			document.getElementById("noShare2").disabled = "true";
 			document.getElementById("share2").selected = "true";
-
 		}
-		
-
 	}
 	function changeQ3() {
-
 		var myselect = document.getElementById("question3").value;
-
 		if (myselect == "No") {
-
 			document.getElementById("noShare3").selected = "true";
 			document.getElementById("question3b").disabled = "true";
-
 		} else {
-
 			document.getElementById("question3b").disabled = false;
-
 		}
-		
-		if (myselect == "Yes") {
 
+		if (myselect == "Yes") {
 			document.getElementById("noShare3").disabled = "true";
 			document.getElementById("share3").selected = "true";
-
 		}
-		
-
 	}
 	function changeQ4() {
-
 		var myselect = document.getElementById("question4").value;
-
 		if (myselect == "No") {
-
 			document.getElementById("noShare4").selected = "true";
 			document.getElementById("question4b").disabled = "true";
-
 		} else {
-
 			document.getElementById("question4b").disabled = false;
-
 		}
-		
-		if (myselect == "Yes") {
 
+		if (myselect == "Yes") {
 			document.getElementById("noShare4").disabled = "true";
 			document.getElementById("share4").selected = "true";
-
 		}
-		
-		
-
 	}
 	function changeQ5() {
-
 		var myselect = document.getElementById("question5").value;
-
 		if (myselect == "No") {
-
 			document.getElementById("noShare5").selected = "true";
 			document.getElementById("question5b").disabled = "true";
-
 		} else {
-
 			document.getElementById("question5b").disabled = false;
-
 		}
 
 		if (myselect == "Yes") {
-
 			document.getElementById("share5").selected = "true";
 			document.getElementById("question5b").disabled = "false";
-
 		}
-
 	}
 	function changeQ6() {
-
 		var myselect = document.getElementById("question6").value;
-
 		if (myselect == "No") {
-
 			document.getElementById("noShare6").selected = "true";
 			document.getElementById("question6b").disabled = "true";
-
 		} else {
-
 			document.getElementById("question6b").disabled = false;
-
 		}
 
 		if (myselect == "Yes") {
-
 			document.getElementById("share6").selected = "true";
 			document.getElementById("question6b").disabled = "false";
-
 		}
-
 	}
-
-		
-
 </script>
 <!-- <body onload = "showdiv()"> -->
 <body>
-<form id="form2" action="page1.do" onsubmit="return validateForm1()" method="post">
-<div class="table-module">
-	<div>
-		<h2 class="cpn-header">U.S. Consumer Privacy Notice</h2>
-		<div class="content-section">
-			<div class="content-row">
-				<div class="content-section">
-					<p style="text-align: right">
-						Revision Date:<input class="form-control " type="text"
-							id="datepicker" placeholder="Example : rev. October 2012 need to fix this"
-							name="newDate" style="text-align: right">
-					</p>
+	<form id="form2" action="page1.do" onsubmit="return validateForm1()"
+		method="post">
+		<div>
+			<div class="content-section">
+				<div class="content-row">
+					<h4>Please input the revision date that will appear in the
+						privacy form.</h4>
+					<input class="form-control" type="text" id="datepicker"
+						placeholder="Example : October 2012" name="newDate">
 				</div>
-<!-- 				<table class="table table-striped" style="text-align: left">
-					<tr>
-						<td class="cpn-heading">FACTS</td>
-						<td class="cpn-details">
-							<p>
-								WHAT DOES <span id="username"></span> DO WITH YOUR PERSONAL
-								INFORMATION?
-							</p>
-						</td>
-					</tr>
-				</table> -->
+				<br />
+
+				<div class="content-row">
+					<div id="error5" style="display: none">
+						<h5 style="color: red;">You need to select at least 5 options
+							including SSN</h5>
+					</div>
+					<h4>Please select the types of personal information you
+						collect and share depend on the product or service customers have
+						with you.</h4>
+					<p>Besides SSN, these types information can include: (At least
+						4)</p>
+					<div id="addinput">
+						<table>
+							<tr>
+								<td><input type="checkbox" name="checkbox" value="option1">
+									Income</td>
+								<td><input type="checkbox" name="checkbox" value="option2">
+									Account Balances</td>
+								<td><input type="checkbox" name="checkbox" value="option3">
+									Payment History</td>
+								<td><input type="checkbox" name="checkbox" value="option4">
+									Transaction History</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="checkbox" value="option5">
+									Transaction or Loss History</td>
+								<td><input type="checkbox" name="checkbox" value="option6">
+									Credit History</td>
+								<td><input type="checkbox" name="checkbox" value="option7">
+									Credit Scores</td>
+								<td><input type="checkbox" name="checkbox" value="option8">
+									Assets</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="checkbox" value="option9">
+									Investment Experience</td>
+								<td><input type="checkbox" name="checkbox" value="option10">
+									Credit Based Insurance Scores</td>
+								<td><input type="checkbox" name="checkbox" value="option11">
+									Insurance Claim History</td>
+								<td><input type="checkbox" name="checkbox" value="option12">
+									Account Transactions</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="checkbox" value="option13">
+									Risk Toerance</td>
+								<td><input type="checkbox" name="checkbox" value="option14">
+									Medical Related Debts</td>
+								<td><input type="checkbox" name="checkbox" value="option15">
+									Credit Card or other debt</td>
+								<td><input type="checkbox" name="checkbox" value="option16">
+									Mortgage Rates and Payments</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" name="checkbox" value="option17">
+									Retirement Assets</td>
+								<td><input type="checkbox" name="checkbox" value="option18">
+									Checking account information</td>
+								<td><input type="checkbox" name="checkbox" value="option19">
+									Employment Information retirement portfolio</td>
+								<td><input type="checkbox" name="checkbox" value="option20">
+									Wire Transfer Instructions</td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
-			<!-- <div class="content-row">
-				<table class="table table-striped" style="text-align: left">
-					<tr>
-						<td class="cpn-heading">Why?</td>
-						<td class="cpn-details">
-							<p>Financial companies choose how they share your personal
-								information. Under federal law, that means personally
-								identifiable information. Federal law gives consumers the right
-								to limit some but not all sharing. Federal law also requires us
-								to tell you how we collect, share, and protect your personal
-								information. Please read this notice carefully to understand
-								what we do.</p>
-						</td>
-					</tr>
+			<br />
+
+			<div class="content-row">
+				<h4>Please select Yes/no or we do not share depending if the
+					reason on the left column to share personal information is valid to
+					your organization.</h4>
+				<table border="0" class="table table-striped"
+					style="text-align: left"
+					summary="This 3-column table provides information about the reasons why Bank of America can share your personal information.">
+					<thead>
+						<tr>
+							<th scope="col">Information</th>
+							<th scope="col">Does <span id="username3"></span> share?
+							</th>
+							<th scope="col">Can you limit this sharing?</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>Does your organization share
+									information for everyday business purposes? </strong>&mdash; Such as to
+								process transactions, maintain customers account(s), respond to
+								court orders and legal investigations, or report to credit
+								bureaus</td>
+							<td class="centered-td">Yes<br /> (Mandatory)
+							</td>
+							<td class="centered-td">No<br /> (Mandatory)
+							</td>
+						</tr>
+						<tr>
+							<td><strong>Does your organization share
+									information for marketing purposes </strong>&mdash; to such as to offer
+								products and services to customers?</td>
+							<td class="centered-td"><select name="question1"
+								id="question1" onchange="changeQ1()"><option
+										value="Yes">Yes</option>
+									<option value="No">No</option></select></td>
+							<td class="centered-td"><select name="question1b"
+								id="question1b" readonly="false"><option value="Yes"
+										id="share1">Yes</option>
+									<option value="No">No</option>
+									<option value="No" id="noShare">We do not share</option></select></td>
+						</tr>
+						<tr>
+							<td><strong> Does your organization share
+									information to do joint marketing with other financial
+									companies?</strong></td>
+							<td class="centered-td"><select name="question2"
+								id="question2" onchange="changeQ2()"><option
+										value="Yes">Yes</option>
+									<option value="No">No</option></select></td>
+							<td class="centered-td"><select name="question2b"
+								id="question2b" readonly="false"><option value="Yes"
+										id="share2">Yes</option>
+									<option value="No">No</option>
+									<option value="No" id="noShare2">We do not share</option></select></td>
+						</tr>
+						<tr>
+							<td><strong>Does your organization share
+									information with affiliates&rsquo; for everyday business
+									purposes? </strong>&mdash; Information about transactions and
+								experiences from customers</td>
+							<td class="centered-td"><select name="question3"
+								id="question3" onchange="changeQ3()"><option
+										value="Yes">Yes</option>
+									<option value="No">No</option></select></td>
+							<td class="centered-td"><select name="question3b"
+								id="question3b" readonly="false"><option value="Yes"
+										id="share3">Yes</option>
+									<option value="No">No</option>
+									<option value="No" id="noShare3">We do not share</option></select></td>
+						</tr>
+						<tr>
+							<td><strong>Does your organization share
+									information for affiliates&rsquo; everyday business purposes? </strong>&mdash;
+								Information such as creditworthiness</td>
+							<td class="centered-td"><select id="question4"
+								name="question4" onchange="changeQ4()"><option
+										value="Yes">Yes</option>
+									<option value="No">No</option></select></td>
+							<td class="centered-td"><select id="question4b"
+								name="question4b" readonly="false"><option value="Yes"
+										id="share4">Yes</option>
+									<option value="No">No</option>
+									<option value="No" id="noShare4">We do not share</option></select></td>
+						</tr>
+						<c:if test="${hasAffiliates}">
+							<tr>
+								<td><strong><span id="optionalQuestion">Will
+											the affiliates market to your customers? </span></strong></td>
+								<td class="centered-td"><select id="question5"
+									name="question5" onchange="changeQ5()"><option
+											value="Yes">Yes</option>
+										<option value="No">No</option></select></td>
+								<td class="centered-td"><select id="question5b"
+									name="question5b" readonly="false"><option value="Yes"
+											id="share5">Yes</option>
+										<option value="No" id="noShare5">we do not share</option></select></td>
+							</tr>
+						</c:if>
+
+						<tr>
+							<td><strong>For nonaffiliates to market to you</strong></td>
+							<td class="centered-td"><select id="question6"
+								onchange="changeQ6()"><option value="Yes">Yes</option>
+									<option value="No">No</option></select></td>
+							<td class="centered-td"><select id="question6b"
+								readonly="false"><option value="Yes" id="share6">Yes</option>
+									<option value="No" id="noShare6">We do not share</option></select></td>
+						</tr>
+					</tbody>
 				</table>
-			</div> -->
-			<div class="content-row">
-			<div id="error5" style="display: none">
-				<h5 style="color: red;">You need to select at least 5 options including SSN</h5>
-			</div>
-					<tr>
-					
-						<td class="cpn-heading">What?</td>
-						<td class="cpn-details">
-							<p>The types of personal information we collect and share
-								depend on the product or service you have with us.</p>
-							<p>This information can include:</p>
-
-
-							<ul>
-								<div id="addinput">
-
-
-									<l1> Social Security(Mandatory) </l1>
-														<p>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option1"> Income
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option2"> Account Balances
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option3"> Payment History
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option4"> Transaction History
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option5"> Transaction or Loss History
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option6"> Credit History
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option7"> Credit Scores
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option8"> Assets
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option9"> Investment Experience
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox"  value="option10"> Credit Based Insurance Scores
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option11"> Insurance Claim History
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option12"> Account Transactions
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option13"> Risk Toerance
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option14"> Medical Related Debts
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option15"> Credit Card or other debt 
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option16"> Mortgage Rates and Payments
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option17"> Retirement Assets
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option18"> Checking account information
-						</label>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option19"> Employment Information
-								retirement portfolio
-						</label>
-						<br/>
-						<label class="checkbox-inline">
-						  <input type="checkbox" name="checkbox" value="option20"> Wire Transfer Instructions
-						</label>
-						
-						<br/>
-					</p>
-
-								</div>
-							</ul> <!-- <a href="#" id="addNew">Click Here To add More Items</a> -->
-						</td>
-					</tr>
-				
-			</div>
-			<div class="content-row">
-<!-- 				<table class="table table-striped" style="text-align: left">
-					<tr>
-						<td class="cpn-heading">How?</td>
-						<td class="cpn-details">
-							<p>
-								All financial companies need to share customers&rsquo; personal
-								information to run their everyday business. In the section
-								below, we list the reasons financial companies can share their
-								customers&rsquo; personal information; the reasons <span
-									id="username2"></span> chooses to share; and whether you can
-								limit this sharing.
-							</p>
-						</td>
-					</tr>
-				</table> -->
 			</div>
 		</div>
+		<br />
 
-		<div class="content-section ">
-			<table border="0" class="table table-striped"
-				style="text-align: left"
-				summary="This 3-column table provides information about the reasons why Bank of America can share your personal information.">
-				<thead>
-					<tr>
-						<th scope="col">Please select Yes/no or we do not share depending if the  reason on the left column to share  personal information is valid to your organization.
-							information</th>
-						<th scope="col">Does <span id="username3"></span> share?
-						</th>
-						<th scope="col">Can you limit this sharing?</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>Does your organization share information for  everyday business purposes? </strong>&mdash;
-							Such as to process transactions, maintain customers account(s),
-							respond to court orders and legal investigations, or report to
-							credit bureaus</td>
-						<td class="centered-td">Yes (Mandatory)</td>
-						<td class="centered-td">No (Mandatory)</td>
-					</tr>
-					<tr>
-						<td><strong>Does your organization share information for  marketing purposes </strong>&mdash; to
-							such as to offer  products and services to customers?</td>
-						<td class="centered-td"><select name="question1" id="question1"
-							onchange="changeQ1()"><option value="Yes">yes</option>
-								<option value="No">No</option></select></td>
-						<td class="centered-td"><select name = "question1b" id="question1b"
-							readonly="false"><option value="Yes" id ="share1">yes</option>
-								<option value="No">No</option>
-								<option value="No" id="noShare">We do not share</option></select></td>
-					</tr>
-					<tr>
-						<td><strong> Does your organization share information to do  joint marketing with other
-								financial companies?</strong></td>
-						<td class="centered-td"><select name = "question2" id="question2"
-							onchange="changeQ2()"><option value="Yes">yes</option>
-								<option value="No">No</option></select></td>
-						<td class="centered-td"><select name = "question2b" id="question2b"
-							readonly="false"><option value="Yes" id ="share2">yes</option>
-								<option value="No">No</option>
-								<option value="No" id="noShare2">We do not share</option></select></td>
-					</tr>
-					<tr>
-						<td><strong>Does your organization share information with affiliates&rsquo; for everyday
-								business purposes? </strong>&mdash; Information about transactions
-							and experiences from customers</td>
-						<td class="centered-td"><select name = "question3" id="question3"
-							onchange="changeQ3()"><option value="Yes">yes</option>
-								<option value="No">No</option></select></td>
-						<td class="centered-td"><select name = "question3b" id="question3b"
-							readonly="false"><option value="Yes" id ="share3">yes</option>
-								<option value="No">No</option>
-								<option value="No" id="noShare3">We do not share</option></select></td>
-					</tr>
-					<tr>
-						<td><strong>Does your organization share information for affiliates&rsquo; everyday
-								business purposes? </strong>&mdash; Information such as
-							creditworthiness</td>
-						<td class="centered-td"><select id="question4" name = "question4"
-							onchange="changeQ4()"><option value="Yes">yes</option>
-								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question4b" name = "question4b"
-							readonly="false"><option value="Yes" id ="share4">yes</option>
-								<option value="No">No</option>
-								<option value="No" id="noShare4">We do not share</option></select></td>
-					</tr>
-					<c:if test="${hasAffiliates}">
-					<tr >			
-						<td><strong><span id="optionalQuestion">Will the affiliates market to your customers? </span></strong></td>
-						<td class="centered-td"><select id="question5" name = "question5"
-							onchange="changeQ5()" ><option value="Yes">yes</option>
-								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question5b" name = "question5b"
-							readonly="false"><option value="Yes" id="share5">yes</option>
-								<option value="No" id="noShare5">we do not share</option></select></td>
-					</tr >
-					</c:if>
+		<div class="content-row">
+			<h4>How many days can you begin sharing new customer's
+				information from the date you sent the notice to the customer?</h4>
+			<br />
+			<div id="error1" style="display: none">
+				<h5 style="color: red;">The number of days need to be larger
+					than 30</h5>
+			</div>
+			<input type="text" class="form-control" id="numberOfDays"
+				placeholder="No less than 30 days" name="numOfDays">
+		</div>
+		<br />
 
-					
-					<tr>
-						<td><strong>For nonaffiliates to market to you</strong></td>
-						<td class="centered-td"><select id="question6"
-							onchange="changeQ6()"><option value="Yes">Yes</option>
-								<option value="No">No</option></select></td>
-						<td class="centered-td"><select id="question6b"
-							readonly="false"><option value="Yes" id="share6">Yes</option>
-								<option value="No" id="noShare6">We do not share</option></select></td>
-					</tr>
-				</tbody>
+		<div class="content-row">
+			<h4>What customer service contact information will you provide?</h4>
+			<br />
+			<div id="error2" style="display: none">
+				<h5 style="color: red;">You need to select at least one of the
+					contact method</h5>
+			</div>
+			<table style="width: 100%">
+				<tr>
+					<td width="15%"><input name="contactMethod" id="phone1"
+						type="checkbox" value="phone" /> Phone</td>
+					<td><input type="text" class="form-control"
+						placeholder="Phone Number" name="phoneText"></td>
+				</tr>
+				<tr>
+					<td width="15%"><input name="contactMethod" type="checkbox"
+						id="website1" value="website" /> Website</td>
+					<td><input type="text" class="form-control"
+						placeholder="Website Address" name="websiteText"></td>
+				</tr>
 			</table>
 		</div>
-	</div>
-</div>
-<div class="col-lg-10">
-<br />
-<br />
-	<h4>How many days can you begin sharing new customer's information from the date               you sent the notice to the customer?</h4><br />
-	<div id="error1" style="display: none">
-				<h5 style="color: red;">The number of days need to be larger than 30</h5>
-			</div>
-	<div class="input-group"><input type="text" class="form-control" id="numberOfDays" placeholder="No less than 30 days" name = "numOfDays"><span class="input-group-addon">days</span></div> 
-    <br />
-	<h4>What customer service contact information will you provide?</h4><br />
-	<div id="error2" style="display: none">
-				<h5 style="color: red;">You need to select at least one of the contact method</h5>
-			</div>
-	<label><input name="contactMethod" id="phone1" type="checkbox"
-		value="" />          Phone </label>  <br /> <label><input name="contactMethod" type="checkbox"
-		id="website1" value="" />          Website </label> <br />
-	<br />
-	<br />
-	<p>
-		<button type="submit" id="submitButton1" class="btn btn-default"
-			onclick="validateForm1()">Next Page</button>
-	</p>
-</div>
-<c:if test="${isMail}">
-<div class="col-lg-10" id="mailinForm" >
-	<br />
-	<br />
-	<table class="table table-striped" style="text-align: left">
+		<br />
+		<c:if test="${isMail}">
+			<div class="content-row" id="mailinForm">
+				<table class="table table-striped" style="text-align: left">
 					<tr>
 						<td class="cpn-heading"><h4>Mail in opt-out form</h4></td>
-						
 					</tr>
 				</table>
 
-	<br />
-	<h4>Do you need additional information from customers except
-		for customer's name and address?</h4>
+				<br />
+				<h4>Do you need additional information from customers except
+					for customer's name and address?</h4>
+				<input name="additionalInfo" type="checkbox" value=""
+					onclick="showdiv1(this)" /> Yes <br />
+				<div id="optionalInfo" class="leftpad" style="display: none">
+					<h5>Please select the additional information you need:</h5>
+					<input type="radio" name="optionsRadios" id="radio1"
+						value="accountNum" checked> Account Number<br /> 
+					<input type="radio" name="optionsRadios" id="radio1" value="optoutNum">
+						Opt-out Number<br /> 
+					<input type="radio" name="optionsRadios"
+						id="radio1" value="TaccountNum"> 
+						Truncated Account Number<br />
+				</div>
+				<br />
+				<h4>The mail-in opt-out form should be mailed to:</h4>
+				<table>
+					<tr>
+						<td>Street:</td>
+						<td colspan="3">&nbsp;&nbsp;&nbsp;<input name="street" type="text"></td>
+						<td>&nbsp;&nbsp;&nbsp;Apt #:</td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="text" name="apartmentNum"></td>
+					</tr>
 
-    <br />
-	<label><input name="additionalInfo" type="checkbox" value=""
-		onclick="showdiv1(this)" />       Additional Information </label>
-    <br />
-	<div id="optionalInfo" style="display: none">
-		<p>
-			<input type="radio" name="optionsRadios" id="radio1" value="accountNum"
-				checked>        Account Number<br />
-		</p>
-		
-		<p>
-			<input type="radio" name="optionsRadios" id="radio1" value="optoutNum">       Opt-out
-			Number<br />
-		</p>
-		<p>
-			<input type="radio" name="optionsRadios" id="radio1" value="TaccountNum">       Truncated
-			Account Number<br />
-		</p>
-	</div>
-	<br />
-	<h4>Mail to Address:</h4>
-	<br />
-	<table>
-	<tr>
-	<td>Street:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input name = "street" type="text" ></td>
-	<td>&nbsp;&nbsp;&nbsp;Apt #:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input type="text" name = "apartmentNum"></td>
-	<td>
-	</td>
-	<td>
-	</td>
-	</tr>
-	
-	<tr>
-	<td>City:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input name = "city" type="text"></td>
-	<td>&nbsp;&nbsp;&nbsp;State:</td>
-	<td>&nbsp;&nbsp;&nbsp;
-	<select>
-		<option value="AL">Alabama</option>
-		<option value="AK">Alaska</option>
-		<option value="AZ">Arizona</option>
-		<option value="AR">Arkansas</option>
-		<option value="CA">California</option>
-		<option value="CO">Colorado</option>
-		<option value="CT">Connecticut</option>
-		<option value="DE">Delaware</option>
-		<option value="DC">District Of Columbia</option>
-		<option value="FL">Florida</option>
-		<option value="GA">Georgia</option>
-		<option value="HI">Hawaii</option>
-		<option value="ID">Idaho</option>
-		<option value="IL">Illinois</option>
-		<option value="IN">Indiana</option>
-		<option value="IA">Iowa</option>
-		<option value="KS">Kansas</option>
-		<option value="KY">Kentucky</option>
-		<option value="LA">Louisiana</option>
-		<option value="ME">Maine</option>
-		<option value="MD">Maryland</option>
-		<option value="MA">Massachusetts</option>
-		<option value="MI">Michigan</option>
-		<option value="MN">Minnesota</option>
-		<option value="MS">Mississippi</option>
-		<option value="MO">Missouri</option>
-		<option value="MT">Montana</option>
-		<option value="NE">Nebraska</option>
-		<option value="NV">Nevada</option>
-		<option value="NH">New Hampshire</option>
-		<option value="NJ">New Jersey</option>
-		<option value="NM">New Mexico</option>
-		<option value="NY">New York</option>
-		<option value="NC">North Carolina</option>
-		<option value="ND">North Dakota</option>
-		<option value="OH">Ohio</option>
-		<option value="OK">Oklahoma</option>
-		<option value="OR">Oregon</option>
-		<option value="PA">Pennsylvania</option>
-		<option value="RI">Rhode Island</option>
-		<option value="SC">South Carolina</option>
-		<option value="SD">South Dakota</option>
-		<option value="TN">Tennessee</option>
-		<option value="TX">Texas</option>
-		<option value="UT">Utah</option>
-		<option value="VT">Vermont</option>
-		<option value="VA">Virginia</option>
-		<option value="WA">Washington</option>
-		<option value="WV">West Virginia</option>
-		<option value="WI">Wisconsin</option>
-		<option value="WY">Wyoming</option>
-	</select>
-	</td>
-	<td>&nbsp;&nbsp;&nbsp;Zip:</td>
-	<td>&nbsp;&nbsp;&nbsp;<input type="text" name = "zip"></td>
-	</tr>
-	</table>
-	<br />
-	<h4>Will you provide your joint accountholders the choice to
-		opt out for only one accountholder?</h4>
-    <br />
-	<p>
-		<input type="radio" name="optionsRadios1" id="radio1" value="q3Y"
-			onclick="showdiv2(this)">Yes<br />
-	</p>
-	<p>
-		<input type="radio" name="optionsRadios1" id="radio2" value="q3N"
-			onclick="blockdiv2(this)" checked>No<br />
-	</p>
-	<div id="jointAccount" style="display: none">
-		<h4>If you have a joint account, will you apply your choice(s)
-			only to yourself?</h4>
-		<p>
-			<input type="radio" name="optionsRadios" 2 id="radio3" value="q3aY">Yes<br />
-		</p>
-		<p>
-			<input type="radio" name="optionsRadios2" id="radio4" value="q3aN"
-				checked>No<br />
-		</p>
-		<h4>Are you a financial institutions that provide insurance
-			products or services?</h4>
-		<p>
-			<input type="radio" name="optionsRadios3" id="radio5" value="q3bY">Yes<br />
-		</p>
-		<p>
-			<input type="radio" name="optionsRadios3" id="radio6" value="q3bN"
-				checked>No<br />
-		</p>
-	</div>
-	<h4>Please select what do you want to limit.</h4>
-	<br />
-	<p>
-		<label><input name="opt-out" type="checkbox" value="q4a"  onclick="showdiv5(this)"/>&nbsp;&nbsp;&nbsp;Do
-			not share information about your creditworthiness with your
-			affiliates for their everyday business purposes. </label>
-	</p>
-	<div id="choice1" style="display: none">
-	<p>
-		<input type="radio" name="optionsRadios4" id="radio7" value="q4aY">Yes<br />
-	</p>
-	<p>
-		<input type="radio" name="optionsRadios4" id="radio8" value="q4aN"
-			checked>No<br />
-	</p>
-	</div>
-		
-	<label><input name="opt-out" type="checkbox" value="q4b"  onclick="showdiv6(this)"/>&nbsp;&nbsp;&nbsp;Do not
-		allow your affiliates to use your personal information to market to
-		you.</label>
-		<br />
-		 <div id="choice2" style="display: none">
-	<p>
-		<input type="radio" name="optionsRadios5" id="radio9" value="q4bY">Yes<br />
-	</p>
-	<p>
-		<input type="radio" name="optionsRadios5" id="radio10" value="q4bN"
-			checked>No<br />
-	</p>
-	</div>
-	<br />
-	<label><input name="opt-out" type="checkbox" value="q4c"  onclick="showdiv7(this)"/>&nbsp;&nbsp;&nbsp;Do not
-		share your personal information with nonaffiliates to market their
-		products and services to you.</label>
-	<div id="choice3" style="display: none">
-	<p>
-		<input type="radio" name="optionsRadios6" id="radio11" value="q4cY">Yes<br />
-	</p>
-	<p>
-		<input type="radio" name="optionsRadios6" id="radio12" value="q4cN"
-			checked>No<br />
-	</p>
-	</div>
-	<br />
-	<p>
-	<br />
-	<h4>Do you offer an opt-out for your own marketing?</h4>
-	<br />
-	<p>
-		<input type="radio" name="optionsRadios7" id="radio13" value="q5Y"
-			onclick="showdiv4(this)">Yes<br />
-	</p>
-	<p>
-		<input type="radio" name="optionsRadios7" id="radio14" value="q5N"
-			onclick="blockdiv4(this)" checked>No<br />
-	</p>
-	<div id="selectStatement" style="display: none">
-		<h4>Please select one of the following two statements:</h4>
-		<br />
-		<input type="radio" name="optionsRadios9" id="radio1" value="q5a" onclick="showdiv8(this)" checked>Do
-		not share my personal information to market to me.<br />
-		</p>
-		<div id="choice4" style="display: none">
-		<p>
-			<input type="radio" name="optionsRadios8" id="radio15" value="q5aY">Yes<br />
-		</p>
-		<p>
-			<input type="radio" name="optionsRadios8" id="radio16" value="q5aN"
-				checked>No<br />
-		</p>
-        </div>
-        <br />
-		<p>
-			<input type="radio" name="optionsRadios9" id="radio17" value="q5b" onclick="showdiv9(this)">Do
-			not use my personal information to market to me.<br />
-		</p>
-		<div id="choice5" style="display: none">
-		<p>
-			<input type="radio" name="optionsRadios10" id="radio18" value="q5bY">Yes<br />
-		</p>
-		<p>
-			<input type="radio" name="optionsRadios10" id="radio19" value="q5bN"
-				checked>No<br />
-		</p>
+					<tr>
+						<td>City:</td>
+						<td>&nbsp;&nbsp;&nbsp;<input name="city" type="text"></td>
+						<td>&nbsp;&nbsp;&nbsp;State:</td>
+						<td>&nbsp;&nbsp;&nbsp; <select>
+								<option value="AL">Alabama</option>
+								<option value="AK">Alaska</option>
+								<option value="AZ">Arizona</option>
+								<option value="AR">Arkansas</option>
+								<option value="CA">California</option>
+								<option value="CO">Colorado</option>
+								<option value="CT">Connecticut</option>
+								<option value="DE">Delaware</option>
+								<option value="DC">District Of Columbia</option>
+								<option value="FL">Florida</option>
+								<option value="GA">Georgia</option>
+								<option value="HI">Hawaii</option>
+								<option value="ID">Idaho</option>
+								<option value="IL">Illinois</option>
+								<option value="IN">Indiana</option>
+								<option value="IA">Iowa</option>
+								<option value="KS">Kansas</option>
+								<option value="KY">Kentucky</option>
+								<option value="LA">Louisiana</option>
+								<option value="ME">Maine</option>
+								<option value="MD">Maryland</option>
+								<option value="MA">Massachusetts</option>
+								<option value="MI">Michigan</option>
+								<option value="MN">Minnesota</option>
+								<option value="MS">Mississippi</option>
+								<option value="MO">Missouri</option>
+								<option value="MT">Montana</option>
+								<option value="NE">Nebraska</option>
+								<option value="NV">Nevada</option>
+								<option value="NH">New Hampshire</option>
+								<option value="NJ">New Jersey</option>
+								<option value="NM">New Mexico</option>
+								<option value="NY">New York</option>
+								<option value="NC">North Carolina</option>
+								<option value="ND">North Dakota</option>
+								<option value="OH">Ohio</option>
+								<option value="OK">Oklahoma</option>
+								<option value="OR">Oregon</option>
+								<option value="PA">Pennsylvania</option>
+								<option value="RI">Rhode Island</option>
+								<option value="SC">South Carolina</option>
+								<option value="SD">South Dakota</option>
+								<option value="TN">Tennessee</option>
+								<option value="TX">Texas</option>
+								<option value="UT">Utah</option>
+								<option value="VT">Vermont</option>
+								<option value="VA">Virginia</option>
+								<option value="WA">Washington</option>
+								<option value="WV">West Virginia</option>
+								<option value="WI">Wisconsin</option>
+								<option value="WY">Wyoming</option>
+						</select>
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;Zip:</td>
+						<td>&nbsp;&nbsp;&nbsp;<input type="text" name="zip"></td>
+					</tr>
+				</table>
+				<br />
+
+				<h4>Will you provide your joint accountholders the choice to
+					opt out for only one accountholder?</h4>
+				<input type="radio" name="optionsRadios1" id="radio1" value="q3Y"
+					onclick="showdiv2(this)">Yes<br /> <input type="radio"
+					name="optionsRadios1" id="radio2" value="q3N"
+					onclick="blockdiv2(this)" checked>No<br />
+
+				<div class="leftpad" id="jointAccount" style="display: none">
+					<h5>If you have a joint account, will you apply your choice(s)
+						only to yourself?</h5>
+					<input type="radio" name="optionsRadios2" id="radio3" value="q3aY">Yes<br />
+					<input type="radio" name="optionsRadios2" id="radio4" value="q3aN"
+						checked>No<br />
+					<h5>Are you a financial institutions that provide insurance
+						products or services?</h5>
+					<input type="radio" name="optionsRadios3" id="radio5" value="q3bY">Yes<br />
+					<input type="radio" name="optionsRadios3" id="radio6" value="q3bN"
+						checked>No<br />
+				</div>
+				<br />
+
+				<!-- <h4>Please select what do you want to limit.</h4>
+				<input name="opt-out" type="checkbox" value="q4a"
+					onclick="showdiv5(this)" />&nbsp;&nbsp;&nbsp;Do not share
+				information about your creditworthiness with your affiliates for
+				their everyday business purposes.<br />
+				<div id="choice1" style="display: none">
+					<input type="radio" name="optionsRadios4" id="radio7" value="q4aY">Yes<br />
+					<input type="radio" name="optionsRadios4" id="radio8" value="q4aN"
+						checked>No<br />
+				</div>
+
+				<input name="opt-out" type="checkbox" value="q4b"
+					onclick="showdiv6(this)" />&nbsp;&nbsp;&nbsp;Do not allow your
+				affiliates to use your personal information to market to you.<br />
+				<div id="choice2" style="display: none">
+					<input type="radio" name="optionsRadios5" id="radio9" value="q4bY">Yes<br />
+					<input type="radio" name="optionsRadios5" id="radio10" value="q4bN"
+						checked>No<br />
+				</div>
+				<input name="opt-out" type="checkbox" value="q4c"
+					onclick="showdiv7(this)" />&nbsp;&nbsp;&nbsp;Do not share your
+				personal information with nonaffiliates to market their products and
+				services to you.
+				<div id="choice3" style="display: none">
+					<input type="radio" name="optionsRadios6" id="radio11" value="q4cY">Yes<br />
+					<input type="radio" name="optionsRadios6" id="radio12" value="q4cN"
+						checked>No<br />
+				</div>
+				<br />
+				<br />-->
+				
+				<h4>Do you offer an opt-out for your own marketing?</h4>
+				<input type="radio" name="optionsRadios7" id="radio13" value="q5Y"
+					onclick="showdiv4(this)">Yes<br /> <input type="radio"
+					name="optionsRadios7" id="radio14" value="q5N"
+					onclick="blockdiv4(this)" checked>No<br />
+				<div class="leftpad" id="selectStatement" style="display: none">
+					<h5>Please select one of the following two statements:</h5>
+					<input type="radio" name="optionsRadios9" id="radio1"
+						value="q5a" onclick="showdiv8(this)" checked>Do not share
+					my personal information to market to me.<br />
+					<!--<div id="choice4" style="display: none">
+						<input type="radio" name="optionsRadios8" id="radio15"
+							value="q5aY">Yes<br /> <input type="radio"
+							name="optionsRadios8" id="radio16" value="q5aN" checked>No<br />
+					</div>-->
+					<input type="radio" name="optionsRadios9" id="radio17"
+						value="q5b" onclick="showdiv9(this)">Do not use my
+					personal information to market to me.<br />
+					<!--<div id="choice5" style="display: none">
+						<input type="radio" name="optionsRadios10" id="radio18"
+							value="q5bY">Yes<br /> <input type="radio"
+							name="optionsRadios10" id="radio19" value="q5bN" checked>No<br />
+					</div>-->
+				</div>
+				<br />
+				<h4>Do you offer an opt-out for joint marketing?</h4>
+				<input type="radio" name="optionsRadios11" id="radio20"
+					value="q6Y" onclick="showdiv3(this)">Yes<br /> <input
+					type="radio" name="optionsRadios11" id="radio21" value="q6N"
+					onclick="blockdiv3(this)" checked>No<br />
+				<div class="leftpad" id="jointMarket" style="display: none">
+					<h5>Will you share your personal information with other
+						financial institutions to jointly market to you?</h5>
+					<input type="radio" name="optionsRadios12" id="radio22"
+						value="q6aY">Yes<br /> <input type="radio"
+						name="optionsRadios12" id="radio23" value="q6aN" checked>No<br />
+				</div>
+				<!--
+				<br />
+				<h4>Do you want to include a barcode and/or "tagline" at the
+					bottom of page one?</h4>
+				<br /> <label><input name="opt-out" type="checkbox"
+					value="q7Barcode" />&nbsp;&nbsp;Barcode</label><a href="default.asp"><img
+					src="image/question.png" class="masterTooltip"
+					title="Tooltip on image" alt="" /></a><input name="barcodeFile"
+					type="file" id="exampleInputFile"> <br /> <label><input
+					name="opt-out" type="checkbox" value="q7Tagline" />&nbsp;&nbsp;Tagline
+				</label><a href="default.asp"><img src="image/question.png"
+					class="masterTooltip" title="Tooltip on image" alt="" /></a><input
+					name="toglineText" type="text">-->
+			</div>
+		</c:if>
+		<div class="content-row">
+			<br />
+			<p>
+				<button type="submit" id="submitButton1" class="btn btn-default"
+					onclick="validateForm1()">Next Page</button>
+			</p>
 		</div>
-	</div>
-	<br />
-	<h4>Do you offer an opt-out for joint marketing?</h4>
-	<br />
-	<p>
-		<input type="radio" name="optionsRadios11" id="radio20" value="q6Y"
-			onclick="showdiv3(this)">Yes<br />
-	</p>
-	<p>
-		<input type="radio" name="optionsRadios11" id="radio21" value="q6N"
-			onclick="blockdiv3(this)" checked>No<br />
-	</p>
-	<div id="jointMarket" style="display: none">
-		<h4>Will you share your personal information with other financial
-			institutions to jointly market to you?</h4>
-		<p>
-			<input type="radio" name="optionsRadios12" id="radio22" value="q6aY">Yes<br />
-		</p>
-		<p>
-			<input type="radio" name="optionsRadios12" id="radio23" value="q6aN"
-				checked>No<br />
-		</p>
-	</div>
-	<br />
-	<h4> Do you want to include a barcode and/or "tagline" at the
-		bottom of page one?</h4>
-	<br />
-	<label><input name="opt-out" type="checkbox" value="q7Barcode" />&nbsp;&nbsp;Barcode</label><a href="default.asp"><img src="image/question.png" class="masterTooltip" title="Tooltip on image"/></a><input name = "barcodeFile" type="file" id="exampleInputFile"> 
-	<br />
-	<label><input name="opt-out" type="checkbox" value="q7Tagline" />&nbsp;&nbsp;Tagline </label><a href="default.asp"><img src="image/question.png" class="masterTooltip" title="Tooltip on image"/></a><input name = "toglineText" type="text">
+	</form>
 
-	</p>
-	<br />
-	<br />
-	<br />
-    <input type="submit" name="next" >Next Page</button>
-	</p>
-</div>
-</c:if>
-</form>
+	<script type="text/javascript">
+		changeQ1();
+		changeQ2();
+		changeQ3();
+		changeQ4();
+		changeQ5();
+		changeQ6();
+		mailinFormShow();
+	</script>
+	<script type="text/javascript">
+		function validateForm1() {
+			var flag = true;
 
-<script>
-	changeQ1();
-	changeQ2();
-	changeQ3();
-	changeQ4();
-	changeQ5();
-	changeQ6();
-	mailinFormShow();
-	
-	
-</script>
-<script>
-function validateForm1() {	
-	var flag = true;
-	
-	var sum1 = 0;
-	var checkboxes1 = document.getElementsByName('contactMethod');
-	
- 	for (var j = 0; j < checkboxes1.length; j ++) {
-		if (checkboxes1[j].checked) {
-			sum1 ++;
-		}
-	} 
- 	if (sum1 < 1) {
- 		document.getElementById("error2").style.display = "block";
- 		
- 		flag = false;
-		
-		
-	} 
- 	else {
-		document.getElementById("error2").style.display = "none";
-		
-	}
- 	
-	var x = document.getElementById('numberOfDays').value;
-	
-	if (x < 30) {
-		document.getElementById("error1").style.display = "block";
-		
-		flag = false;
-		
-	}
-	else {
-		document.getElementById("error1").style.display = "none";
-		
-	}
-	
-	
-		var sum1 = 0;
-		var checkboxes1 = document.getElementsByName('checkbox');
-		
-	 	for (var j = 0; j < checkboxes1.length; j ++) {
-			if (checkboxes1[j].checked) {
-				sum1 ++;
+			var sum1 = 0;
+			var checkboxes1 = document.getElementsByName('contactMethod');
+
+			for (var j = 0; j < checkboxes1.length; j++) {
+				if (checkboxes1[j].checked) {
+					sum1++;
+				}
 			}
-		} 
-		
-		if (sum1< 4) {
-			document.getElementById("error5").style.display = "block";
-			flag = false;
-			
-			
+			if (sum1 < 1) {
+				document.getElementById("error2").style.display = "block";
+				flag = false;
+			} else {
+				document.getElementById("error2").style.display = "none";
+			}
+
+			var x = document.getElementById('numberOfDays').value;
+
+			if (x < 30) {
+				document.getElementById("error1").style.display = "block";
+				flag = false;
+			} else {
+				document.getElementById("error1").style.display = "none";
+			}
+
+			var sum1 = 0;
+			var checkboxes1 = document.getElementsByName('checkbox');
+
+			for (var j = 0; j < checkboxes1.length; j++) {
+				if (checkboxes1[j].checked) {
+					sum1++;
+				}
+			}
+
+			if (sum1 < 4) {
+				document.getElementById("error5").style.display = "block";
+				flag = false;
+
+			} else {
+				document.getElementById("error5").style.display = "none";
+			}
+
+			if (flag) {
+				return true;
+			} else {
+				$("html, body").animate({
+					scrollTop : 0
+				}, "fast");
+				return false;
+			}
 		}
-		else {
-			document.getElementById("error5").style.display = "none";
-			
-		}
-		
-		
-		
-	if(flag){
-		
-		return true;
-	}else{
-		$("html, body").animate({ scrollTop: 0 }, "fast");
-		return false;
-	}	
-}
-</script>
+	</script>
 </body>
 </html>
 <jsp:include page="bottom.jsp" />

@@ -21,25 +21,61 @@ public class Questionare {
 	public String companyName = "undefined";
 	public int opt_out_option = 0;
 	public boolean hasAffiliates = false;
+	public boolean hasPartners = false;
 	
 	// ==== Page 1 ====
-	public String lastRevised = "undefined";
-	public ArrayList<String> infotypes = new ArrayList<String>();
-	public ArrayList<String> share = new ArrayList<String>();
-	public ArrayList<String> limit = new ArrayList<String>();
+	public String lastRevisedDate = "undefined";
+	
+	public ArrayList<String> sharedInfo = new ArrayList<String>();
+	
+	public ArrayList<String> share = new ArrayList<String>();	// 6th valid when hasAffiliates = true
+	public ArrayList<String> limit = new ArrayList<String>();	// 6th valid when hasAffiliates = true
+	
+	public int days = 0;
+	
+	public boolean providePhone = false;
+	public String contactPhone = "undefined";		// Valid when providedPhone = true
+	public boolean provideWebsite = false;
+	public String contactWebsite = "undefined";		// Valid when providedWebsite = true
+	
+	// ==== Mail-in Form ====						// Valid when opt_out_option contains mail-in
+	public boolean additionalInfo = false;
+	public int additionalInfoType = 0;
+	
+	public String streetAddr = "undefined";
+	public String aptNumber = "undefined";
+	public String city = "undefined";
+	public String state = "undefined";
+	public String zipCode = "undefined";
+	
+	public boolean hasJointAccounts = false;
+	public boolean applyToSelf = false;				// Valid when hasJointAccounts = true
+	public boolean isInsurance = false;				// Valid when hasJointAccounts = true
+	
+	public boolean optOwnMarketing = false;
+	
+	public boolean optJointMarketing = false;
 	
 	// ==== Page 2 ====
-	public String optPhone = "undefined";
-	public String optWebsite = "undefined";
-	public String contactPhone = "undefined";
-	public String contactWebsite = "undefined";
-	public int days = 0;
-	public String requiredQ1;
-	public String requiredQ2;
-	public String requiredQ3;
-	public String requiredQ4;
-	public ArrayList<Definition> definitions = new ArrayList<Definition>();
-	public ArrayList<String> infos = new ArrayList<String>();
+	public String partners = "undefined";			// Valid when hasPartners = true
+	
+	public String howToProtect = "undefined";
+	
+	public ArrayList<String> collectedTypes = new ArrayList<String>();
+	
+	public String whyNotLimitAll = "undefined";		// Valid when?
+	
+	public boolean applyToAnyOne = false;			// Valid when hasJointAccounts = true?
+	
+	public String aff_Financial = "undefined";		// Valid when hasAffiliates = true
+	public String aff_Nonfinancial = "undefined";	// Valid when hasAffiliates = true
+	public String aff_Others = "undefined";			// Valid when hasAffiliates = true
+	
+	public String nonAff = "undefined";				// Valid when?
+	
+	public String jointPartners = "undefined";		// Valid when?
+	
+	public String otherInfo = "undefined";
 	
 	private Questionare() {
 		
@@ -54,7 +90,7 @@ public class Questionare {
 	public ArrayList<DocumentBlock> generateDoc() {
 		ArrayList<DocumentBlock> blocks = new ArrayList<DocumentBlock>();
 		
-		// ==== Page 1 ====
+		// ==== Page 1 in Form ====
 		DocumentBlock block = new DocumentBlock();
 		ColoredDocItem cItem = new ColoredDocItem();
 		cItem.setHead("FACTS");
@@ -81,7 +117,71 @@ public class Questionare {
 		tableBlock.addItem(generateTable());
 		blocks.add(tableBlock);
 		
-		// ==== Page 2 ====
+		// ==== Mail-in Form ====
+		
+		// ==== Page 2 in Form====
+		block = new DocumentBlock();
+		BlockTitleItem titleItem = new BlockTitleItem("Who we are");
+		block.addItem(titleItem);
+		WhiteDocItem wItem = new WhiteDocItem();
+		wItem.setHead("Who is providing this notice?");
+		wItem.addItem(new ContentParagraph(companyName));
+		block.addItem(wItem);
+		blocks.add(block);
+		
+		block = new DocumentBlock();
+		titleItem = new BlockTitleItem("What we do");
+		block.addItem(titleItem);
+		wItem = new WhiteDocItem();
+		wItem.setHead("How does " + companyName + " protect my personal information?");
+		wItem.addItem(new ContentParagraph(howToProtect));
+		block.addItem(wItem);
+		wItem = new WhiteDocItem();
+		wItem.setHead("How does " + companyName + " collect my personal information?");
+		wItem.addItem(new ContentParagraph(companyName)); // list
+		block.addItem(wItem);
+		wItem = new WhiteDocItem();
+		wItem.setHead("Why can't I limit all sharing?");
+		wItem.addItem(new ContentParagraph(whyNotLimitAll));
+		block.addItem(wItem);
+		wItem = new WhiteDocItem();
+		wItem.setHead("What happens when I limit sharing for an account I hold jointly with someone else?");
+		wItem.addItem(new ContentParagraph(companyName)); // choose
+		block.addItem(wItem);
+		blocks.add(block);
+		
+		block = new DocumentBlock();
+		titleItem = new BlockTitleItem("Definitions");
+		block.addItem(titleItem);
+		wItem = new WhiteDocItem();
+		wItem.setHead("Affiliates");
+		wItem.addItem(new ContentParagraph("Companies related by common ownership or control. They can be financial and nonfinancial companies."));
+		list = new ContentList();
+		list.addItem(aff_Financial);
+		wItem.addItem(list);
+		block.addItem(wItem);
+		wItem = new WhiteDocItem();
+		wItem.setHead("Nonaffiliates");
+		wItem.addItem(new ContentParagraph("Companies not related by common ownership or control. They can be financial and nonfinancial companies."));
+		list = new ContentList();
+		list.addItem(aff_Nonfinancial);
+		wItem.addItem(list);
+		block.addItem(wItem);
+		wItem = new WhiteDocItem();
+		wItem.setHead("Joint marketing");
+		wItem.addItem(new ContentParagraph("A formal agreement between nonaffiliated financial companies that together market financial products or services to you."));
+		list = new ContentList();
+		list.addItem(aff_Others);
+		wItem.addItem(list);
+		block.addItem(wItem);
+		blocks.add(block);
+		
+		block = new DocumentBlock();
+		titleItem = new BlockTitleItem("Other important information");
+		block.addItem(titleItem);
+		ParagraphItem pItem = new ParagraphItem(otherInfo);
+		block.addItem(pItem);
+		blocks.add(block);
 		
 		return blocks;
 	}
