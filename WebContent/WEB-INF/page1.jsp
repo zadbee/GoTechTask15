@@ -320,15 +320,14 @@
 
 				<div class="content-row">
 					<div id="error5" style="display: none">
-						<h5 style="color: red;">You need to select at least 5 options
-							including SSN</h5>
+						<h5 style="color: red;">You need to select 6 options
+							including SSN so only need to select 5 in total besides SSN</h5>
 					</div>
 					<h4>Please select the types of personal information you
 						collect and share depend on the product or service customers have
 						with you.</h4>
-					<p>Besides SSN, these types information can include: (At least
-						4)</p>
-					<div id="addinput">
+					<p>Besides SSN, select only 5 more information types</p>
+					<div id="addinput" onclick="checkBox()">
 						<table>
 							<tr>
 								<td><input type="checkbox" name="checkbox" value="Income">
@@ -387,7 +386,7 @@
 			<br />
 
 			<div class="content-row">
-				<h4>Please select Yes/no or we do not share depending if the
+				<h4>Please select Yes/No or we do not share depending if the
 					reason on the left column to share personal information is valid to
 					your organization.</h4>
 				<table border="0" class="table table-striped"
@@ -764,6 +763,30 @@
 		</div>
 	</form>
 
+<script type="text/javascript">
+
+function checkBox(){
+	
+var sum1 = 0;
+var checkboxes1 = document.getElementsByName('checkbox');
+
+for (var j = 0; j < checkboxes1.length; j++) {
+	if (checkboxes1[j].checked) {
+		sum1++;
+	}
+}
+
+if (sum1 > 5) {
+	document.getElementById("error5").style.display = "block";
+	flag = false;
+
+} else {
+	document.getElementById("error5").style.display = "none";
+}
+
+}
+</script>
+
 	<script type="text/javascript">
 		changeQ1();
 		changeQ2();
@@ -810,7 +833,7 @@
 				}
 			}
 
-			if (sum1 < 4) {
+			if (sum1 != 5) {
 				document.getElementById("error5").style.display = "block";
 				flag = false;
 
