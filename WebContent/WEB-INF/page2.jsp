@@ -127,14 +127,27 @@
 			<br />-->
 			<h4>Do you collect users' personal information from your affiliates and/or credit bureaus?</h4>
 			<div class="radio">
-				<label> <input type="radio" name="collect" id="Collect" value="yes" checked> Yes
+				<label> <input type="radio" name="collect" id="Collect" value="yes" onclick="block(this)" checked> Yes
 				</label>
 			</div>
 			<div class="radio">
-				<label> <input type="radio" name="collect" id="Collect" value="no"> No
+				<label> <input type="radio" name="collect" id="Collect" value="no" onclick="show(this)"> No
 				</label>
 			</div>
 			<br />
+			
+			<div id="collect2div" style="display: none">
+			<h4>Do you collect information from other companies?</h4>
+			<div class="radio">
+				<label> <input type="radio" name="collect2" id="Collect2" value="yes" checked> Yes
+				</label>
+			</div>
+			<div class="radio">
+				<label> <input type="radio" name="collect2" id="Collect2" value="no"> No
+				</label>
+			</div>
+			<br />
+			</div>
 			
 			<h4>Will you refer to state laws in the form?</h4>
 			<div class="radio">
@@ -412,5 +425,21 @@ function blockDescription(ch) {
 		document.getElementById("LawDescription").style.display = "block";
 	}
 }
+</script>
+<script>
+	function show(ch) {
+		if (ch.checked) {
+			document.getElementById("collect2div").style.display = "block";
+		} else {
+			document.getElementById("collect2div").style.display = "none";
+		}
+	}
+	function block(ch) {
+		if (ch.checked) {
+			document.getElementById("collect2div").style.display = "none";
+		} else {
+			document.getElementById("collect2div").style.display = "block";
+		}
+	}
 </script>
 <jsp:include page="bottom.jsp" />
