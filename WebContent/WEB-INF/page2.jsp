@@ -149,7 +149,7 @@
 			</div>
 			<br/>
 			
-			<h4>Will you refer to state laws for the question &quot;Why canâ€™t customers limit all sharing&quot; ?</h4>
+			<h4>Will you refer to state laws for the question &quot;Why can'€™t customers limit all sharing&quot; ?</h4>
 			<div class="radio">
 				<label> <input type="radio" name="refer" id="StateLaw" value="yes" onclick="showDescription(this)"> Yes
 				</label>

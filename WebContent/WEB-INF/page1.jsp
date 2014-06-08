@@ -383,6 +383,15 @@
 								<td><input type="checkbox" name="checkbox" value="Wire Transfer Instructions">
 									Wire Transfer Instructions</td>
 							</tr>
+							<tr>
+								<td><input type="checkbox" name="checkbox" value="Medical Information">
+									Medical Information</td>
+								<td><input type="checkbox" name="checkbox" value="Overdraft History">
+									Overdraft History</td>
+								<td><input type="checkbox" name="checkbox" value="Purchase History">
+									Purchase History</td>
+								<td></td>
+							</tr>
 						</table>
 					</div>
 				</div>
