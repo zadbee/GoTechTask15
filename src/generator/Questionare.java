@@ -319,7 +319,11 @@ public class Questionare {
 	public String generateJson() {
 		JSONObject obj = new JSONObject();
 		obj.put("companyName", companyName);
-		//obj.put("opt_out_option", opt_out_option);
+		obj.put("opt_phone", opt_phone);
+		obj.put("opt_cookie", opt_cookie);
+		obj.put("opt_doNotTrack", opt_doNotTrack);
+		obj.put("opt_mail", opt_mail);
+		obj.put("opt_website", opt_website);
 		obj.put("hasAffiliates", hasAffiliates);
 		obj.put("hasPartners", hasPartners);
 		obj.put("lastRevisedDate", lastRevisedDate);
@@ -377,7 +381,11 @@ public class Questionare {
 		Object obj = parser.parse(jsonString);
 		JSONObject jsonObject = (JSONObject) obj;
 		companyName = (String) jsonObject.get("companyName");
-		opt_out_option = (Integer) jsonObject.get("opt_out_option");
+		opt_phone = (Boolean) jsonObject.get("opt_phone");
+		opt_cookie = (Boolean) jsonObject.get("opt_cookie");
+		opt_doNotTrack = (Boolean) jsonObject.get("opt_doNotTrack");
+		opt_mail = (Boolean) jsonObject.get("opt_mail");
+		opt_website = (Boolean) jsonObject.get("opt_website");
 		hasAffiliates = (Boolean) jsonObject.get("hasAffiliates");
 		hasPartners =  (Boolean) jsonObject.get("hasPartners");
 		lastRevisedDate = (String) jsonObject.get("lastRevisedDate");
