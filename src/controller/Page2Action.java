@@ -31,11 +31,18 @@ public class Page2Action extends Action {
 		// Set the attributes for questionare.
 		q.partners = request.getParameter("question0") == null ? "undefined" : request.getParameter("question0");
 		q.howToProtect = request.getParameter("question1") == null ? "undefined" : request.getParameter("question1");
-		q.collectedTypes.add("type1");
-		q.collectedTypes.add("type2");
-		q.collectedTypes.add("type3");
-		q.collectedTypes.add("type4");
-		q.collectedTypes.add("type5");
+		
+		String[] types = request.getParameterValues("mylocs");
+		for (int i = 0; i < types.length; i ++) {
+			q.collectedTypes.add(types[i]);
+		
+		}
+		
+//		q.collectedTypes.add("type1");
+//		q.collectedTypes.add("type2");
+//		q.collectedTypes.add("type3");
+//		q.collectedTypes.add("type4");
+//		q.collectedTypes.add("type5");
 		q.stateLaw = !(request.getParameter("refer") == null || request.getParameter("refer").equals("no"));
 		q.lawDescription = request.getParameter("tld") == null ? "undefined" : request.getParameter("tld");
 		q.collectFromAffiliates = !(request.getParameter("collect") == null || request.getParameter("collect").equals("no"));
