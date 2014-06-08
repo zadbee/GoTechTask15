@@ -58,6 +58,18 @@ public class Page1Action extends Action {
 			}
 		}
 		
+		q.additionalInfo = (request.getParameter("additionalInfo") != null && request.getParameter("additionalInfo").equals("yes"));
+		q.additionalInfoType = request.getParameter("optionsRadios") == null ? " " : request.getParameter("optionsRadios");
+		
+		q.streetAddr = request.getParameter("street") == null ? "undefined" : request.getParameter("street");
+		q.city = request.getParameter("city") == null ? "undefined" : request.getParameter("city");
+		q.state = request.getParameter("state") == null ? "undefined" : request.getParameter("state");
+		q.zipCode = request.getParameter("zip") == null ? "undefined" : request.getParameter("zip");
+		
+		q.optOnlyOne = (request.getParameter("optionsRadios1") != null && request.getParameter("optionsRadios1").equals("q3Y"));
+		q.optOwnMarketing = (request.getParameter("optionsRadios7") != null && request.getParameter("optionsRadios7").equals("q5Y"));
+		q.optJointMarketing = (request.getParameter("optionsRadios11") != null && request.getParameter("optionsRadios11").equals("q6Y"));
+		
 				
 		return "page2.jsp";
 	}

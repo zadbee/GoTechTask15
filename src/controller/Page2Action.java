@@ -34,18 +34,13 @@ public class Page2Action extends Action {
 		
 		String[] types = request.getParameterValues("mylocs");
 		for (int i = 0; i < types.length; i ++) {
-			q.collectedTypes.add(types[i]);
-		
+			q.collectedTypes.add(types[i]);		
 		}
 		
-//		q.collectedTypes.add("type1");
-//		q.collectedTypes.add("type2");
-//		q.collectedTypes.add("type3");
-//		q.collectedTypes.add("type4");
-//		q.collectedTypes.add("type5");
 		q.stateLaw = !(request.getParameter("refer") == null || request.getParameter("refer").equals("no"));
 		q.lawDescription = request.getParameter("tld") == null ? "undefined" : request.getParameter("tld");
 		q.collectFromAffiliates = !(request.getParameter("collect") == null || request.getParameter("collect").equals("no"));
+		q.collectFromOthers = !(request.getParameter("collect2") == null || request.getParameter("collect2").equals("no"));
 		q.applyToAnyOne = (request.getParameter("radios") == null || request.getParameter("radios").equals("radio1"));
 		q.aff_Financial = request.getParameter("question5_1") == null ? "undefined" : request.getParameter("question5_1");
 		q.aff_Nonfinancial = request.getParameter("question5_2") == null ? "undefined" : request.getParameter("question5_2");
@@ -53,8 +48,6 @@ public class Page2Action extends Action {
 		q.nonAff = request.getParameter("question6") == null ? "undefined" : request.getParameter("question6");
 		q.jointPartners = request.getParameter("question7") == null ? "undefined" : request.getParameter("question7");
 		q.otherInfo = request.getParameter("question8") == null ? "undefined" : request.getParameter("question8");
-		
-		// System.out.println("====" + q.stateLaw + q.lawDescription + q.collectFromAffiliates + q.applyToAnyOne + q.aff_Financial + q.aff_Nonfinancial + q.aff_Others + q.jointPartners + q.otherInfo);
 		
 		return "generate.do";
 	}

@@ -10,9 +10,11 @@
 
 <title>U.S. Consumer Privacy Notice from Bank of America</title>
 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
 <style>
 body {
-  font-family: "Arial", Helvetica, sans-serif
+  font-family: "Trebuchet MS", Helvetica, sans-serif
 }
 
 table {
@@ -43,6 +45,14 @@ h3 {
   padding: 5px;
 }
 
+.preview {
+	width: 90%;
+	margin-bottom: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
+	border: 3px inset #80B2CC;
+}
+
 .content-section {
   width: 70%;
   margin-left: 15%;
@@ -60,6 +70,7 @@ h3 {
   background-color: #006699;
   color: white;
   vertical-align: center;
+  font-weight: bold;
 }
 
 .cpn-heading-white {
@@ -90,21 +101,64 @@ h3 {
 .bottom-border {
   border-bottom: 1px solid #80B2CC;
 }
+
+.mailin-heading {
+  width: 20%;
+  padding: 5px;
+  vertical-align: center;
+  border-left: 1px solid #80B2CC;
+  border-right: 1px solid #80B2CC;
+}
+
+.mailin-details {
+  padding: 0px;
+  width: 80%;
+  border-right: 1px solid #80B2CC;
+}
+
+.padding-5px {
+  padding: 5px;
+}
+
+.mail-addr-heading {
+  width: 25%;
+  padding: 5px;
+  background-color: #006699;
+  color: white;
+  vertical-align: center;
+  font-weight: bold;
+}
+
+.mail-addr-details {
+  width: 50%;
+  border-left: 1px solid #80B2CC;
+  border-right: 1px solid #80B2CC;
+}
+
+.mail-addr-mailto {
+  width: 25%;
+}
+
 </style>
 
 </head>
 
 <body>
-	<div>
-		<h2 class="cpn-header">U.S. Consumer Privacy Notice</h2>
-		<c:forEach var="block" items="${blocks}"> 
-            ${block.text} 
-        </c:forEach>
-	</div>
 	<div align="center">
 		<h4>Download HTML Page</h4>
 		<form action="download.do" method="post">
-			<input type="submit" name="download" value="Download File"/>
+			<input type="submit" class="btn btn-primary" name="download" value="Download File"/>
 		</form>
+	</div>
+	<br/>
+	<br/>
+	<h4 align="center">Privacy Form Preview</h4>
+	<div class="preview">
+		<div>
+			<h2 class="cpn-header">U.S. Consumer Privacy Notice</h2>
+			<c:forEach var="block" items="${blocks}"> 
+	            ${block.text} 
+	        </c:forEach>
+		</div>
 	</div>
 </body>

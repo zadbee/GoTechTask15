@@ -55,17 +55,17 @@ public class Questionare {
 	
 	// ==== Mail-in Form ====						// Valid when opt_out_option contains mail-in
 	public boolean additionalInfo = false;
-	public int additionalInfoType = 0;
+	public String additionalInfoType = "undefined";
 	
 	public String streetAddr = "undefined";
-	public String aptNumber = "undefined";
+//	public String aptNumber = "undefined";
 	public String city = "undefined";
 	public String state = "undefined";
 	public String zipCode = "undefined";
 	
-	public boolean hasJointAccounts = false;
-	public boolean applyToSelf = false;				// Valid when hasJointAccounts = true
-	public boolean isInsurance = false;				// Valid when hasJointAccounts = true
+//	public boolean hasJointAccounts = false;		
+	public boolean optOnlyOne = false;				
+//	public boolean isInsurance = false;				
 	
 	public boolean optOwnMarketing = false;
 	
@@ -79,6 +79,7 @@ public class Questionare {
 	public ArrayList<String> collectedTypes = new ArrayList<String>();
 	
 	public boolean collectFromAffiliates = false;
+	public boolean collectFromOthers = false;
 	
 	public boolean stateLaw = false;
 	public String lawDescription = "undefined";
@@ -202,11 +203,10 @@ public class Questionare {
 		list = new ContentList();
 		for (String s : collectedTypes)
 			list.addItem(s);
-		System.out.println("size " + collectedTypes.size());
 		wItem.addItem(list); // choice missing
 		if (collectFromAffiliates)
 			wItem.addItem(new ContentParagraph("We also collect your personal information from others, such as credit bureaus, affiliates, or other companies."));
-		else
+		else if (collectFromOthers)
 			wItem.addItem(new ContentParagraph("We also collect your personal information from other companies."));
 		block.addItem(wItem);
 		wItem = new WhiteDocItem();
@@ -274,14 +274,21 @@ public class Questionare {
 		titleItem = new BlockTitleItem("Other important information");
 		block.addItem(titleItem);
 		if (stateLaw) {
-			ParagraphItem pItem = new ParagraphItem(BoldWrapper.wrap("State laws. ") + lawDescription);
+			ParagraphItem pItem = new ParagraphItem(BoldWrapper.wrap("State laws ") + lawDescription);
 			block.addItem(pItem);
 		}
 		if (!otherInfo.equals("undefined")) {
-			ParagraphItem pItem = new ParagraphItem(otherInfo);
+			ParagraphItem pItem = new ParagraphItem(BoldWrapper.wrap("Others ") + otherInfo);
 			block.addItem(pItem);
 		}
 		blocks.add(block);
+		
+		if (opt_mail) {
+			block = new DocumentBlock();
+			MailInFormItem mail = new MailInFormItem(this);
+			block.addItem(mail);
+			blocks.add(block);
+		}
 		
 		return blocks;
 	}
@@ -294,7 +301,6 @@ public class Questionare {
 		head.addCell("Can you limit this sharing?");
 		table.setHead(head);
 		for (int i = 0; i < 7; i++) {
-			System.out.println(i);
 			if (i != 5 || hasAffiliates) {
 				ItemTableRow row = new ItemTableRow();
 				row.addCell(new ItemTableCell(reasons[i]));
@@ -350,12 +356,13 @@ public class Questionare {
 		obj.put("additionalInfo", additionalInfo);
 		obj.put("additionalInfoType", additionalInfoType);
 		obj.put("streetAddr", streetAddr);
-		obj.put("aptNumber", aptNumber);
+//		obj.put("aptNumber", aptNumber);
 		obj.put("city", city);
 		obj.put("state", state);
 		obj.put("zipCode", zipCode);
-		obj.put("hasJointAccounts", hasJointAccounts);
-		obj.put("isInsurance", isInsurance);
+//		obj.put("hasJointAccounts", hasJointAccounts);
+		obj.put("optOnlyOne", optOnlyOne);
+//		obj.put("isInsurance", isInsurance);
 		obj.put("optJointMarketing", optJointMarketing);
 		obj.put("optOwnMarketing", optOwnMarketing);
 		obj.put("partners", partners);
@@ -408,12 +415,13 @@ public class Questionare {
 		contactWebsite = (String) jsonObject.get("contactWebsite");
 		additionalInfo = (boolean) jsonObject.get("additionalInfo");
 		streetAddr = (String) jsonObject.get("streetAddr");
-		aptNumber = (String) jsonObject.get("aptNumber");
+//		aptNumber = (String) jsonObject.get("aptNumber");
 		city = (String) jsonObject.get("city");
 		state = (String) jsonObject.get("state");
 		zipCode = (String) jsonObject.get("zipCode");
-		hasJointAccounts = (boolean) jsonObject.get("hasJointAccounts");
-		isInsurance = (boolean) jsonObject.get("isInsurance");
+//		hasJointAccounts = (boolean) jsonObject.get("hasJointAccounts");
+		optOnlyOne = (boolean) jsonObject.get("optOnlyOne");
+//		isInsurance = (boolean) jsonObject.get("isInsurance");
 		optJointMarketing = (boolean) jsonObject.get("optJointMarketing");
 		optOwnMarketing = (boolean) jsonObject.get("optOwnMarketing");
 		partners = (String) jsonObject.get("partners");

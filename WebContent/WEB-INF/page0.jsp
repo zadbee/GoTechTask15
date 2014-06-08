@@ -72,7 +72,7 @@
 				if(session.getAttribute("uploadFile") != null){
 					
 				}
-				String name = "testCompany";
+				String name = "Company Name";
 				if(uploadFile){
 			%>
 			var name = "<%=name%>";

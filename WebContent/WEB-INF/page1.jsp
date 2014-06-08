@@ -557,33 +557,30 @@
 				</table>
 				<h4>Do you need additional information from customers except
 					for customer's name and address?</h4>
-				<input name="additionalInfo" type="checkbox" value=""
+				<input name="additionalInfo" type="checkbox" value="yes"
 					onclick="showdiv1(this)" /> Yes <br />
 				<div id="optionalInfo" class="leftpad" style="display: none">
 					<h5>Please select the additional information you need:</h5>
 					<input type="radio" name="optionsRadios" id="radio1"
-						value="accountNum" checked> Account Number<br /> 
-					<input type="radio" name="optionsRadios" id="radio1" value="optoutNum">
+						value="Account Number" checked> Account Number<br /> 
+					<input type="radio" name="optionsRadios" id="radio1" value="Opt-out Number">
 						Opt-out Number<br /> 
 					<input type="radio" name="optionsRadios"
-						id="radio1" value="TaccountNum"> 
+						id="radio1" value="Truncated Account Number"> 
 						Truncated Account Number<br />
 				</div>
 				<br />
 				<h4>The mail-in opt-out form should be mailed to:</h4>
-				<table>
+				<table style="width:100%">
 					<tr>
 						<td>Street:</td>
-						<td colspan="3">&nbsp;&nbsp;&nbsp;<input name="street" type="text"></td>
-						<td>&nbsp;&nbsp;&nbsp;Apt #:</td>
-						<td>&nbsp;&nbsp;&nbsp;<input type="text" name="apartmentNum"></td>
-					</tr>
-
-					<tr>
+						<td>&nbsp;&nbsp;<input name="street" type="text"></td>
 						<td>City:</td>
-						<td>&nbsp;&nbsp;&nbsp;<input name="city" type="text"></td>
-						<td>&nbsp;&nbsp;&nbsp;State:</td>
-						<td>&nbsp;&nbsp;&nbsp; <select>
+						<td>&nbsp;&nbsp;<input name="city" type="text"></td>
+					</tr>
+					<tr>
+						<td>State:</td>
+						<td>&nbsp;&nbsp; <select name="state">
 								<option value="AL">Alabama</option>
 								<option value="AK">Alaska</option>
 								<option value="AZ">Arizona</option>
@@ -637,8 +634,8 @@
 								<option value="WY">Wyoming</option>
 						</select>
 						</td>
-						<td>&nbsp;&nbsp;&nbsp;Zip:</td>
-						<td>&nbsp;&nbsp;&nbsp;<input type="text" name="zip"></td>
+						<td>Zip:</td>
+						<td>&nbsp;&nbsp;<input type="text" name="zip"></td>
 					</tr>
 				</table>
 				<br />
@@ -649,8 +646,8 @@
 					onclick="showdiv2(this)">Yes<br /> <input type="radio"
 					name="optionsRadios1" id="radio2" value="q3N"
 					onclick="blockdiv2(this)" checked>No<br />
-
-				<div class="leftpad" id="jointAccount" style="display: none">
+					
+				<!--<div class="leftpad" id="jointAccount" style="display: none">
 					<h5>If you have a joint account, will you apply your choice(s)
 						only to yourself?</h5>
 					<input type="radio" name="optionsRadios2" id="radio3" value="q3aY">Yes<br />
@@ -661,7 +658,7 @@
 					<input type="radio" name="optionsRadios3" id="radio5" value="q3bY">Yes<br />
 					<input type="radio" name="optionsRadios3" id="radio6" value="q3bN"
 						checked>No<br />
-				</div>
+				</div>-->
 				<br />
 				
 				<h4>Do you offer an opt-out for your own marketing?</h4>
@@ -669,38 +666,39 @@
 					onclick="showdiv4(this)">Yes<br /> <input type="radio"
 					name="optionsRadios7" id="radio14" value="q5N"
 					onclick="blockdiv4(this)" checked>No<br />
-				<div class="leftpad" id="selectStatement" style="display: none">
+				<!--<div class="leftpad" id="selectStatement" style="display: none">
 					<h5>Please select one of the following two statements:</h5>
 					<input type="radio" name="optionsRadios9" id="radio1"
 						value="q5a" onclick="showdiv8(this)" checked>Do not share
 					my personal information to market to me.<br />
-					<!--<div id="choice4" style="display: none">
+					<div id="choice4" style="display: none">
 						<input type="radio" name="optionsRadios8" id="radio15"
 							value="q5aY">Yes<br /> <input type="radio"
 							name="optionsRadios8" id="radio16" value="q5aN" checked>No<br />
-					</div>-->
+					</div>
 					<input type="radio" name="optionsRadios9" id="radio17"
 						value="q5b" onclick="showdiv9(this)">Do not use my
 					personal information to market to me.<br />
-					<!--<div id="choice5" style="display: none">
+					<div id="choice5" style="display: none">
 						<input type="radio" name="optionsRadios10" id="radio18"
 							value="q5bY">Yes<br /> <input type="radio"
 							name="optionsRadios10" id="radio19" value="q5bN" checked>No<br />
-					</div>-->
-				</div>
+					</div>
+				</div>-->
 				<br />
+				
 				<h4>Do you offer an opt-out for joint marketing?</h4>
 				<input type="radio" name="optionsRadios11" id="radio20"
 					value="q6Y" onclick="showdiv3(this)">Yes<br /> <input
 					type="radio" name="optionsRadios11" id="radio21" value="q6N"
 					onclick="blockdiv3(this)" checked>No<br />
-				<div class="leftpad" id="jointMarket" style="display: none">
+				<!--<div class="leftpad" id="jointMarket" style="display: none">
 					<h5>Will you share your personal information with other
 						financial institutions to jointly market to you?</h5>
 					<input type="radio" name="optionsRadios12" id="radio22"
 						value="q6aY">Yes<br /> <input type="radio"
 						name="optionsRadios12" id="radio23" value="q6aN" checked>No<br />
-				</div>
+				</div>-->
 				<!--
 				<br />
 				<h4>Do you want to include a barcode and/or "tagline" at the

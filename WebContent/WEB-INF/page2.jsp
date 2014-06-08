@@ -134,20 +134,19 @@
 				<label> <input type="radio" name="collect" id="Collect" value="no" onclick="show(this)"> No
 				</label>
 			</div>
-			<br />
 			
-			<div id="collect2div" style="display: none">
-			<h4>Do you collect information from other companies?</h4>
-			<div class="radio">
-				<label> <input type="radio" name="collect2" id="Collect2" value="yes" checked> Yes
-				</label>
+			<div class="leftpad" id="collect2div" style="display: none">
+				<h5>Do you collect information from other companies?</h5>
+				<div class="radio">
+					<label> <input type="radio" name="collect2" id="Collect2" value="yes" checked> Yes
+					</label>
+				</div>
+				<div class="radio">
+					<label> <input type="radio" name="collect2" id="Collect2" value="no"> No
+					</label>
+				</div>
 			</div>
-			<div class="radio">
-				<label> <input type="radio" name="collect2" id="Collect2" value="no"> No
-				</label>
-			</div>
-			<br />
-			</div>
+			<br/>
 			
 			<h4>Will you refer to state laws in the form?</h4>
 			<div class="radio">
