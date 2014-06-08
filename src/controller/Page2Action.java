@@ -17,7 +17,7 @@ public class Page2Action extends Action {
 		if (q == null)
 			q = new Questionare();
 		
-		boolean param1 = q.hasAffiliates && q.share[5].equals("Yes");
+		boolean param1 = q.share[3].equals("Yes") | q.share[4].equals("Yes") | q.share[5].equals("Yes");
 		boolean param2 = q.share[6].equals("Yes");
 		boolean param3 = q.share[2].equals("Yes");
 		
