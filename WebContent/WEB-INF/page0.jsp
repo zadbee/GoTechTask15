@@ -1,4 +1,5 @@
 <jsp:include page="top.jsp" />
+<%@page import  = "generator.Questionare"%>
 <div class="row marketing">
 	<form id="form1" action="page0.do" onsubmit="return validateForm()"
 		method="post">
@@ -18,9 +19,9 @@
 				<td width="15%"><input type="checkbox" name="opt-out" value="2"> E-mail</td>
 				<td width="15%"><input type="checkbox" name="opt-out" value="4"> Mail-in</td>
 				<td><input type="checkbox" name="opt-out" value="8"> Third Party Cookie OptOut
-				<a href="http://www.allaboutcookies.org/manage-cookies/opt-out-cookies.html"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+				<a href="http://www.allaboutcookies.org/manage-cookies/opt-out-cookies.html" target = "_blank"><span class="glyphicon glyphicon-question-sign"></span></a></td>
 				<td><input type="checkbox" name="opt-out" value="16"> Do Not Track Plugin
-				<a href="http://en.wikipedia.org/wiki/DoNotTrackMe"><span class="glyphicon glyphicon-question-sign"></span></a></td>
+				<a href="http://en.wikipedia.org/wiki/DoNotTrackMe"  target = "_blank"><span class="glyphicon glyphicon-question-sign"></span></a></td>
 				</tr>
 			</table>
 			<br />
@@ -65,27 +66,29 @@
 		</div>
 	</form>
 </div>
+<script src="js/jquery.loadJSON.js"></script>
 <script>
-		$(document).ready(function() {
-			<%
-				Boolean uploadFile = true;
-				if(session.getAttribute("uploadFile") != null){
-					
-				}
-				String name = "Company Name";
-				if(uploadFile){
-			%>
-			var name = "<%=name%>";
-			var textarea = document.getElementById("name");
-			textarea.value = name;
-			radiobtn = document.getElementById("radio2");
-			radiobtn.checked = true;
-			radiobtn2 = document.getElementById("radio4");
-			radiobtn2.checked = true;
-			<%
-				}
-			%>
-		});
+$(document).ready(function() {
+	<%
+		Boolean uploadFile = true;
+		String json = "'{\"name\":\"haah\", \"age\":80, \"optionsRadio2\":\"one\"}'";
+		
+		if(session.getAttribute("uploadFile") != null){
+			Questionare q = (Questionare)session.getAttribute("uploadFile");
+		}
+		if(uploadFile){
+	%>
+	//alert(json);
+	//form1 = {
+			//name:"haha"
+			// '{ "name": "John" }' 
+	//};
+	var form1 = jQuery.parseJSON(<%=json%>);
+		$('form').loadJSON(form1);
+	<%
+		}
+	%>
+});
 </script>
 <script>
 		function validateForm() {
