@@ -71,19 +71,14 @@
 $(document).ready(function() {
 	<%
 		Boolean uploadFile = true;
-		String json = "'{\"name\":\"haah\", \"age\":80, \"optionsRadio2\":\"one\"}'";
-		
-		if(session.getAttribute("uploadFile") != null){
-			Questionare q = (Questionare)session.getAttribute("uploadFile");
-		}
+		String json = "'{\"optionsRadio\":\"share\",\"optionsRadio2\":\"one\",\"opt-out\":[true],\"name\":\"new comm\"}'";
+		//if(session.getAttribute("Questionare") != null){
+			//json = (String)session.getAttribute("Questionare");
+		//}
 		if(uploadFile){
 	%>
-	//alert(json);
-	//form1 = {
-			//name:"haha"
-			// '{ "name": "John" }' 
-	//};
-	var form1 = jQuery.parseJSON(<%=json%>);
+		alert(<%=json%>);
+		var form1 = jQuery.parseJSON(<%=json%>);
 		$('form').loadJSON(form1);
 	<%
 		}
