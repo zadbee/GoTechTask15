@@ -347,6 +347,11 @@ public class Questionare {
 		obj.put("contactPhone", contactPhone);
 		obj.put("provideWebsite", provideWebsite);
 		obj.put("contactWebsite", contactWebsite);
+		obj.put("optPhone", optPhone);
+		obj.put("optWebsite", optWebsite);
+		obj.put("opt_cookie", opt_cookie);
+		obj.put("optDoNotTrack", optDoNotTrack);
+		
 		obj.put("additionalInfo", additionalInfo);
 		obj.put("additionalInfoType", additionalInfoType);
 		obj.put("streetAddr", streetAddr);
@@ -355,6 +360,7 @@ public class Questionare {
 		obj.put("state", state);
 		obj.put("zipCode", zipCode);
 		obj.put("hasJointAccounts", hasJointAccounts);
+		obj.put("applyToSelf", applyToSelf);
 		obj.put("isInsurance", isInsurance);
 		obj.put("optJointMarketing", optJointMarketing);
 		obj.put("optOwnMarketing", optOwnMarketing);
@@ -395,11 +401,11 @@ public class Questionare {
 		}
 		JSONArray array2 = (JSONArray) jsonObject.get("share");
 		for(int i = 0; i < array2.size(); i++){
-			// share.add((String) array2.get(i));
+			share[i] = (String) array2.get(i);
 		}
 		JSONArray array3 = (JSONArray) jsonObject.get("limit");
 		for(int i = 0; i < array3.size(); i++){
-			// limit.add((String) array3.get(i));
+			limit[i] = (String) array3.get(i);
 		}
 		days = (Integer) jsonObject.get("days");
 		providePhone = (Boolean) jsonObject.get("providePhone");
@@ -413,6 +419,7 @@ public class Questionare {
 		state = (String) jsonObject.get("state");
 		zipCode = (String) jsonObject.get("zipCode");
 		hasJointAccounts = (boolean) jsonObject.get("hasJointAccounts");
+		applyToSelf = (boolean) jsonObject.get("applyToSelf");
 		isInsurance = (boolean) jsonObject.get("isInsurance");
 		optJointMarketing = (boolean) jsonObject.get("optJointMarketing");
 		optOwnMarketing = (boolean) jsonObject.get("optOwnMarketing");
