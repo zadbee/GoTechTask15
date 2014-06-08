@@ -319,7 +319,7 @@ public class Questionare {
 	public String generateJson() {
 		JSONObject obj = new JSONObject();
 		obj.put("companyName", companyName);
-		obj.put("opt_out_option", opt_out_option);
+		//obj.put("opt_out_option", opt_out_option);
 		obj.put("hasAffiliates", hasAffiliates);
 		obj.put("hasPartners", hasPartners);
 		obj.put("lastRevisedDate", lastRevisedDate);
