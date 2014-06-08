@@ -47,7 +47,7 @@ public class Controller extends HttpServlet {
         
         // User is not logged in or at the root of the app.
         if (action.equals("welcome.do"))
-        	return "page0.jsp";
+        	return "index.jsp";
         
       	// Let the logged in user run his chosen action
 		return Action.perform(action,request);

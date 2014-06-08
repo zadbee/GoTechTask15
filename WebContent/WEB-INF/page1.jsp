@@ -716,8 +716,8 @@
 		</c:if>
 		<div class="content-row">
 			<br />
-			<p>
-				<button type="submit" name="next1" class="btn btn-default"
+			<p align="center">
+				<button type="submit" name="next1" class="btn btn-primary btn-primary-lg"
 					onclick="validateForm1()">Next Page</button>
 			</p>
 		</div>

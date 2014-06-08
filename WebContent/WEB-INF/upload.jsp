@@ -1,28 +1,57 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-	pageEncoding="US-ASCII"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Upload XML File</title>
-</head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume From Backup File</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.file-input.js"></script>
+
+<script>$(document).ready(function(){$('input[type=file]').bootstrapFileInput();});</script>
+
 <body>
-	<h3>Upload Generated XML File</h3>
-	<h4 style="color:red">${message}</h4>
-	<form action="upload.do" method="post" enctype="multipart/form-data">
-		<table>
-			<tr>
-				<td>File description:</td>
-				<td><input type="text" name="description" /></td>
-			</tr>
-			<tr>
-				<td>Select a file:</td>
-				<td><input type="file" name="file" /></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" name="upload" value="Upload"/></td>
-			</tr>
-		</table>
-	</form>	
+	<div class="container">
+		<div style="margin: 50px">
+			<h1 style="color: #00476B; text-align: center">Online Privacy
+				Form Generator</h1>
+			<hr />
+			<p
+				style="color: #66A3C2; font-size: 120%; text-align: center; letter-spacing: 4px">CONSISTENT,
+				CORRECT AND FREE ONLINE POLICY FORM GENERATOR.</p>
+		</div>
+
+		<div align="center">
+			<h3 style="margin-top: 30px">Resume From Backup File</h3>
+			<h4 style="color: red">${message}</h4>
+			<form action="upload.do" method="post" enctype="multipart/form-data">
+				<table>
+					<tr>
+						<td>
+							<div style="margin:30px">
+								<input type="file" name="file" title="Select the Backup File" data-filename-placement="inside"/>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<input type="submit" name="upload" class="btn btn-primary btn-primary-lg"
+							value="Upload" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		
+		<div style="margin: 50px">
+			<p style="color: #00476B; text-align: center">
+				Team GoTech @ 2014
+			</p>
+		</div>
+	</div>
 </body>
 </html>
