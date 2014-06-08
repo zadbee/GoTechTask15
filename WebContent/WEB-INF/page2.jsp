@@ -46,50 +46,50 @@
 			<br />
 			
 			
-			<h4>How do you collect the personal information?* (At least five
+			<h4>How do you collect the personal information?* (Exactly five
 				methods)</h4>
 			<div id="error2" style="display: none">
-				<h5 style="color: red;">The field need at least five methods</h5>
+				<h5 style="color: red;">The field need to be exactly five methods</h5>
 			</div>
 			<table>
 			<tr>
 			<td height="66">
 			<div align="right">     
 			<select name="locs" size="10" multiple style="width:25em" ondblclick="addItemAll(document.all.locs,document.all.mylocs)">
-				<option>Open an account</option>
-				<option>Deposit money</option>
-				<option>Make deposits or withdrawals from your account</option>
-				<option>Pay your bills</option>
-				<option>Apply for a loan</option>
-				<option>Use your credit or debit card</option>
-				<option>Seek financial or tax advice</option>
-				<option>Seek advice about your investments</option>
-				<option>Apply for insurance</option>
-				<option>Pay insurance premiums</option>
-				<option>File an insurance claim</option>
-				<option>Buy securities from us</option>
-				<option>Sell securities to us</option>
-				<option>Direct us to buy securities</option>
-				<option>Direct us to sell your securities</option>
-				<option>Enter into an investment advisory contract</option>
-				<option>Give us your income information</option>
-				<option>Provide employment information</option>
-				<option>Give us your employment history</option>
-				<option>Tell us about your investment or retirement portfolio</option>
-				<option>Tell us about your investment or retirement earnings</option>
-				<option>Apply for financing</option>
-				<option>Apply for a lease</option>
-				<option>Provide account information</option>
-				<option>Give us your contact information</option>
-				<option>Pay us by check</option>
-				<option>Give us your wage statements</option>
-				<option>Provide your mortgage information</option>
-				<option>Make a wire transfer</option>
-				<option>Tell us who receives the money</option>
-				<option>Tell us where to send the money</option>
-				<option>Show your government-issued ID</option>
-				<option>Show your driver's license</option>
-				<option>Order a commodity futures or option trade</option>
+				<option value = "Open an account">Open an account</option>
+				<option value = "Deposit money">Deposit money</option>
+				<option value="Make deposits or withdrawals from your account">Make deposits or withdrawals from your account</option>
+				<option value="Pay your bills">Pay your bills</option>
+				<option value="Apply for a loan">Apply for a loan</option>
+				<option value="Use your credit or debit card">Use your credit or debit card</option>
+				<option value="Seek financial or tax advice">Seek financial or tax advice</option>
+				<option value="Seek advice about your investments">Seek advice about your investments</option>
+				<option value="Apply for insurance">Apply for insurance</option>
+				<option value="Pay insurance premiums">Pay insurance premiums</option>
+				<option value="File an insurance claim">File an insurance claim</option>
+				<option value="Buy securities from us">Buy securities from us</option>
+				<option value="Sell securities to us">Sell securities to us</option>
+				<option value="Direct us to buy securities">Direct us to buy securities</option>
+				<option value="Direct us to sell your securities">Direct us to sell your securities</option>
+				<option value="Enter into an investment advisory contract">Enter into an investment advisory contract</option>
+				<option value="Give us your income information">Give us your income information</option>
+				<option value="Provide employment information">Provide employment information</option>
+				<option value="Give us your employment history">Give us your employment history</option>
+				<option value="Tell us about your investment or retirement portfolio">Tell us about your investment or retirement portfolio</option>
+				<option value="Tell us about your investment or retirement earnings">Tell us about your investment or retirement earnings</option>
+				<option value="Apply for financing">Apply for financing</option>
+				<option value="Apply for a lease">Apply for a lease</option>
+				<option value="Provide account information">Provide account information</option>
+				<option value="Give us your contact information">Give us your contact information</option>
+				<option value="Pay us by check">Pay us by check</option>
+				<option value="Give us your wage statements">Give us your wage statements</option>
+				<option value="Provide your mortgage information">Provide your mortgage information</option>
+				<option value="Make a wire transfer">Make a wire transfer</option>
+				<option value="Tell us who receives the money">Tell us who receives the money</option>
+				<option value="Tell us where to send the money">Tell us where to send the money</option>
+				<option value="Show your government-issued ID">Show your government-issued ID</option>
+				<option value="Show your driver's license">Show your driver's license</option>
+				<option value="Order a commodity futures or option trade">Order a commodity futures or option trade</option>
 			</select>
 			</div>
 			</td>
@@ -268,11 +268,16 @@
 			document.getElementById("error1").style.display = "none";
 		}
 		var sum = document.all.mylocs.length+1;
-		if (sum < 5) {
+		if (sum != 5) {
 			flag = false;
 			document.getElementById("error2").style.display = "block";
 		} else {
 			document.getElementById("error2").style.display = "none";
+			
+			for (var x = 0; x < (document.all.mylocs).length; x ++) {
+				document.all.mylocs.options[x].selected = true;
+				
+			}
 		}
 		<%
 		if(!onlyone){
