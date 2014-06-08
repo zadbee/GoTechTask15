@@ -34,7 +34,8 @@
 			%>
 	</div>
 		<div class="content-row">
-			<h4>How do you protect personal information? * (<font size="3sp"><a href="http://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act" target = "_blank" style="color: #707070">Reference</a></font>)</h4>
+			<h4>How do you protect personal information? * <a href="http://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act" target = "_blank"><span class="glyphicon glyphicon-question-sign"></span></a></h4>
+			
 			<div id="error1" style="display: none">
 				<h5 style="color: red;">The field could not be empty and the
 					number of word is limited to 30</h5>
@@ -254,7 +255,8 @@
 		<%
 			};
 			%>
-			<h4>Do you have other important informations? (<font size="3sp"><a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" target = "_blank" style="color: #707070">Reference</a></font>)</h4> 
+			<h4>Do you have other important informations? <a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" target = "_blank"><span class="glyphicon glyphicon-question-sign"></span></a></h4> 
+			
 			<p>
 				<textarea id="t4" name="question8" class="form-control" rows="5" placeholder="Hint: This section is optional. Only the following types of information can appear in this box. 
 (1) State and/or international privacy law information; and/or 
@@ -279,7 +281,7 @@
 		} else {
 			document.getElementById("error1").style.display = "none";
 		}
-		var sum = document.all.mylocs.length+1;
+		var sum = document.all.mylocs.length;
 		if (sum != 5) {
 			flag = false;
 			document.getElementById("error2").style.display = "block";
