@@ -355,7 +355,7 @@
 					<thead>
 						<tr>
 							<th scope="col">Information</th>
-							<th scope="col">Does <span id="username3"></span> share?
+							<th scope="col">Does ${companyName} share?
 							</th>
 							<th scope="col">Can you limit this sharing?</th>
 						</tr>
@@ -446,10 +446,10 @@
 
 						<tr>
 							<td><strong>For nonaffiliates to market to you</strong></td>
-							<td class="centered-td"><select id="question6"
+							<td class="centered-td"><select id="question6" name="question6"
 								onchange="changeQ6()"><option value="Yes">Yes</option>
 									<option value="No">No</option></select></td>
-							<td class="centered-td"><select id="question6b"
+							<td class="centered-td"><select id="question6b" name="question6b"
 								readonly="false"><option value="Yes" id="share6">Yes</option>
 									<option value="No" id="noShare6">We do not share</option></select></td>
 						</tr>
@@ -495,15 +495,66 @@
 			</table>
 		</div>
 		<br />
-		<c:if test="${isMail}">
+		<c:if test="${opt_phone}">
+			<div class="content-row">
+				<table class="table table-striped" style="text-align: left">
+					<tr>
+						<td class="cpn-heading"><h4>Phone Opt-out</h4></td>
+					</tr>
+				</table>
+				<h4>What's your phone number for opt-out?</h4>
+				<input type="text" class="form-control" placeholder="Phone number for opt-out" name="phoneOptOut">
+			</div>
+			<br/>
+		</c:if>
+		
+		<c:if test="${opt_website}">
+			<div class="content-row">
+				<table class="table table-striped" style="text-align: left">
+					<tr>
+						<td class="cpn-heading"><h4>Website Opt-out</h4></td>
+					</tr>
+				</table>
+				<h4>What's your website for opt-out?</h4>
+				<input type="text" class="form-control" placeholder="Website for opt-out" name="websiteOptOut">
+			</div>
+			<br/>
+		</c:if>
+		
+		<c:if test="${opt_cookie}">
+			<div class="content-row">
+				<table class="table table-striped" style="text-align: left">
+					<tr>
+						<td class="cpn-heading"><h4>Cookie Opt-out</h4></td>
+					</tr>
+				</table>
+				<h4>What's your link for cookie-based opt-out?</h4>
+				<input type="text" class="form-control" placeholder="Link for cookie-base opt-out" name="cookieOptOut">
+			</div>
+			<br/>
+		</c:if>
+		
+		<c:if test="${opt_doNotTrack}">
+			<div class="content-row">
+				<table class="table table-striped" style="text-align: left">
+					<tr>
+						<td class="cpn-heading"><h4>Do Not Track Opt-out</h4></td>
+					</tr>
+				</table>
+				<h4>What's your link for Do-Not-Track-based opt-out?</h4>
+				<input type="text" class="form-control" placeholder="Link for Do-Not-Track-based opt-out" name="doNotTrackOptOut">
+			</div>
+			<br/>
+		</c:if>
+		
+		<br />
+		<c:if test="${opt_mail}">
 			<div class="content-row" id="mailinForm">
 				<table class="table table-striped" style="text-align: left">
 					<tr>
-						<td class="cpn-heading"><h4>Mail in opt-out form</h4></td>
+						<td class="cpn-heading"><h4>Mail-in Opt-out</h4></td>
 					</tr>
 				</table>
-
-				<br />
 				<h4>Do you need additional information from customers except
 					for customer's name and address?</h4>
 				<input name="additionalInfo" type="checkbox" value=""
@@ -612,37 +663,6 @@
 						checked>No<br />
 				</div>
 				<br />
-
-				<!-- <h4>Please select what do you want to limit.</h4>
-				<input name="opt-out" type="checkbox" value="q4a"
-					onclick="showdiv5(this)" />&nbsp;&nbsp;&nbsp;Do not share
-				information about your creditworthiness with your affiliates for
-				their everyday business purposes.<br />
-				<div id="choice1" style="display: none">
-					<input type="radio" name="optionsRadios4" id="radio7" value="q4aY">Yes<br />
-					<input type="radio" name="optionsRadios4" id="radio8" value="q4aN"
-						checked>No<br />
-				</div>
-
-				<input name="opt-out" type="checkbox" value="q4b"
-					onclick="showdiv6(this)" />&nbsp;&nbsp;&nbsp;Do not allow your
-				affiliates to use your personal information to market to you.<br />
-				<div id="choice2" style="display: none">
-					<input type="radio" name="optionsRadios5" id="radio9" value="q4bY">Yes<br />
-					<input type="radio" name="optionsRadios5" id="radio10" value="q4bN"
-						checked>No<br />
-				</div>
-				<input name="opt-out" type="checkbox" value="q4c"
-					onclick="showdiv7(this)" />&nbsp;&nbsp;&nbsp;Do not share your
-				personal information with nonaffiliates to market their products and
-				services to you.
-				<div id="choice3" style="display: none">
-					<input type="radio" name="optionsRadios6" id="radio11" value="q4cY">Yes<br />
-					<input type="radio" name="optionsRadios6" id="radio12" value="q4cN"
-						checked>No<br />
-				</div>
-				<br />
-				<br />-->
 				
 				<h4>Do you offer an opt-out for your own marketing?</h4>
 				<input type="radio" name="optionsRadios7" id="radio13" value="q5Y"
@@ -699,7 +719,7 @@
 		<div class="content-row">
 			<br />
 			<p>
-				<button type="submit" id="submitButton1" class="btn btn-default"
+				<button type="submit" name="next1" class="btn btn-default"
 					onclick="validateForm1()">Next Page</button>
 			</p>
 		</div>

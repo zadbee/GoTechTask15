@@ -59,7 +59,7 @@
 			<br />
 
 			<p>
-				<button type="submit" class="btn btn-default" name="next"
+				<button type="submit" class="btn btn-default" name="next0"
 					value="true">Next Page</button>
 			</p>
 		</div>
