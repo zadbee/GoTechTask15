@@ -5,6 +5,9 @@
 		method="post">
 		<div class="content-row">
 			<h4>What is the name of your institution? *</h4>
+			<div id="error" style="display: none">
+				<h5 style="color: red;">The field could not be empty</h5>
+			</div>
 			<p>
 				<input type="text" class="form-control" id = "name" name="name"
 					data-validation="length" data-validation-length="min4">
@@ -88,6 +91,15 @@ $(document).ready(function() {
 </script>
 <script>
 		function validateForm() {
+			var text = document.getElementById('name').value;
+			var len = text.split(" ");
+			if (len == 0) {
+				document.getElementById("error").style.display = "block";
+				return false;
+			} else {
+				document.getElementById("error").style.display = "none";
+			}
+		
 			var sum = 0;
 			var checkboxes = document.getElementsByName('opt-out');
 			for (var i = 0; i < checkboxes.length; i++) {
