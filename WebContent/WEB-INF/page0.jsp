@@ -70,14 +70,15 @@
 <script>
 $(document).ready(function() {
 	<%
-		Boolean uploadFile = true;
-		String json = "'{\"optionsRadio\":\"share\",\"optionsRadio2\":\"one\",\"opt-out\":[true],\"name\":\"new comm\"}'";
-		//if(session.getAttribute("Questionare") != null){
-			//json = (String)session.getAttribute("Questionare");
-		//}
+		Boolean uploadFile = false;
+		String json = "";
+		//String json = "'{\"optionsRadio\":\"share\",\"optionsRadio2\":\"one\",\"opt-out\":[true],\"name\":\"new comm\"}'";
+		if(session.getAttribute("questionare") != null){
+			json = "'" + (String)session.getAttribute("questionare") + "'";
+			uploadFile = true;
+		}
 		if(uploadFile){
 	%>
-		alert(<%=json%>);
 		var form1 = jQuery.parseJSON(<%=json%>);
 		$('form').loadJSON(form1);
 	<%

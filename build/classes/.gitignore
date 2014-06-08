@@ -1,4 +1,7 @@
-/controller
-/document
-/generator
 /xml
+/generator
+<<<<<<< HEAD
+/controller
+=======
+/xml
+>>>>>>> 73bf7a22d70913ba6b996e327a0b34dbdeba4e76

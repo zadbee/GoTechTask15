@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.json.simple.parser.ParseException;
@@ -45,13 +46,16 @@ public class UploadAction extends Action {
 				return "upload.jsp";
 			}
 			*/
+		    HttpSession session = request.getSession();
+			session.setMaxInactiveInterval(600);
+		    session.setAttribute("questionare", sb.toString());
 		    br.close();
 		} catch (IllegalStateException | IOException | ServletException e) {
 			e.printStackTrace();
 		}
 	    
-		request.setAttribute("message", fileName + " has been successfully uploaded.");
-		return "upload.jsp";
+		//request.setAttribute("message", fileName + " has been successfully uploaded.");
+		return "page0.jsp";
 	}
 	
 	private static String getFilename(Part part) {
