@@ -324,15 +324,33 @@ public class Questionare {
 	@SuppressWarnings("unchecked")
 	public String generateJson() {
 		JSONObject obj = new JSONObject();
-		obj.put("companyName", companyName);
-		obj.put("opt_phone", opt_phone);
-		obj.put("opt_cookie", opt_cookie);
-		obj.put("opt_doNotTrack", opt_doNotTrack);
-		obj.put("opt_mail", opt_mail);
-		obj.put("opt_website", opt_website);
-		obj.put("hasAffiliates", hasAffiliates);
-		obj.put("hasPartners", hasPartners);
-		obj.put("lastRevisedDate", lastRevisedDate);
+		obj.put("name", companyName);
+		JSONArray optOutArray = new JSONArray();
+		optOutArray.add(opt_phone);
+		optOutArray.add(opt_website);
+		optOutArray.add(opt_mail);
+		optOutArray.add(opt_cookie);
+		optOutArray.add(opt_doNotTrack);
+		obj.put("opt-out", optOutArray);
+		
+		//obj.put("opt_phone", opt_phone);
+		//obj.put("opt_cookie", opt_cookie);
+		//obj.put("opt_doNotTrack", opt_doNotTrack);
+		//obj.put("opt_mail", opt_mail);
+		//obj.put("opt_website", opt_website);
+		if(hasAffiliates){
+			obj.put("optionsRadio", "share");
+		}else{
+			obj.put("optionsRadio", "notshare");
+		}
+		//obj.put("hasAffiliates", hasAffiliates);
+		if(hasPartners){
+			obj.put("optionsRadio2", "many");
+		}else{
+			obj.put("optionsRadio2", "one");
+		}
+		//obj.put("hasPartners", hasPartners);
+		obj.put("newDate", lastRevisedDate);
 		JSONArray sharedInfoArray = new JSONArray();
 		for(String s: sharedInfo){
 			sharedInfoArray.add(s);
@@ -348,42 +366,60 @@ public class Questionare {
 			limitArray.add(s);
 		}
 		obj.put("limit", limitArray);
-		obj.put("days", days);
-		obj.put("providePhone", providePhone);
-		obj.put("contactPhone", contactPhone);
-		obj.put("provideWebsite", provideWebsite);
-		obj.put("contactWebsite", contactWebsite);
-		obj.put("optPhone", optPhone);
-		obj.put("optWebsite", optWebsite);
-		obj.put("opt_cookie", opt_cookie);
-		obj.put("optDoNotTrack", optDoNotTrack);
+		obj.put("numOfDays", days);
+		JSONArray contactMethodArray = new JSONArray();
+		contactMethodArray.add(providePhone);
+		contactMethodArray.add(provideWebsite);
+		obj.put("contactMethod", contactMethodArray);
+		
+		//obj.put("providePhone", providePhone);
+		obj.put("Phone Number", contactPhone);
+		//obj.put("provideWebsite", provideWebsite);
+		obj.put("Website Address", contactWebsite);
+		
+		obj.put("Phone number for opt-out", optPhone);
+		obj.put("Website for opt-out", optWebsite);
+		obj.put("Link for cookie-base opt-out", opt_cookie);
+		obj.put("Link for Do-Not-Track-based opt-out", optDoNotTrack);
 		
 		obj.put("additionalInfo", additionalInfo);
-		obj.put("additionalInfoType", additionalInfoType);
-		obj.put("streetAddr", streetAddr);
+		//obj.put("additionalInfoType", additionalInfoType);
+		obj.put("additionalInfo", additionalInfoType);
+		
+		obj.put("street", streetAddr);
 //		obj.put("aptNumber", aptNumber);
 		obj.put("city", city);
 		obj.put("state", state);
-		obj.put("zipCode", zipCode);
+		obj.put("zip", zipCode);
 //		obj.put("hasJointAccounts", hasJointAccounts);
-		obj.put("optOnlyOne", optOnlyOne);
+		obj.put("optionsRadios1", optOnlyOne);
 //		obj.put("isInsurance", isInsurance);
-		obj.put("optJointMarketing", optJointMarketing);
-		obj.put("optOwnMarketing", optOwnMarketing);
-		obj.put("partners", partners);
-		obj.put("howToProtect", howToProtect);
+		obj.put("optionsRadios7", optJointMarketing);
+		obj.put("optionsRadios11", optOwnMarketing);
+		
+		obj.put("question0", partners);
+		obj.put("question1", howToProtect);
 		JSONArray collectedTypesArray = new JSONArray();
 		for(String s: limit){
 			collectedTypesArray.add(s);
 		}
-		obj.put("collectedTypes", collectedTypesArray);
-		obj.put("applyToAnyOne", applyToAnyOne);
-		obj.put("aff_Financial", aff_Financial);
-		obj.put("aff_Nonfinancial", aff_Nonfinancial);
-		obj.put("aptNumber", aff_Others);
-		obj.put("nonAff", nonAff);
-		obj.put("otherInfo", otherInfo);
-		obj.put("jointPartners", jointPartners);
+		
+		obj.put("collect", collectFromAffiliates);
+		obj.put("collect2div", collectFromOthers);
+		
+		obj.put("refer", stateLaw);
+		obj.put("tld", lawDescription);
+		
+		obj.put("radios", applyToAnyOne);
+		
+		obj.put("question5_1", aff_Financial);
+		obj.put("question5_2", aff_Nonfinancial);
+		
+		obj.put("question5_3", aff_Others);
+		
+		obj.put("question6", nonAff);
+		obj.put("question8", otherInfo);
+		obj.put("question7", jointPartners);
 		return obj.toString();
 		
 	}
@@ -393,11 +429,12 @@ public class Questionare {
 		Object obj = parser.parse(jsonString);
 		JSONObject jsonObject = (JSONObject) obj;
 		companyName = (String) jsonObject.get("companyName");
-		opt_phone = (Boolean) jsonObject.get("opt_phone");
-		opt_cookie = (Boolean) jsonObject.get("opt_cookie");
-		opt_doNotTrack = (Boolean) jsonObject.get("opt_doNotTrack");
-		opt_mail = (Boolean) jsonObject.get("opt_mail");
-		opt_website = (Boolean) jsonObject.get("opt_website");
+		//opt_phone = (Boolean) jsonObject.get("opt_phone");
+		//opt_cookie = (Boolean) jsonObject.get("opt_cookie");
+		//opt_doNotTrack = (Boolean) jsonObject.get("opt_doNotTrack");
+		//opt_mail = (Boolean) jsonObject.get("opt_mail");
+		//opt_website = (Boolean) jsonObject.get("opt_website");
+		
 		hasAffiliates = (Boolean) jsonObject.get("hasAffiliates");
 		hasPartners =  (Boolean) jsonObject.get("hasPartners");
 		lastRevisedDate = (String) jsonObject.get("lastRevisedDate");

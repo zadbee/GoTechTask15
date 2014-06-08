@@ -25,7 +25,7 @@ public class JsonServlet extends HttpServlet {
 		String content = (String) request.getAttribute("json");
 		response.setContentType("text/plain");
 		response.setHeader("Content-Disposition",
-	                     "attachment;filename=jsonFile.txt");
+	                     "attachment;filename=jsonFile.json");
 		ServletContext ctx = getServletContext();
 		OutputStream os = response.getOutputStream();
 		os.write(content.getBytes());

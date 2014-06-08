@@ -35,6 +35,7 @@ public class UploadAction extends Action {
 		    	System.out.println(line);
 		    	sb.append(line);
 		    }
+		    /*
 		    Questionare q = Questionare.getInstance();
 		    try {
 				q.populate(sb.toString());
@@ -43,6 +44,7 @@ public class UploadAction extends Action {
 				request.setAttribute("message", "The file is corrupted, fail to upload " + fileName);
 				return "upload.jsp";
 			}
+			*/
 		    br.close();
 		} catch (IllegalStateException | IOException | ServletException e) {
 			e.printStackTrace();
