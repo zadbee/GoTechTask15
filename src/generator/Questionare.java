@@ -395,11 +395,11 @@ public class Questionare {
 		}
 		JSONArray array2 = (JSONArray) jsonObject.get("share");
 		for(int i = 0; i < array2.size(); i++){
-			share.add((String) array2.get(i));
+			// share.add((String) array2.get(i));
 		}
 		JSONArray array3 = (JSONArray) jsonObject.get("limit");
 		for(int i = 0; i < array3.size(); i++){
-			limit.add((String) array3.get(i));
+			// limit.add((String) array3.get(i));
 		}
 		days = (Integer) jsonObject.get("days");
 		providePhone = (Boolean) jsonObject.get("providePhone");
