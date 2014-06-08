@@ -15,7 +15,6 @@ public class Page1Action extends Action {
 		Questionare q = Questionare.getInstance();
 		
 		if (request.getParameter("next1") == null) {
-			System.out.println("= = = =");
 			session.setAttribute("opt_phone", q.opt_phone);
 			session.setAttribute("opt_website", q.opt_website);
 			session.setAttribute("opt_cookie", q.opt_cookie);
