@@ -270,6 +270,26 @@
 		</div>
 	</form>
 </div>
+<script src="js/jquery.loadJSON.js"></script>
+<script>
+$(document).ready(function() {
+	<%
+		Boolean uploadFile = false;
+		String json = "";
+		//String json = "'{\"optionsRadio\":\"share\",\"optionsRadio2\":\"one\",\"opt-out\":[true],\"name\":\"new comm\"}'";
+		if(session.getAttribute("questionare") != null){
+			json = "'" + (String)session.getAttribute("questionare") + "'";
+			uploadFile = true;
+		}
+		if(uploadFile){
+	%>
+		var form1 = jQuery.parseJSON(<%=json%>);
+		$('form').loadJSON(form1);
+	<%
+		}
+	%>
+});
+</script>
 <script>
 	function validateForm() {
 		var flag = true;
