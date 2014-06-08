@@ -264,8 +264,8 @@
 			</p>
 			
 			<br />
-			<p>
-				<button type="submit" class="btn btn-default" name="next2" value="true">Generate Privacy Form</button>
+			<p align="center">
+				<button type="submit" class="btn btn-primary btn-primary-lg" name="next2" value="true">Generate Privacy Form</button>
 			</p>
 		</div>
 	</form>

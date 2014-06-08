@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy</title>
+<title>Online Privacy Policy Form Generator - GoTech</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -15,10 +15,8 @@
 <script src="js/bootstrap.min.js"></script>
 <body>
 	<div class="container">
-
 		<div class="header">
-			<h1>Generate</h1>
-			<h4>Privacy Policy</h4>
-			<p class="lead">Free privacy policy generator, provides you with
-				consistent and correct privacy policy</p>
+			<h2 style="color: #B2D1E0">Online Privacy Form Generator</h2>
+			<p class="lead" style="color: #fff">Free privacy policy generator that provides you with
+				consistent and correct privacy policy.</p>
 		</div>

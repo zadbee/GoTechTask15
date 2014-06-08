@@ -181,85 +181,126 @@
 		var myselect = document.getElementById("question1").value;
 
 		if (myselect == "No") {
-			document.getElementById("noShare").selected = "true";
-			document.getElementById("question1b").disabled = "true";
+			document.getElementById("noShare1").selected = "true";
+			document.getElementById("noShare1").disabled = false;
+			document.getElementById("no1").disabled = "true";
+			
+			document.getElementById("share1").disabled = "true";
+			//document.getElementById("question1b").disabled = "true";
 		} else {
 			document.getElementById("question1b").disabled = false;
 		}
 
 		if (myselect == "Yes") {
-			document.getElementById("noShare1").disabled = "true";
+			document.getElementById("share1").disabled = false;
 			document.getElementById("share1").selected = "true";
+			document.getElementById("noShare1").disabled = "true";
+			document.getElementById("no1").disabled = false;
+			
 		}
 	}
 	function changeQ2() {
 		var myselect = document.getElementById("question2").value;
+
 		if (myselect == "No") {
 			document.getElementById("noShare2").selected = "true";
-			document.getElementById("question2b").disabled = "true";
+			document.getElementById("noShare2").disabled = false;
+			document.getElementById("no2").disabled = "true";
+			
+			document.getElementById("share2").disabled = "true";
+			//document.getElementById("question1b").disabled = "true";
 		} else {
 			document.getElementById("question2b").disabled = false;
 		}
 
 		if (myselect == "Yes") {
-			document.getElementById("noShare2").disabled = "true";
+			document.getElementById("share2").disabled = false;
 			document.getElementById("share2").selected = "true";
+			document.getElementById("noShare2").disabled = "true";
+			document.getElementById("no2").disabled = false;
+			
 		}
 	}
 	function changeQ3() {
 		var myselect = document.getElementById("question3").value;
+
 		if (myselect == "No") {
 			document.getElementById("noShare3").selected = "true";
-			document.getElementById("question3b").disabled = "true";
+			document.getElementById("noShare3").disabled = false;
+			document.getElementById("no3").disabled = "true";
+			
+			document.getElementById("share3").disabled = "true";
+			//document.getElementById("question1b").disabled = "true";
 		} else {
 			document.getElementById("question3b").disabled = false;
 		}
 
 		if (myselect == "Yes") {
-			document.getElementById("noShare3").disabled = "true";
+			document.getElementById("share3").disabled = false;
 			document.getElementById("share3").selected = "true";
+			document.getElementById("noShare3").disabled = "true";
+			document.getElementById("no3").disabled = false;
+			
 		}
 	}
 	function changeQ4() {
 		var myselect = document.getElementById("question4").value;
+
 		if (myselect == "No") {
 			document.getElementById("noShare4").selected = "true";
-			document.getElementById("question4b").disabled = "true";
+			document.getElementById("noShare4").disabled = false;
+			//document.getElementById("no4").disabled = "true";
+			
+			document.getElementById("share4").disabled = "true";
+			//document.getElementById("question1b").disabled = "true";
 		} else {
 			document.getElementById("question4b").disabled = false;
 		}
 
 		if (myselect == "Yes") {
-			document.getElementById("noShare4").disabled = "true";
+			document.getElementById("share4").disabled = false;
 			document.getElementById("share4").selected = "true";
+			document.getElementById("noShare4").disabled = "true";
+			//document.getElementById("no4").disabled = false;
+			
 		}
 	}
 	function changeQ5() {
 		var myselect = document.getElementById("question5").value;
 		if (myselect == "No") {
 			document.getElementById("noShare5").selected = "true";
-			document.getElementById("question5b").disabled = "true";
+			document.getElementById("noShare5").disabled = false;
+			document.getElementById("share5").disabled = "true";
+			//document.getElementById("question5b").disabled = "true";
 		} else {
 			document.getElementById("question5b").disabled = false;
 		}
 
 		if (myselect == "Yes") {
+			document.getElementById("share5").disabled = false;
 			document.getElementById("share5").selected = "true";
-			document.getElementById("question5b").disabled = "false";
+			document.getElementById("noShare5").disabled = "true";
+		//	document.getElementById("no5").disabled = false;
+			
 		}
 	}
 	function changeQ6() {
 		var myselect = document.getElementById("question6").value;
 		if (myselect == "No") {
 			document.getElementById("noShare6").selected = "true";
-			document.getElementById("question6b").disabled = "true";
+			document.getElementById("noShare6").disabled = false;
+			document.getElementById("share6").disabled = "true";
+			//document.getElementById("question6b").disabled = "true";
 		} else {
 			document.getElementById("question6b").disabled = false;
 		}
 
 		if (myselect == "Yes") {
+			document.getElementById("share6").disabled = false;
 			document.getElementById("share6").selected = "true";
-			document.getElementById("question6b").disabled = "false";
+			document.getElementById("noShare6").disabled = "true";
+			//document.getElementById("no6").disabled = false;
+			
 		}
 	}
 </script>
@@ -279,64 +320,63 @@
 
 				<div class="content-row">
 					<div id="error5" style="display: none">
-						<h5 style="color: red;">You need to select at least 5 options
-							including SSN</h5>
+						<h5 style="color: red;">You need to select 6 options
+							including SSN so only need to select 5 in total besides SSN</h5>
 					</div>
 					<h4>Please select the types of personal information you
 						collect and share depend on the product or service customers have
 						with you.</h4>
-					<p>Besides SSN, these types information can include: (At least
-						4)</p>
-					<div id="addinput">
+					<p>Besides SSN, select only 5 more information types</p>
+					<div id="addinput" onclick="checkBox()">
 						<table>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="option1">
+								<td><input type="checkbox" name="checkbox" value="Income">
 									Income</td>
-								<td><input type="checkbox" name="checkbox" value="option2">
+								<td><input type="checkbox" name="checkbox" value="Account Balances">
 									Account Balances</td>
-								<td><input type="checkbox" name="checkbox" value="option3">
+								<td><input type="checkbox" name="checkbox" value="Payment History">
 									Payment History</td>
-								<td><input type="checkbox" name="checkbox" value="option4">
+								<td><input type="checkbox" name="checkbox" value="Transaction History">
 									Transaction History</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="option5">
+								<td><input type="checkbox" name="checkbox" value="Transaction or Loss History">
 									Transaction or Loss History</td>
-								<td><input type="checkbox" name="checkbox" value="option6">
+								<td><input type="checkbox" name="checkbox" value="Credit History">
 									Credit History</td>
-								<td><input type="checkbox" name="checkbox" value="option7">
+								<td><input type="checkbox" name="checkbox" value="Credit Scores">
 									Credit Scores</td>
-								<td><input type="checkbox" name="checkbox" value="option8">
+								<td><input type="checkbox" name="checkbox" value="Assets">
 									Assets</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="option9">
+								<td><input type="checkbox" name="checkbox" value="Investment Experience">
 									Investment Experience</td>
-								<td><input type="checkbox" name="checkbox" value="option10">
+								<td><input type="checkbox" name="checkbox" value="Credit Based Insurance Scores">
 									Credit Based Insurance Scores</td>
-								<td><input type="checkbox" name="checkbox" value="option11">
+								<td><input type="checkbox" name="checkbox" value="Insurance Claim History">
 									Insurance Claim History</td>
-								<td><input type="checkbox" name="checkbox" value="option12">
+								<td><input type="checkbox" name="checkbox" value="Account Transactions">
 									Account Transactions</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="option13">
-									Risk Toerance</td>
-								<td><input type="checkbox" name="checkbox" value="option14">
+								<td><input type="checkbox" name="checkbox" value="Risk Tolerance">
+									Risk Tolerance</td>
+								<td><input type="checkbox" name="checkbox" value="Medical Related Debts">
 									Medical Related Debts</td>
-								<td><input type="checkbox" name="checkbox" value="option15">
+								<td><input type="checkbox" name="checkbox" value="Credit Card or other debt">
 									Credit Card or other debt</td>
-								<td><input type="checkbox" name="checkbox" value="option16">
+								<td><input type="checkbox" name="checkbox" value="Mortgage Rates and Payments">
 									Mortgage Rates and Payments</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="option17">
+								<td><input type="checkbox" name="checkbox" value="Retirement Assets">
 									Retirement Assets</td>
-								<td><input type="checkbox" name="checkbox" value="option18">
+								<td><input type="checkbox" name="checkbox" value="Checking account information">
 									Checking account information</td>
-								<td><input type="checkbox" name="checkbox" value="option19">
+								<td><input type="checkbox" name="checkbox" value="Employment Information retirement portfolio">
 									Employment Information retirement portfolio</td>
-								<td><input type="checkbox" name="checkbox" value="option20">
+								<td><input type="checkbox" name="checkbox" value="Wire Transfer Instructions">
 									Wire Transfer Instructions</td>
 							</tr>
 						</table>
@@ -346,7 +386,7 @@
 			<br />
 
 			<div class="content-row">
-				<h4>Please select Yes/no or we do not share depending if the
+				<h4>Please select Yes/No or we do not share depending if the
 					reason on the left column to share personal information is valid to
 					your organization.</h4>
 				<table border="0" class="table table-striped"
@@ -383,8 +423,8 @@
 							<td class="centered-td"><select name="question1b"
 								id="question1b" readonly="false"><option value="Yes"
 										id="share1">Yes</option>
-									<option value="No">No</option>
-									<option value="No" id="noShare">We do not share</option></select></td>
+									<option value="No" id="no1">No</option>
+									<option value="No" id="noShare1">We do not share</option></select></td>
 						</tr>
 						<tr>
 							<td><strong> Does your organization share
@@ -397,7 +437,7 @@
 							<td class="centered-td"><select name="question2b"
 								id="question2b" readonly="false"><option value="Yes"
 										id="share2">Yes</option>
-									<option value="No">No</option>
+									<option value="No" id="no2">No</option>
 									<option value="No" id="noShare2">We do not share</option></select></td>
 						</tr>
 						<tr>
@@ -412,7 +452,7 @@
 							<td class="centered-td"><select name="question3b"
 								id="question3b" readonly="false"><option value="Yes"
 										id="share3">Yes</option>
-									<option value="No">No</option>
+									<option value="No" id="no3">No</option>
 									<option value="No" id="noShare3">We do not share</option></select></td>
 						</tr>
 						<tr>
@@ -426,7 +466,7 @@
 							<td class="centered-td"><select id="question4b"
 								name="question4b" readonly="false"><option value="Yes"
 										id="share4">Yes</option>
-									<option value="No">No</option>
+									
 									<option value="No" id="noShare4">We do not share</option></select></td>
 						</tr>
 						<c:if test="${hasAffiliates}">
@@ -716,12 +756,36 @@
 		</c:if>
 		<div class="content-row">
 			<br />
-			<p>
-				<button type="submit" name="next1" class="btn btn-default"
+			<p align="center">
+				<button type="submit" name="next1" class="btn btn-primary btn-primary-lg"
 					onclick="validateForm1()">Next Page</button>
 			</p>
 		</div>
 	</form>
+
+<script type="text/javascript">
+
+function checkBox(){
+	
+var sum1 = 0;
+var checkboxes1 = document.getElementsByName('checkbox');
+
+for (var j = 0; j < checkboxes1.length; j++) {
+	if (checkboxes1[j].checked) {
+		sum1++;
+	}
+}
+
+if (sum1 > 5) {
+	document.getElementById("error5").style.display = "block";
+	flag = false;
+
+} else {
+	document.getElementById("error5").style.display = "none";
+}
+
+}
+</script>
 
 	<script type="text/javascript">
 		changeQ1();
@@ -769,7 +833,7 @@
 				}
 			}
 
-			if (sum1 < 4) {
+			if (sum1 != 5) {
 				document.getElementById("error5").style.display = "block";
 				flag = false;
 

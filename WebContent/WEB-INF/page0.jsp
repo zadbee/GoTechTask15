@@ -16,7 +16,7 @@
 			<table style="width: 100%">
 				<tr>
 				<td width="15%"><input type="checkbox" name="opt-out" value="1"> Phone</td>
-				<td width="15%"><input type="checkbox" name="opt-out" value="2"> E-mail</td>
+				<td width="15%"><input type="checkbox" name="opt-out" value="2"> Website</td>
 				<td width="15%"><input type="checkbox" name="opt-out" value="4"> Mail-in</td>
 				<td><input type="checkbox" name="opt-out" value="8"> Third Party Cookie OptOut
 				<a href="http://www.allaboutcookies.org/manage-cookies/opt-out-cookies.html" target = "_blank"><span class="glyphicon glyphicon-question-sign"></span></a></td>
@@ -59,8 +59,8 @@
 			</table>
 			<br />
 
-			<p>
-				<button type="submit" class="btn btn-default" name="next0"
+			<p align="center">
+				<button type="submit" class="btn btn-primary btn-primary-lg" name="next0"
 					value="true">Next Page</button>
 			</p>
 		</div>
