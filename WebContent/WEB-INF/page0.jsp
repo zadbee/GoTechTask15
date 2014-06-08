@@ -16,6 +16,10 @@
 
 			<h4>What opt out communication methods will you offer? (At
 				least one) *</h4>
+			<div id="error1" style="display: none">
+				<h5 style="color: red;">You must select at least one opt-out method.</h5>
+			</div>
+				
 			<table style="width: 100%">
 				<tr>
 				<td width="15%"><input type="checkbox" name="opt-out" value="1"> Phone</td>
@@ -108,8 +112,10 @@ $(document).ready(function() {
 				}
 			}
 			if (sum < 1) {
-				alert("You must select at least one opt-out method.");
+				document.getElementById("error1").style.display = "block";
 				return false;
+			}else {
+				document.getElementById("error1").style.display = "none";
 			}
 		}
 	</script>
