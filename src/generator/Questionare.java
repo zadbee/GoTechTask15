@@ -385,14 +385,14 @@ public class Questionare {
 		obj.put("contactMethod", contactMethodArray);
 		
 		//obj.put("providePhone", providePhone);
-		obj.put("Phone Number", contactPhone);
+		obj.put("phoneText", contactPhone);
 		//obj.put("provideWebsite", provideWebsite);
-		obj.put("Website Address", contactWebsite);
+		obj.put("websiteText", contactWebsite);
 		
-		obj.put("Phone number for opt-out", optPhone);
-		obj.put("Website for opt-out", optWebsite);
-		obj.put("Link for cookie-base opt-out", opt_cookie);
-		obj.put("Link for Do-Not-Track-based opt-out", optDoNotTrack);
+		obj.put("phoneOptOut", optPhone);
+		obj.put("websiteOptOut", optWebsite);
+		obj.put("cookieOptOut", optCookie);
+		obj.put("doNotTrackOptOut", optDoNotTrack);
 		
 		obj.put("additionalInfo", additionalInfo);
 		//obj.put("additionalInfoType", additionalInfoType);
@@ -404,10 +404,24 @@ public class Questionare {
 		obj.put("state", state);
 		obj.put("zip", zipCode);
 //		obj.put("hasJointAccounts", hasJointAccounts);
-		obj.put("optionsRadios1", optOnlyOne);
+		if(optOnlyOne){
+			obj.put("optionsRadios1", "q3Y");
+		}else{
+			obj.put("optionsRadios1", "q3N");
+		}
+		if(optJointMarketing){
+			obj.put("optionsRadios7", "q5Y");
+		}else{
+			obj.put("optionsRadios7", "q5N");
+		}
+		if(optOwnMarketing){
+			obj.put("optionsRadios11", "q6Y");
+		}else{
+			obj.put("optionsRadios11", "q6N");
+		}
 //		obj.put("isInsurance", isInsurance);
-		obj.put("optionsRadios7", optJointMarketing);
-		obj.put("optionsRadios11", optOwnMarketing);
+		//obj.put("optionsRadios7", optJointMarketing);
+		//obj.put("optionsRadios11", optOwnMarketing);
 		
 		obj.put("question0", partners);
 		obj.put("question1", howToProtect);
@@ -416,13 +430,31 @@ public class Questionare {
 			collectedTypesArray.add(s);
 		}
 		
-		obj.put("collect", collectFromAffiliates);
-		obj.put("collect2div", collectFromOthers);
+		if(collectFromAffiliates){
+			obj.put("collect", "yes");
+		}else{
+			obj.put("collect", "yes");
+		}
+		//obj.put("collect", collectFromAffiliates);
+		if(collectFromOthers){
+			obj.put("collect2div", "yes");
+		}else{
+			obj.put("collect2div", "no");
+		}
+		if(stateLaw){
+			obj.put("refer", "yes");
+		}else{
+			obj.put("refer", "no");
+		}
 		
-		obj.put("refer", stateLaw);
 		obj.put("tld", lawDescription);
 		
-		obj.put("radios", applyToAnyOne);
+		if(applyToAnyOne){
+			obj.put("radios", "radio1");
+		}else{
+			obj.put("radios", "radio2");
+		}
+		
 		
 		obj.put("question5_1", aff_Financial);
 		obj.put("question5_2", aff_Nonfinancial);
