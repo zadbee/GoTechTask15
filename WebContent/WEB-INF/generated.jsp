@@ -160,7 +160,7 @@ h3 {
 	<br/>
 	<h4 align="center">Privacy Form Preview</h4>
 	<div class="preview">
-		<div>
+		<div style="margin: 20px">
 			<h2 class="cpn-header">U.S. Consumer Privacy Notice</h2>
 			<c:forEach var="block" items="${blocks}"> 
 	            ${block.text} 

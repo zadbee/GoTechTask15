@@ -22,7 +22,7 @@ public class Page2Action extends Action {
 		boolean param3 = q.share[2].equals("Yes");
 		
 		if (submit == null){
-			session.setAttribute("onlyone", q.hasPartners);
+			session.setAttribute("onlyone", !q.hasPartners);
 			session.setAttribute("param1", param1);
 			session.setAttribute("param2", param2);
 			session.setAttribute("param3", param3);
