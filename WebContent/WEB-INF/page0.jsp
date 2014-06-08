@@ -5,7 +5,7 @@
 		<div class="content-row">
 			<h4>What is the name of your institution? *</h4>
 			<p>
-				<input type="text" class="form-control" name="name"
+				<input type="text" class="form-control" id = "name" name="name"
 					data-validation="length" data-validation-length="min4">
 			</p>
 			<br />
@@ -50,10 +50,10 @@
 				jointly with another organization:</h4>
 			<table style="width: 40%">
 				<tr>
-				<td><input type="radio" name="optionsRadio2" id="radio1" value="many"
+				<td><input type="radio" name="optionsRadio2" id="radio3" value="many"
 					checked> Yes </td>
 				<td><input type="radio"
-					name="optionsRadio2" id="radio2" value="one"> No</td>
+					name="optionsRadio2" id="radio4" value="one"> No</td>
 				</tr>
 			</table>
 			<br />
@@ -65,6 +65,28 @@
 		</div>
 	</form>
 </div>
+<script>
+		$(document).ready(function() {
+			<%
+				Boolean uploadFile = true;
+				if(session.getAttribute("uploadFile") != null){
+					
+				}
+				String name = "testCompany";
+				if(uploadFile){
+			%>
+			var name = "<%=name%>";
+			var textarea = document.getElementById("name");
+			textarea.value = name;
+			radiobtn = document.getElementById("radio2");
+			radiobtn.checked = true;
+			radiobtn2 = document.getElementById("radio4");
+			radiobtn2.checked = true;
+			<%
+				}
+			%>
+		});
+</script>
 <script>
 		function validateForm() {
 			var sum = 0;

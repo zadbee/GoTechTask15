@@ -12,5 +12,9 @@
 	<form action="download.do" method="post">
 		<input type="submit" name="download" value="Download File"/>
 	</form>
+	<h4 style="color:red">Download json file here</h4>
+	<form action="downloadJson.do" method="post">
+		<input type="submit" name="downloadJson" value="Download JsonFile"/>
+	</form>
 </body>
 </html>

@@ -23,6 +23,7 @@ public class Controller extends HttpServlet {
 		Action.add(new GeneratePageAction());
 		Action.add(new UploadAction());
 		Action.add(new DownloadAction());
+		Action.add(new DownloadJsonAction());
 	}	
 	
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -87,6 +88,11 @@ public class Controller extends HttpServlet {
 	   		return;
     	}
     	
+    	if (nextPage.equals("json")) {
+	   		RequestDispatcher d = request.getRequestDispatcher(nextPage);
+	   		d.forward(request,response);
+	   		return;
+    	}
     	throw new ServletException(Controller.class.getName()+".sendToNextPage(\"" + nextPage + "\"): invalid extension.");
     }
 

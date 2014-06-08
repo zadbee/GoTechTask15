@@ -2,6 +2,11 @@ package generator;
 
 import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import utility.BoldWrapper;
 import document.*;
 
@@ -210,5 +215,113 @@ public class Questionare {
 			title = _title;
 			content = _content;
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public String generateJson() {
+		JSONObject obj = new JSONObject();
+		obj.put("companyName", companyName);
+		obj.put("opt_out_option", opt_out_option);
+		obj.put("hasAffiliates", hasAffiliates);
+		obj.put("hasPartners", hasPartners);
+		obj.put("lastRevisedDate", lastRevisedDate);
+		JSONArray sharedInfoArray = new JSONArray();
+		for(String s: sharedInfo){
+			sharedInfoArray.add(s);
+		}
+		obj.put("sharedInfo", sharedInfoArray);
+		JSONArray shareArray = new JSONArray();
+		for(String s: share){
+			shareArray.add(s);
+		}
+		obj.put("share", shareArray);
+		JSONArray limitArray = new JSONArray();
+		for(String s: limit){
+			limitArray.add(s);
+		}
+		obj.put("limit", limitArray);
+		obj.put("days", days);
+		obj.put("providePhone", providePhone);
+		obj.put("contactPhone", contactPhone);
+		obj.put("provideWebsite", provideWebsite);
+		obj.put("contactWebsite", contactWebsite);
+		obj.put("additionalInfo", additionalInfo);
+		obj.put("additionalInfoType", additionalInfoType);
+		obj.put("streetAddr", streetAddr);
+		obj.put("aptNumber", aptNumber);
+		obj.put("city", city);
+		obj.put("state", state);
+		obj.put("zipCode", zipCode);
+		obj.put("hasJointAccounts", hasJointAccounts);
+		obj.put("isInsurance", isInsurance);
+		obj.put("optJointMarketing", optJointMarketing);
+		obj.put("optOwnMarketing", optOwnMarketing);
+		obj.put("partners", partners);
+		obj.put("howToProtect", howToProtect);
+		JSONArray collectedTypesArray = new JSONArray();
+		for(String s: limit){
+			collectedTypesArray.add(s);
+		}
+		obj.put("collectedTypes", collectedTypesArray);
+		obj.put("applyToAnyOne", applyToAnyOne);
+		obj.put("aff_Financial", aff_Financial);
+		obj.put("aff_Nonfinancial", aff_Nonfinancial);
+		obj.put("aptNumber", aff_Others);
+		obj.put("nonAff", nonAff);
+		obj.put("otherInfo", otherInfo);
+		obj.put("jointPartners", jointPartners);
+		return obj.toString();
+		
+	}
+
+	public void populate(String jsonString) throws ParseException {
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(jsonString);
+		JSONObject jsonObject = (JSONObject) obj;
+		companyName = (String) jsonObject.get("companyName");
+		opt_out_option = (Integer) jsonObject.get("opt_out_option");
+		hasAffiliates = (Boolean) jsonObject.get("hasAffiliates");
+		hasPartners =  (Boolean) jsonObject.get("hasPartners");
+		lastRevisedDate = (String) jsonObject.get("lastRevisedDate");
+		JSONArray array1 = (JSONArray) jsonObject.get("sharedInfo");
+		for(int i = 0; i < array1.size(); i++){
+			sharedInfo.add((String) array1.get(i));
+		}
+		JSONArray array2 = (JSONArray) jsonObject.get("share");
+		for(int i = 0; i < array2.size(); i++){
+			share.add((String) array2.get(i));
+		}
+		JSONArray array3 = (JSONArray) jsonObject.get("limit");
+		for(int i = 0; i < array3.size(); i++){
+			limit.add((String) array3.get(i));
+		}
+		days = (Integer) jsonObject.get("days");
+		providePhone = (Boolean) jsonObject.get("providePhone");
+		contactPhone = (String) jsonObject.get("contactPhone");
+		provideWebsite = (boolean) jsonObject.get("provideWebsite");
+		contactWebsite = (String) jsonObject.get("contactWebsite");
+		additionalInfo = (boolean) jsonObject.get("additionalInfo");
+		streetAddr = (String) jsonObject.get("streetAddr");
+		aptNumber = (String) jsonObject.get("aptNumber");
+		city = (String) jsonObject.get("city");
+		state = (String) jsonObject.get("state");
+		zipCode = (String) jsonObject.get("zipCode");
+		hasJointAccounts = (boolean) jsonObject.get("hasJointAccounts");
+		isInsurance = (boolean) jsonObject.get("isInsurance");
+		optJointMarketing = (boolean) jsonObject.get("optJointMarketing");
+		optOwnMarketing = (boolean) jsonObject.get("optOwnMarketing");
+		partners = (String) jsonObject.get("partners");
+		howToProtect = (String) jsonObject.get("howToProtect");
+		JSONArray array4 = (JSONArray) jsonObject.get("collectedTypes");
+		for(int i = 0; i < array3.size(); i++){
+			collectedTypes.add((String) array3.get(i));
+		}
+		applyToAnyOne = (boolean) jsonObject.get("applyToAnyOne");
+		aff_Financial= (String) jsonObject.get("aff_Financial");
+		aff_Nonfinancial = (String) jsonObject.get("aff_Nonfinancial");
+		aff_Others = (String) jsonObject.get("aff_Others");
+		nonAff = (String) jsonObject.get("nonAff");
+		otherInfo = (String) jsonObject.get("otherInfo");
+		jointPartners = (String) jsonObject.get("jointPartners");
 	}
 }
