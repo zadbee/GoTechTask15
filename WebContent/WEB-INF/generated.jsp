@@ -150,6 +150,12 @@ h3 {
 			<input type="submit" class="btn btn-primary" name="download" value="Download File"/>
 		</form>
 	</div>
+	<div align="center">
+		<h4>Download JSON Backup File</h4>
+		<form action="downloadJson.do" method="post">
+			<input type="submit" class="btn btn-primary" name="downloadJson" value="Download File"/>
+		</form>
+	</div>
 	<br/>
 	<br/>
 	<h4 align="center">Privacy Form Preview</h4>
