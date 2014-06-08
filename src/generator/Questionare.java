@@ -224,7 +224,8 @@ public class Questionare {
 		blocks.add(block);
 		
 		block = new DocumentBlock();
-		boolean param1 = hasAffiliates && share[5].equals("Yes");
+		//boolean param1 = hasAffiliates && share[5].equals("Yes");
+		boolean param1 = share[3].equals("Yes") | share[4].equals("Yes") | share[5].equals("Yes");
 		boolean param2 = share[6].equals("Yes");
 		boolean param3 = share[2].equals("Yes");
 		titleItem = new BlockTitleItem("Definitions");
@@ -244,7 +245,10 @@ public class Questionare {
 				sb.append("; and others, such as " + aff_Others);
 			sb.append(".");
 			list.addItem(sb.toString());
-		} else {
+		} else if ( !hasAffiliates ) {
+			list.addItem(companyName + "  has no affiliates."); 
+		}
+		else {
 			list.addItem(companyName + "  does not share with our affiliates."); 
 		}		
 		wItem.addItem(list);
