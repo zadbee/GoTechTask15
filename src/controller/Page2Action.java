@@ -1,8 +1,6 @@
 package controller;
 
 import generator.Questionare;
-import generator.Questionare.Definition;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +12,10 @@ public class Page2Action extends Action {
 	public String perform(HttpServletRequest request) {
 		String submit = request.getParameter("next2");
 		HttpSession session = request.getSession(true);
-		Questionare q = Questionare.getInstance();
+		// Questionare q = Questionare.getInstance();
+		Questionare q = (Questionare) session.getAttribute("q");
+		if (q == null)
+			q = new Questionare();
 		
 		boolean param1 = q.hasAffiliates && q.share[5].equals("Yes");
 		boolean param2 = q.share[6].equals("Yes");

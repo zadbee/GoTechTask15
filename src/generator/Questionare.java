@@ -96,14 +96,8 @@ public class Questionare {
 	
 	public String otherInfo = "undefined";			// Optional info
 	
-	private Questionare() {
+	public Questionare() {
 		
-	}
-	
-	public static Questionare getInstance() {
-		if (instance == null)
-			instance = new Questionare();
-		return instance;
 	}
 	
 	public ArrayList<DocumentBlock> generateDoc() {
@@ -240,7 +234,16 @@ public class Questionare {
 		wItem.addItem(new ContentParagraph("Companies related by common ownership or control. They can be financial and nonfinancial companies."));
 		list = new ContentList();
 		if (param1) {
-			list.addItem("Our affiliates include companies with a " + companyName + " name; financial companies such as " + aff_Financial + "; nonfinancial companies, such as " + aff_Nonfinancial + "; and others, such as " + aff_Others + ".");
+			StringBuilder sb = new StringBuilder();
+			sb.append("Our affiliates include companies with name of " + companyName);
+			if (!(aff_Financial.equals("undefined") || aff_Financial.trim().length() == 0))
+				sb.append("; financial companies such as " + aff_Financial);
+			if (!(aff_Nonfinancial.equals("undefined") || aff_Nonfinancial.trim().length() == 0))
+				sb.append("; nonfinancial companies, such as " + aff_Nonfinancial);
+			if (!(aff_Others.equals("undefined") || aff_Others.trim().length() == 0))
+				sb.append("; and others, such as " + aff_Others);
+			sb.append(".");
+			list.addItem(sb.toString());
 		} else {
 			list.addItem(companyName + "  does not share with our affiliates."); 
 		}		
@@ -271,15 +274,21 @@ public class Questionare {
 		blocks.add(block);
 		
 		block = new DocumentBlock();
-		titleItem = new BlockTitleItem("Other important information");
-		block.addItem(titleItem);
-		if (stateLaw) {
-			ParagraphItem pItem = new ParagraphItem(BoldWrapper.wrap("State laws ") + lawDescription);
-			block.addItem(pItem);
-		}
-		if (!otherInfo.equals("undefined")) {
-			ParagraphItem pItem = new ParagraphItem(BoldWrapper.wrap("Others ") + otherInfo);
-			block.addItem(pItem);
+		boolean hasContent = stateLaw || (!otherInfo.equals("undefined") && otherInfo.trim().length() != 0);
+		if (hasContent) {
+			titleItem = new BlockTitleItem("Other important information");
+			block.addItem(titleItem);
+			if (stateLaw) {
+				ParagraphItem pItem = new ParagraphItem(
+						BoldWrapper.wrap("State laws ") + lawDescription);
+				block.addItem(pItem);
+			}
+			if (!otherInfo.equals("undefined")
+					&& otherInfo.trim().length() != 0) {
+				ParagraphItem pItem = new ParagraphItem(
+						BoldWrapper.wrap("Others ") + otherInfo);
+				block.addItem(pItem);
+			}
 		}
 		blocks.add(block);
 		
@@ -305,7 +314,10 @@ public class Questionare {
 				ItemTableRow row = new ItemTableRow();
 				row.addCell(new ItemTableCell(reasons[i]));
 				row.addCell(share[i]);
-				row.addCell(limit[i]);
+				if (share[i].equals("Yes"))
+					row.addCell(limit[i]);
+				else
+					row.addCell("We don't share");
 				table.addRow(row);
 			}		
 		}

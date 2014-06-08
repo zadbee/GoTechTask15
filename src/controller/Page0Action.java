@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-
 import generator.Questionare;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +17,9 @@ public class Page0Action extends Action {
 		}
 		HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(600);
-		Questionare q = Questionare.getInstance();
+		Questionare q = new Questionare();
+		session.setAttribute("q", q);
+		
 		q.companyName = request.getParameter("name");				// companyName
 		session.setAttribute("companyName", q.companyName);
 		

@@ -12,7 +12,10 @@ public class Page1Action extends Action {
 
 	public String perform(HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
-		Questionare q = Questionare.getInstance();
+		//Questionare q = Questionare.getInstance();
+		Questionare q = (Questionare) session.getAttribute("q");
+		if (q == null)
+			q = new Questionare();
 		
 		if (request.getParameter("next1") == null) {
 			session.setAttribute("opt_phone", q.opt_phone);
@@ -70,6 +73,6 @@ public class Page1Action extends Action {
 		q.optJointMarketing = (request.getParameter("optionsRadios11") != null && request.getParameter("optionsRadios11").equals("q6Y"));
 		
 				
-		return "page2.jsp";
+		return "page2.do";
 	}
 }
