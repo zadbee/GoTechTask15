@@ -313,6 +313,10 @@
 				<div class="content-row">
 					<h4>Please input the revision date that will appear in the
 						privacy form.</h4>
+						<div id="errordate" style="display: none">
+						<h5 style="color: red;">The revision date cannot be empty.</h5>
+					</div>
+						
 					<input class="form-control" type="text" id="datepicker"
 						placeholder="Example : October 2012" name="newDate">
 				</div>
@@ -822,6 +826,15 @@ if (sum1 > 5) {
 
 			var sum1 = 0;
 			var checkboxes1 = document.getElementsByName('contactMethod');
+			
+			var text = document.getElementById('datepicker').value;
+			var len = text.split(" ");
+			if (len == 0) {
+				document.getElementById("errordate").style.display = "block";
+				flag = false;
+			} else {
+				document.getElementById("errordate").style.display = "none";
+			}
 
 			for (var j = 0; j < checkboxes1.length; j++) {
 				if (checkboxes1[j].checked) {

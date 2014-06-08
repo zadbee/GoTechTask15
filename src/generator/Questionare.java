@@ -212,7 +212,7 @@ public class Questionare {
 		list.addItem("sharing for nonaffiliates to market to you");
 		wItem.addItem(list);
 		if (stateLaw)
-			wItem.addItem(new ContentParagraph("State laws and individual companies may give you additional rights to limit sharing."));
+			wItem.addItem(new ContentParagraph("See below for more on your rights under state law."));
 		block.addItem(wItem);
 		wItem = new WhiteDocItem();
 		wItem.setHead("What happens when I limit sharing for an account I hold jointly with someone else?");
