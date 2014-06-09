@@ -184,7 +184,7 @@
 			document.getElementById("noShare1").selected = "true";
 			document.getElementById("noShare1").disabled = false;
 			document.getElementById("no1").disabled = "true";
-			
+
 			document.getElementById("share1").disabled = "true";
 			//document.getElementById("question1b").disabled = "true";
 		} else {
@@ -196,7 +196,7 @@
 			document.getElementById("share1").selected = "true";
 			document.getElementById("noShare1").disabled = "true";
 			document.getElementById("no1").disabled = false;
-			
+
 		}
 	}
 	function changeQ2() {
@@ -206,7 +206,7 @@
 			document.getElementById("noShare2").selected = "true";
 			document.getElementById("noShare2").disabled = false;
 			document.getElementById("no2").disabled = "true";
-			
+
 			document.getElementById("share2").disabled = "true";
 			//document.getElementById("question1b").disabled = "true";
 		} else {
@@ -218,7 +218,7 @@
 			document.getElementById("share2").selected = "true";
 			document.getElementById("noShare2").disabled = "true";
 			document.getElementById("no2").disabled = false;
-			
+
 		}
 	}
 	function changeQ3() {
@@ -228,7 +228,7 @@
 			document.getElementById("noShare3").selected = "true";
 			document.getElementById("noShare3").disabled = false;
 			document.getElementById("no3").disabled = "true";
-			
+
 			document.getElementById("share3").disabled = "true";
 			//document.getElementById("question1b").disabled = "true";
 		} else {
@@ -240,7 +240,7 @@
 			document.getElementById("share3").selected = "true";
 			document.getElementById("noShare3").disabled = "true";
 			document.getElementById("no3").disabled = false;
-			
+
 		}
 	}
 	function changeQ4() {
@@ -250,7 +250,7 @@
 			document.getElementById("noShare4").selected = "true";
 			document.getElementById("noShare4").disabled = false;
 			//document.getElementById("no4").disabled = "true";
-			
+
 			document.getElementById("share4").disabled = "true";
 			//document.getElementById("question1b").disabled = "true";
 		} else {
@@ -262,7 +262,7 @@
 			document.getElementById("share4").selected = "true";
 			document.getElementById("noShare4").disabled = "true";
 			//document.getElementById("no4").disabled = false;
-			
+
 		}
 	}
 	function changeQ5() {
@@ -280,8 +280,8 @@
 			document.getElementById("share5").disabled = false;
 			document.getElementById("share5").selected = "true";
 			document.getElementById("noShare5").disabled = "true";
-		//	document.getElementById("no5").disabled = false;
-			
+			//	document.getElementById("no5").disabled = false;
+
 		}
 	}
 	function changeQ6() {
@@ -300,7 +300,7 @@
 			document.getElementById("share6").selected = "true";
 			document.getElementById("noShare6").disabled = "true";
 			//document.getElementById("no6").disabled = false;
-			
+
 		}
 	}
 </script>
@@ -313,10 +313,10 @@
 				<div class="content-row">
 					<h4>Please input the revision date that will appear in the
 						privacy form.</h4>
-						<div id="errordate" style="display: none">
+					<div id="errordate" style="display: none">
 						<h5 style="color: red;">The revision date cannot be empty.</h5>
 					</div>
-						
+
 					<input class="form-control" type="text" id="datepicker"
 						placeholder="Example : October 2012" name="newDate">
 				</div>
@@ -336,60 +336,68 @@
 							<tr>
 								<td><input type="checkbox" name="checkbox" value="Income">
 									Income</td>
-								<td><input type="checkbox" name="checkbox" value="Account Balances">
-									Account Balances</td>
-								<td><input type="checkbox" name="checkbox" value="Payment History">
-									Payment History</td>
-								<td><input type="checkbox" name="checkbox" value="Transaction History">
-									Transaction History</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Account Balances"> Account Balances</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Payment History"> Payment History</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Transaction History"> Transaction History</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="Transaction or Loss History">
-									Transaction or Loss History</td>
-								<td><input type="checkbox" name="checkbox" value="Credit History">
-									Credit History</td>
-								<td><input type="checkbox" name="checkbox" value="Credit Scores">
-									Credit Scores</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Transaction or Loss History"> Transaction or
+									Loss History</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Credit History"> Credit History</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Credit Scores"> Credit Scores</td>
 								<td><input type="checkbox" name="checkbox" value="Assets">
 									Assets</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="Investment Experience">
-									Investment Experience</td>
-								<td><input type="checkbox" name="checkbox" value="Credit Based Insurance Scores">
-									Credit Based Insurance Scores</td>
-								<td><input type="checkbox" name="checkbox" value="Insurance Claim History">
-									Insurance Claim History</td>
-								<td><input type="checkbox" name="checkbox" value="Account Transactions">
-									Account Transactions</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Investment Experience"> Investment Experience</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Credit Based Insurance Scores"> Credit Based
+									Insurance Scores</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Insurance Claim History"> Insurance Claim
+									History</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Account Transactions"> Account Transactions</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="Risk Tolerance">
-									Risk Tolerance</td>
-								<td><input type="checkbox" name="checkbox" value="Medical Related Debts">
-									Medical Related Debts</td>
-								<td><input type="checkbox" name="checkbox" value="Credit Card or other debt">
-									Credit Card or other debt</td>
-								<td><input type="checkbox" name="checkbox" value="Mortgage Rates and Payments">
-									Mortgage Rates and Payments</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Risk Tolerance"> Risk Tolerance</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Medical Related Debts"> Medical Related Debts</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Credit Card or other debt"> Credit Card or other
+									debt</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Mortgage Rates and Payments"> Mortgage Rates and
+									Payments</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="Retirement Assets">
-									Retirement Assets</td>
-								<td><input type="checkbox" name="checkbox" value="Checking account information">
-									Checking account information</td>
-								<td><input type="checkbox" name="checkbox" value="Employment Information retirement portfolio">
+								<td><input type="checkbox" name="checkbox"
+									value="Retirement Assets"> Retirement Assets</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Checking account information"> Checking account
+									information</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Employment Information retirement portfolio">
 									Employment Information retirement portfolio</td>
-								<td><input type="checkbox" name="checkbox" value="Wire Transfer Instructions">
-									Wire Transfer Instructions</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Wire Transfer Instructions"> Wire Transfer
+									Instructions</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="checkbox" value="Medical Information">
-									Medical Information</td>
-								<td><input type="checkbox" name="checkbox" value="Overdraft History">
-									Overdraft History</td>
-								<td><input type="checkbox" name="checkbox" value="Purchase History">
-									Purchase History</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Medical Information"> Medical Information</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Overdraft History"> Overdraft History</td>
+								<td><input type="checkbox" name="checkbox"
+									value="Purchase History"> Purchase History</td>
 								<td></td>
 							</tr>
 						</table>
@@ -408,8 +416,7 @@
 					<thead>
 						<tr>
 							<th scope="col">Information</th>
-							<th scope="col">Does ${companyName} share?
-							</th>
+							<th scope="col">Does ${companyName} share?</th>
 							<th scope="col">Can you limit this sharing?</th>
 						</tr>
 					</thead>
@@ -479,31 +486,49 @@
 							<td class="centered-td"><select id="question4b"
 								name="question4b" readonly="false"><option value="Yes"
 										id="share4">Yes</option>
-									
+
 									<option value="No" id="noShare4">We do not share</option></select></td>
 						</tr>
-						<c:if test="${hasAffiliates}">
-							<tr>
-								<td><strong><span id="optionalQuestion">Will
-											the affiliates market to your customers? </span></strong></td>
-								<td class="centered-td"><select id="question5"
-									name="question5" onchange="changeQ5()"><option
-											value="Yes">Yes</option>
-										<option value="No">No</option></select></td>
-								<td class="centered-td"><select id="question5b"
-									name="question5b" readonly="false"><option value="Yes"
-											id="share5">Yes</option>
-										<option value="No" id="noShare5">We do not share</option></select></td>
-							</tr>
-						</c:if>
+						<c:choose>
+							<c:when test="${hasAffiliates}">
+								<tr>
+									<td><strong><span id="optionalQuestion">Will
+												the affiliates market to your customers? </span></strong></td>
+									<td class="centered-td"><select id="question5"
+										name="question5" onchange="changeQ5()"><option
+												value="Yes">Yes</option>
+											<option value="No">No</option></select></td>
+									<td class="centered-td"><select id="question5b"
+										name="question5b" readonly="false"><option
+												value="Yes" id="share5">Yes</option>
+											<option value="No" id="noShare5">We do not share</option></select></td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<tr style="display: none">
+									<td><strong><span id="optionalQuestion">Will
+												the affiliates market to your customers? </span></strong></td>
+									<td class="centered-td"><select id="question5"
+										name="question5" onchange="changeQ5()"><option
+												value="Yes">Yes</option>
+											<option value="No">No</option></select></td>
+									<td class="centered-td"><select id="question5b"
+										name="question5b" readonly="false"><option
+												value="Yes" id="share5">Yes</option>
+											<option value="No" id="noShare5">We do not share</option></select></td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
 
 						<tr>
 							<td><strong>For nonaffiliates to market to you</strong></td>
-							<td class="centered-td"><select id="question6" name="question6"
-								onchange="changeQ6()"><option value="Yes">Yes</option>
+							<td class="centered-td"><select id="question6"
+								name="question6" onchange="changeQ6()"><option
+										value="Yes">Yes</option>
 									<option value="No">No</option></select></td>
-							<td class="centered-td"><select id="question6b" name="question6b"
-								readonly="false"><option value="Yes" id="share6">Yes</option>
+							<td class="centered-td"><select id="question6b"
+								name="question6b" readonly="false"><option value="Yes"
+										id="share6">Yes</option>
 									<option value="No" id="noShare6">We do not share</option></select></td>
 						</tr>
 					</tbody>
@@ -532,19 +557,19 @@
 				<h5 style="color: red;">You need to select at least one of the
 					contact method</h5>
 			</div>
-			
+
 			<table style="width: 100%">
 				<tr>
 					<td width="15%"><input name="contactMethod" id="phone1"
 						type="checkbox" value="phone" /> Phone</td>
 					<td><input type="text" class="form-control"
-						placeholder="Phone Number" name="phoneText"></td>
+						placeholder="Phone Number" id = "phoneText" name="phoneText"></td>
 				</tr>
 				<tr>
 					<td width="15%"><input name="contactMethod" type="checkbox"
 						id="website1" value="website" /> Website</td>
 					<td><input type="text" class="form-control"
-						placeholder="Website Address" name="websiteText"></td>
+						placeholder="Website Address" id = "websiteText" name="websiteText"></td>
 				</tr>
 			</table>
 		</div>
@@ -558,13 +583,15 @@
 				</table>
 				<h4>What's your phone number for opt-out?</h4>
 				<div id="errorPhone" style="display: none">
-				<h5 style="color: red;">The field could not be empty</h5>
+					<h5 style="color: red;">The field could not be empty</h5>
 				</div>
-				<input type="text" class="form-control" placeholder="Phone number for opt-out" id = "phonephone" name="phoneOptOut">
+				<input type="text" class="form-control"
+					placeholder="Phone number for opt-out" id="phonephone"
+					name="phoneOptOut">
 			</div>
-			<br/>
+			<br />
 		</c:if>
-		
+
 		<c:if test="${opt_website}">
 			<div class="content-row">
 				<table class="table table-striped" style="text-align: left">
@@ -574,13 +601,15 @@
 				</table>
 				<h4>What's your website for opt-out?</h4>
 				<div id="errorWebsite" style="display: none">
-				<h5 style="color: red;">The field could not be empty</h5>
+					<h5 style="color: red;">The field could not be empty</h5>
 				</div>
-				<input type="text" class="form-control" placeholder="Website for opt-out" id = "websitewebsite" name="websiteOptOut">
+				<input type="text" class="form-control"
+					placeholder="Website for opt-out" id="websitewebsite"
+					name="websiteOptOut">
 			</div>
-			<br/>
+			<br />
 		</c:if>
-		
+
 		<c:if test="${opt_cookie}">
 			<div class="content-row">
 				<table class="table table-striped" style="text-align: left">
@@ -590,13 +619,15 @@
 				</table>
 				<h4>What's your link for cookie-based opt-out?</h4>
 				<div id="errorCookie" style="display: none">
-				<h5 style="color: red;">The field could not be empty</h5>
+					<h5 style="color: red;">The field could not be empty</h5>
 				</div>
-				<input type="text" class="form-control" placeholder="Link for cookie-base opt-out" name="cookieOptOut" id = "cookiecookie">
+				<input type="text" class="form-control"
+					placeholder="Link for cookie-base opt-out" name="cookieOptOut"
+					id="cookiecookie">
 			</div>
-			<br/>
+			<br />
 		</c:if>
-		
+
 		<c:if test="${opt_doNotTrack}">
 			<div class="content-row">
 				<table class="table table-striped" style="text-align: left">
@@ -606,13 +637,15 @@
 				</table>
 				<h4>What's your link for Do-Not-Track-based opt-out?</h4>
 				<div id="errorTrack" style="display: none">
-				<h5 style="color: red;">The field could not be empty</h5>
+					<h5 style="color: red;">The field could not be empty</h5>
 				</div>
-				<input type="text" class="form-control" placeholder="Link for Do-Not-Track-based opt-out" name="doNotTrackOptOut" id = "tracktrack">
+				<input type="text" class="form-control"
+					placeholder="Link for Do-Not-Track-based opt-out"
+					name="doNotTrackOptOut" id="tracktrack">
 			</div>
-			<br/>
+			<br />
 		</c:if>
-		
+
 		<br />
 		<c:if test="${opt_mail}">
 			<div class="content-row" id="mailinForm">
@@ -628,24 +661,24 @@
 				<div id="optionalInfo" class="leftpad" style="display: none">
 					<h5>Please select the additional information you need:</h5>
 					<input type="radio" name="optionsRadios" id="radio1"
-						value="Account Number" checked> Account Number<br /> 
-					<input type="radio" name="optionsRadios" id="radio1" value="Opt-out Number">
-						Opt-out Number<br /> 
-					<input type="radio" name="optionsRadios"
-						id="radio1" value="Truncated Account Number"> 
-						Truncated Account Number<br />
+						value="Account Number" checked> Account Number<br /> <input
+						type="radio" name="optionsRadios" id="radio1"
+						value="Opt-out Number"> Opt-out Number<br /> <input
+						type="radio" name="optionsRadios" id="radio1"
+						value="Truncated Account Number"> Truncated Account Number<br />
 				</div>
 				<br />
 				<h4>The mail-in opt-out form should be mailed to:</h4>
 				<div id="errorMail" style="display: none">
-				<h5 style="color: red;">The field could not be empty</h5>
+					<h5 style="color: red;">The field could not be empty</h5>
 				</div>
-				<table style="width:100%">
+				<table style="width: 100%">
 					<tr>
 						<td>Street:</td>
-						<td>&nbsp;&nbsp;<input name="street" type="text" id = "streetstreet"></td>
+						<td>&nbsp;&nbsp;<input name="street" type="text"
+							id="streetstreet"></td>
 						<td>City:</td>
-						<td>&nbsp;&nbsp;<input name="city" type="text" id = "citycity"></td>
+						<td>&nbsp;&nbsp;<input name="city" type="text" id="citycity"></td>
 					</tr>
 					<tr>
 						<td>State:</td>
@@ -704,7 +737,7 @@
 						</select>
 						</td>
 						<td>Zip:</td>
-						<td>&nbsp;&nbsp;<input type="text" name="zip" id = "zipzip"></td>
+						<td>&nbsp;&nbsp;<input type="text" name="zip" id="zipzip"></td>
 					</tr>
 				</table>
 				<br />
@@ -715,7 +748,7 @@
 					onclick="showdiv2(this)">Yes<br /> <input type="radio"
 					name="optionsRadios1" id="radio2" value="q3N"
 					onclick="blockdiv2(this)" checked>No<br />
-					
+
 				<!--<div class="leftpad" id="jointAccount" style="display: none">
 					<h5>If you have a joint account, will you apply your choice(s)
 						only to yourself?</h5>
@@ -729,7 +762,7 @@
 						checked>No<br />
 				</div>-->
 				<br />
-				
+
 				<h4>Do you offer an opt-out for your own marketing?</h4>
 				<input type="radio" name="optionsRadios7" id="radio13" value="q5Y"
 					onclick="showdiv4(this)">Yes<br /> <input type="radio"
@@ -755,11 +788,11 @@
 					</div>
 				</div>-->
 				<br />
-				
+
 				<h4>Do you offer an opt-out for joint marketing?</h4>
-				<input type="radio" name="optionsRadios11" id="radio20"
-					value="q6Y" onclick="showdiv3(this)">Yes<br /> <input
-					type="radio" name="optionsRadios11" id="radio21" value="q6N"
+				<input type="radio" name="optionsRadios11" id="radio20" value="q6Y"
+					onclick="showdiv3(this)">Yes<br /> <input type="radio"
+					name="optionsRadios11" id="radio21" value="q6N"
 					onclick="blockdiv3(this)" checked>No<br />
 				<!--<div class="leftpad" id="jointMarket" style="display: none">
 					<h5>Will you share your personal information with other
@@ -786,89 +819,92 @@
 		<div class="content-row">
 			<br />
 			<p align="center">
-				<button type="submit" name="next1" class="btn btn-primary btn-primary-lg"
-					onclick="validateForm1()">Next Page</button>
+				<button type="submit" name="next1"
+					class="btn btn-primary btn-primary-lg" onclick="validateForm1()">Next
+					Page</button>
 			</p>
 		</div>
 	</form>
-<script src="js/jquery.loadJSON.js"></script>
-<script>
-$(document).ready(function() {
-	<%
-		Boolean uploadFile = false;
-		String json = "";
-		if(session.getAttribute("questionare") != null){
-			json = "'" + (String)session.getAttribute("questionare") + "'";
-			uploadFile = true;
-		}
-		if(uploadFile){
-	%>
-		var form1 = jQuery.parseJSON(<%=json%>);
-		$('form').loadJSON(form1);
-		//alert(form1.additionalInfo);
-		if(form1.additionalInfo){
-			document.getElementById("optionalInfo").style.display = "block";
-		}
-		for (var i = 0; i < 3; i++) {
-			var j = i + 1;
-			//alert(j);
-			//alert(form1.share[i]);
-			if(form1.share[i] == "Yes"){
-				//alert("Yes");
-				document.getElementById("question" + j).value = "Yes";
-				if(form1.limit[i] == "Yes"){
-					//document.getElementById("share" + j).value = "Yes";
-					document.getElementById("question" + j + "b").options.selectedIndex = 0;
-				}else{
-					//document.getElementById("no" + j).value = "No";
-					document.getElementById("question" + j + "b").options.selectedIndex = 1;
+	<script src="js/jquery.loadJSON.js"></script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+	<%Boolean uploadFile = false;
+			String json = "";
+			if (session.getAttribute("questionare") != null) {
+				json = "'" + (String) session.getAttribute("questionare") + "'";
+				uploadFile = true;
+			}
+			if (uploadFile) {%>
+		var form1 = jQuery.parseJSON(
+	<%=json%>
+		);
+							$('form').loadJSON(form1);
+							if (form1.additionalInfo) {
+								document.getElementById("optionalInfo").style.display = "block";
+							}
+							if (form1.websiteText == "undefined") {
+								document.getElementById("websiteText").value = "";
+							}
+							if (form1.phoneText == "undefined") {
+								document.getElementById("phoneText").value = "";
+							}
+							for (var i = 0; i < 3; i++) {
+								var j = i + 1;
+								if (form1.share[i] == "Yes") {
+									document.getElementById("question" + j).value = "Yes";
+									if (form1.limit[i] == "Yes") {
+										document.getElementById("question" + j
+												+ "b").options.selectedIndex = 0;
+									} else {
+										document.getElementById("question" + j
+												+ "b").options.selectedIndex = 1;
+									}
+								} else {
+									document.getElementById("question" + j).value = "No";
+									document.getElementById("question" + j
+											+ "b").options.selectedIndex = 2;
+								}
+							}
+
+							for (var i = 3; i < form1.share.length; i++) {
+								var j = i + 1;
+								if (form1.share[i] == "Yes") {
+									document.getElementById("question" + j).value = "Yes";
+									document.getElementById("question" + j
+											+ "b").options.selectedIndex = 0;
+								} else {
+									document.getElementById("question" + j).value = "No";
+									document.getElementById("question" + j
+											+ "b").options.selectedIndex = 1;
+								}
+							}
+	<%}%>
+		});
+	</script>
+	<script type="text/javascript">
+		function checkBox() {
+
+			var sum1 = 0;
+			var checkboxes1 = document.getElementsByName('checkbox');
+
+			for (var j = 0; j < checkboxes1.length; j++) {
+				if (checkboxes1[j].checked) {
+					sum1++;
 				}
-			}else{
-				//alert("No");
-				document.getElementById("question" + j).value = "No";
-				document.getElementById("question" + j + "b").options.selectedIndex = 2;
-				//document.getElementById("noshare" + j).value = "No";
 			}
-		}
-		
-		for (var i = 3; i < form1.share.length; i++) {
-			var j = i + 1;
-			if(form1.share[i] == "Yes"){
-				document.getElementById("question" + j).value = "Yes";
-				document.getElementById("question" + j + "b").options.selectedIndex = 0;
-			}else{
-				document.getElementById("question" + j).value = "No";
-				document.getElementById("question" + j + "b").options.selectedIndex = 1;
+
+			if (sum1 > 5) {
+				document.getElementById("error5").style.display = "block";
+				flag = false;
+
+			} else {
+				document.getElementById("error5").style.display = "none";
 			}
+
 		}
-	<%
-		}
-	%>
-});
-</script>
-<script type="text/javascript">
-
-function checkBox(){
-	
-var sum1 = 0;
-var checkboxes1 = document.getElementsByName('checkbox');
-
-for (var j = 0; j < checkboxes1.length; j++) {
-	if (checkboxes1[j].checked) {
-		sum1++;
-	}
-}
-
-if (sum1 > 5) {
-	document.getElementById("error5").style.display = "block";
-	flag = false;
-
-} else {
-	document.getElementById("error5").style.display = "none";
-}
-
-}
-</script>
+	</script>
 
 	<script type="text/javascript">
 		changeQ1();
@@ -885,7 +921,7 @@ if (sum1 > 5) {
 
 			var sum1 = 0;
 			var checkboxes1 = document.getElementsByName('contactMethod');
-			
+
 			var text = document.getElementById('datepicker').value;
 			var len = text.split(" ");
 			if (len == 0) {
@@ -932,99 +968,101 @@ if (sum1 > 5) {
 			} else {
 				document.getElementById("error5").style.display = "none";
 			}
-		<%
-		boolean ifPhone1 = session.getAttribute("opt_phone") == null ? false : true;
-		%>
-		var ifPhone = <%=ifPhone1%>;
-		
-		if (ifPhone) {
-		var phoneNum = document.getElementById('phonephone').value;
-		
-		
-		
-		if (ifPhone && (phoneNum == null || phoneNum == "")) {
-				document.getElementById('errorPhone').style.display = "block";
-				flag = false;
-				
-			} else {
-				document.getElementById('errorPhone').style.display = "none";
-			} 
-		
-		}
-		<%
-		boolean ifWebsite1 = session.getAttribute("opt_website") == null ? false : true;
-		%>
-		var ifWebsite = <%=ifWebsite1%>;
-		if (ifWebsite) {
-		var websiteAdd = document.getElementById('websitewebsite').value;
-		
-		
-		if (ifWebsite && (websiteAdd == null || websiteAdd == "")) {
-				document.getElementById('errorWebsite').style.display = "block";
-				flag = false;
-				
-			} else {
-				document.getElementById('errorWebsite').style.display = "none";
-			} 
-		}
-		
-		<%
-		boolean ifMailin1 = session.getAttribute("opt_mail") == null ? false : true;
-		%>
-		var ifMailin = <%=ifMailin1%>;
-		if (ifMailin) {
-		var mailinStreet = document.getElementById('streetstreet').value;
-		var mailinCity = document.getElementById('citycity').value;
-		var mailinZip = document.getElementById('zipzip').value;
-		
-		
-		if (ifMailin && ((mailinStreet == null || mailinStreet == "") || (mailinCity == null || mailinCity == "") || (mailinZip == null || mailinZip == ""))) {
-				document.getElementById('errorMail').style.display = "block";
-				flag = false;
-				
-			} else {
-				document.getElementById('errorMail').style.display = "none";
-			} 
-		}
-		<%
-		boolean ifCookie1 = session.getAttribute("opt_cookie") == null ? false : true;
-		%>
-		var ifCookie = <%=ifCookie1%>;
-		
-		if (ifCookie) {
-		var cookieAdd = document.getElementById('cookiecookie').value;
-		
-		
-		
-		if (ifCookie && (cookieAdd == null || cookieAdd == "")) {
-				document.getElementById('errorCookie').style.display = "block";
-				flag = false;
-				
-			} else {
-				document.getElementById('errorCookie').style.display = "none";
-			} 
-		
-		}
-		
-		<%
-		boolean ifTrack1 = session.getAttribute("opt_doNotTrack") == null ? false : true;
-		%>
-		var ifTrack = <%=ifTrack1%>;
-		
-		if (ifTrack) {
-		var trackAdd = document.getElementById('tracktrack').value;
-		
-		
-		
-		if (ifTrack && (trackAdd == null || trackAdd == "")) {
-				document.getElementById('errorTrack').style.display = "block";
-				flag = false;
-				
-			} else {
-				document.getElementById('errorTrack').style.display = "none";
-			} 
-		
-		}
+	<%boolean ifPhone1 = session.getAttribute("opt_phone") == null
+					? false
+					: true;%>
+		var ifPhone =
+	<%=ifPhone1%>
+		;
+
+			if (ifPhone) {
+				var phoneNum = document.getElementById('phonephone').value;
+
+				if (ifPhone && (phoneNum == null || phoneNum == "")) {
+					document.getElementById('errorPhone').style.display = "block";
+					flag = false;
+
+				} else {
+					document.getElementById('errorPhone').style.display = "none";
+				}
+
+			}
+	<%boolean ifWebsite1 = session.getAttribute("opt_website") == null
+					? false
+					: true;%>
+		var ifWebsite =
+	<%=ifWebsite1%>
+		;
+			if (ifWebsite) {
+				var websiteAdd = document.getElementById('websitewebsite').value;
+
+				if (ifWebsite && (websiteAdd == null || websiteAdd == "")) {
+					document.getElementById('errorWebsite').style.display = "block";
+					flag = false;
+
+				} else {
+					document.getElementById('errorWebsite').style.display = "none";
+				}
+			}
+	<%boolean ifMailin1 = session.getAttribute("opt_mail") == null
+					? false
+					: true;%>
+		var ifMailin =
+	<%=ifMailin1%>
+		;
+			if (ifMailin) {
+				var mailinStreet = document.getElementById('streetstreet').value;
+				var mailinCity = document.getElementById('citycity').value;
+				var mailinZip = document.getElementById('zipzip').value;
+
+				if (ifMailin
+						&& ((mailinStreet == null || mailinStreet == "")
+								|| (mailinCity == null || mailinCity == "") || (mailinZip == null || mailinZip == ""))) {
+					document.getElementById('errorMail').style.display = "block";
+					flag = false;
+
+				} else {
+					document.getElementById('errorMail').style.display = "none";
+				}
+			}
+	<%boolean ifCookie1 = session.getAttribute("opt_cookie") == null
+					? false
+					: true;%>
+		var ifCookie =
+	<%=ifCookie1%>
+		;
+
+			if (ifCookie) {
+				var cookieAdd = document.getElementById('cookiecookie').value;
+
+				if (ifCookie && (cookieAdd == null || cookieAdd == "")) {
+					document.getElementById('errorCookie').style.display = "block";
+					flag = false;
+
+				} else {
+					document.getElementById('errorCookie').style.display = "none";
+				}
+
+			}
+	<%boolean ifTrack1 = session.getAttribute("opt_doNotTrack") == null
+					? false
+					: true;%>
+		var ifTrack =
+	<%=ifTrack1%>
+		;
+
+			if (ifTrack) {
+				var trackAdd = document.getElementById('tracktrack').value;
+
+				if (ifTrack && (trackAdd == null || trackAdd == "")) {
+					document.getElementById('errorTrack').style.display = "block";
+					flag = false;
+
+				} else {
+					document.getElementById('errorTrack').style.display = "none";
+				}
+
+			}
 			if (flag) {
 				return true;
 			} else {

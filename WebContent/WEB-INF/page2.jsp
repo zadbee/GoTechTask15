@@ -198,15 +198,15 @@
 			<div id="div1">
 				<label>Financial companies:</label>
 				<p>
-					<textarea id="t11" name = "question5_1" class="form-control" rows="4"></textarea>
+					<textarea id="t11" name = "question5_1" id="question5_1" class="form-control" rows="4"></textarea>
 				</p>
 				<label>Nonfinancial companies:</label>
 				<p>
-					<textarea id="t12" name = "question5_2"class="form-control" rows="4"></textarea>
+					<textarea id="t12" name = "question5_2" id="question5_2" class="form-control" rows="4"></textarea>
 				</p>
 				<label>Others:</label>
 				<p>
-					<textarea id="t13" name = "question5_3"class="form-control" rows="4"></textarea>
+					<textarea id="t13" name = "question5_3" id="question5_3" class="form-control" rows="4"></textarea>
 				</p>
 			</div><br />
 			<%
@@ -258,7 +258,7 @@
 			<h4>Do you have other important informations? <a href="http://www.privacy.va.gov/docs/plregulations_po_book.pdf" target = "_blank"><span class="glyphicon glyphicon-question-sign"></span></a></h4> 
 			
 			<p>
-				<textarea id="t4" name="question8" class="form-control" rows="5" placeholder="Hint: This section is optional. Only the following types of information can appear in this box. 
+				<textarea id="t4" name="question8" class="form-control" id="question8" rows="5" placeholder="Hint: This section is optional. Only the following types of information can appear in this box. 
 (1) State and/or international privacy law information; and/or 
 (2) Acknowledgment of receipt form."></textarea>
 			</p>
@@ -270,6 +270,67 @@
 		</div>
 	</form>
 </div>
+<script>
+		function addItemAll(source,target){
+          for(var x=0;x<source.length;x++){
+            var opt = source.options[x];
+            target.options[target.options.length] = new Option(opt.text, opt.value,0,0);
+          }
+          for(var x=source.length-1;x>=0;x--){
+                    source.options[x] = null;
+          }
+        }
+		function delItemAll(source,target){
+		  for(var x=0;x<target.length;x++){
+            var opt = target.options[x];
+            source.options[source.options.length] = new Option(opt.text, opt.value,0,0);
+          }
+          for(var x=target.length-1;x>=0;x--){
+                    target.options[x] = null;
+          }
+        }
+        
+		function addItem(source,target){
+		  var count = 0;
+          for(var x=0;x<source.length;x++){
+                var opt = source.options[x];
+                if (opt.selected){
+                  target.options[target.options.length] = new Option(opt.text, opt.value, 0, 0);
+                  source.options[x].value=0;
+                  count++;
+                }
+          }
+         
+          for (var y=count;y>0;y--){
+          	for(var z=0;z<source.length;z++){
+                if (source.options[z].value==0){
+                  source.options[z]=null;
+                }
+          	}
+          }
+        }
+		
+    	function delItem(source,target){
+    		var count = 0;
+          for(var x=target.length-1;x>=0;x--){
+                var opt = target.options[x];
+                if (opt.selected){
+                  source.options[source.options.length] = new Option(opt.text, opt.value, 0, 0);
+                  target.options[x].value=0;
+                  count++;
+                  target.options[x] = null;
+                }
+          }
+          
+          for (var y=count;y>0;y--){
+          	for(var z=0;z<target.length;z++){
+                if (target.options[z].value==0){
+                  target.options[z]=null;
+                }
+          	}
+          }
+        }
+</script>
 <script src="js/jquery.loadJSON.js"></script>
 <script>
 $(document).ready(function() {
@@ -294,7 +355,20 @@ $(document).ready(function() {
 			document.getElementById("LawDescription").style.display = "block";
 		}
 		
-		addItem(document.all.locs,document.all.mylocs);
+		addItem(document.all.locs, document.all.mylocs);
+		
+		if (form1.question5_1 == "undefined") {
+			document.getElementById("question5_1").value = "";
+		}
+		if (form1.question5_2 == "undefined") {
+			document.getElementById("question5_2").value = "";
+		}
+		if (form1.question5_3 == "undefined") {
+			document.getElementById("question5_3").value = "";
+		}
+		if (form1.question8 == "undefined") {
+			document.getElementById("question8").value = "";
+		}
 	<%
 		}
 	%>
@@ -379,67 +453,6 @@ $(document).ready(function() {
 		%>
 		return flag;
 	}
-</script>
-<script>
-		function addItemAll(source,target){
-          for(var x=0;x<source.length;x++){
-            var opt = source.options[x];
-            target.options[target.options.length] = new Option(opt.text, opt.value,0,0);
-          }
-          for(var x=source.length-1;x>=0;x--){
-                    source.options[x] = null;
-          }
-        }
-		function delItemAll(source,target){
-		  for(var x=0;x<target.length;x++){
-            var opt = target.options[x];
-            source.options[source.options.length] = new Option(opt.text, opt.value,0,0);
-          }
-          for(var x=target.length-1;x>=0;x--){
-                    target.options[x] = null;
-          }
-        }
-        
-		function addItem(source,target){
-		  var count = 0;
-          for(var x=0;x<source.length;x++){
-                var opt = source.options[x];
-                if (opt.selected){
-                  target.options[target.options.length] = new Option(opt.text, opt.value, 0, 0);
-                  source.options[x].value=0;
-                  count++;
-                }
-          }
-         
-          for (var y=count;y>0;y--){
-          	for(var z=0;z<source.length;z++){
-                if (source.options[z].value==0){
-                  source.options[z]=null;
-                }
-          	}
-          }
-        }
-		
-    	function delItem(source,target){
-    		var count = 0;
-          for(var x=target.length-1;x>=0;x--){
-                var opt = target.options[x];
-                if (opt.selected){
-                  source.options[source.options.length] = new Option(opt.text, opt.value, 0, 0);
-                  target.options[x].value=0;
-                  count++;
-                  target.options[x] = null;
-                }
-          }
-          
-          for (var y=count;y>0;y--){
-          	for(var z=0;z<target.length;z++){
-                if (target.options[z].value==0){
-                  target.options[z]=null;
-                }
-          	}
-          }
-        }
 </script>
 <script>
 function showDescription(ch) {

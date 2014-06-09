@@ -13,9 +13,11 @@ public class Page0Action extends Action {
 	public String perform(HttpServletRequest request) {
 		String submit = request.getParameter("next0");
 		if (submit == null) {
+			HttpSession session = request.getSession(true);
+			session.invalidate();
 			return "page0.jsp";
 		}
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		session.setMaxInactiveInterval(600);
 		Questionare q = new Questionare();
 		session.setAttribute("q", q);
