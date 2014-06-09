@@ -149,7 +149,7 @@
 			</div>
 			<br/>
 			
-			<h4>Will you refer to state laws for the question &quot;Why can’t customers limit all sharing&quot; ?</h4>
+			<h4>Will you refer to state laws for the question "Why can't customers limit all sharing" ?</h4>
 			<div class="radio">
 				<label> <input type="radio" name="refer" id="StateLaw" value="yes" onclick="showDescription(this)"> Yes
 				</label>
@@ -285,6 +285,16 @@ $(document).ready(function() {
 	%>
 		var form1 = jQuery.parseJSON(<%=json%>);
 		$('form').loadJSON(form1);
+		
+		if(form1.collect == "no"){
+			document.getElementById("collect2div").style.display = "block";
+		}
+		
+		if(form1.refer == "no"){
+			document.getElementById("LawDescription").style.display = "block";
+		}
+		
+		addItem(document.all.locs,document.all.mylocs);
 	<%
 		}
 	%>
@@ -295,7 +305,7 @@ $(document).ready(function() {
 		var flag = true;
 		var text = document.getElementById('question1').value;
 		var len = text.split(" ");
-		if (len == 0 || len > 30) {
+		if (text.length == 0 || len > 30) {
 			flag = false;
 			document.getElementById("error1").style.display = "block";
 		} else {

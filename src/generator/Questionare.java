@@ -368,20 +368,80 @@ public class Questionare {
 		//obj.put("hasPartners", hasPartners);
 		obj.put("newDate", lastRevisedDate);
 		JSONArray sharedInfoArray = new JSONArray();
-		for(String s: sharedInfo){
-			sharedInfoArray.add(s);
+		for(int i = 0; i < 23; i++){
+			sharedInfoArray.add(false);
 		}
-		obj.put("sharedInfo", sharedInfoArray);
+		for(String s :sharedInfo){
+			if(s.equals("Income")){
+				sharedInfoArray.set(0, true);
+			}else if(s.equals("Account Balances")){
+				sharedInfoArray.set(1, true);
+			}else if(s.equals("Payment History")){
+				sharedInfoArray.set(2, true);
+			}else if(s.equals("Transaction History")){
+				sharedInfoArray.set(3, true);
+			}else if(s.equals("Transaction or Loss History")){
+				sharedInfoArray.set(4, true);
+			}else if(s.equals("Credit History")){
+				sharedInfoArray.set(5, true);
+			}else if(s.equals("Credit Scores")){
+				sharedInfoArray.set(6, true);
+			}else if(s.equals("Assets")){
+				sharedInfoArray.set(7, true);
+			}else if(s.equals("Investment Experience")){
+				sharedInfoArray.set(8, true);
+			}else if(s.equals("Credit Based Insurance Scores")){
+				sharedInfoArray.set(9, true);
+			}else if(s.equals("Insurance Claim History")){
+				sharedInfoArray.set(10, true);
+			}else if(s.equals("Account Transactions")){
+				sharedInfoArray.set(11, true);
+			}else if(s.equals("Risk Tolerance")){
+				sharedInfoArray.set(12, true);
+			}else if(s.equals("Medical Related Debts")){
+				sharedInfoArray.set(13, true);
+			}else if(s.equals("Credit Card or other debt")){
+				sharedInfoArray.set(14, true);
+			}else if(s.equals("Mortgage Rates and Payments")){
+				sharedInfoArray.set(15, true);
+			}else if(s.equals("Retirement Assets")){
+				sharedInfoArray.set(16, true);
+			}else if(s.equals("Checking account information")){
+				sharedInfoArray.set(17, true);
+			}else if(s.equals("Employment Information retirement portfolio")){
+				sharedInfoArray.set(18, true);
+			}else if(s.equals("Wire Transfer Instructions")){
+				sharedInfoArray.set(19, true);
+			}else if(s.equals("Medical Information")){
+				sharedInfoArray.set(20, true);
+			}else if(s.equals("Overdraft History")){
+				sharedInfoArray.set(20, true);
+			}else if(s.equals("Purchase History")){
+				sharedInfoArray.set(20, true);
+			}
+		}
+		obj.put("checkbox", sharedInfoArray);
+		
+		
 		JSONArray shareArray = new JSONArray();
-		for(String s: share){
-			shareArray.add(s);
+		for(int i = 1; i < share.length; i++){
+			shareArray.add(share[i]);
 		}
 		obj.put("share", shareArray);
+		//for(int i = 1; i < share.length; i++){
+			//obj.put("question" + i, share[i]);
+		//}
+		
+		
 		JSONArray limitArray = new JSONArray();
-		for(String s: limit){
-			limitArray.add(s);
+		for(int i = 1; i < limit.length; i++){
+			limitArray.add(limit[i]);
 		}
 		obj.put("limit", limitArray);
+		//for(int i = 1; i < limit.length; i++){
+			//obj.put("question" + i, limit[i]);
+		//}
+		
 		obj.put("numOfDays", days);
 		JSONArray contactMethodArray = new JSONArray();
 		contactMethodArray.add(providePhone);
@@ -400,7 +460,7 @@ public class Questionare {
 		
 		obj.put("additionalInfo", additionalInfo);
 		//obj.put("additionalInfoType", additionalInfoType);
-		obj.put("additionalInfo", additionalInfoType);
+		obj.put("optionsRadios", additionalInfoType);
 		
 		obj.put("street", streetAddr);
 //		obj.put("aptNumber", aptNumber);
@@ -430,20 +490,22 @@ public class Questionare {
 		obj.put("question0", partners);
 		obj.put("question1", howToProtect);
 		JSONArray collectedTypesArray = new JSONArray();
-		for(String s: limit){
+		for(String s: collectedTypes){
+			System.out.println(s);
 			collectedTypesArray.add(s);
 		}
+		obj.put("locs", collectedTypesArray);
 		
 		if(collectFromAffiliates){
 			obj.put("collect", "yes");
 		}else{
-			obj.put("collect", "yes");
+			obj.put("collect", "no");
 		}
 		//obj.put("collect", collectFromAffiliates);
 		if(collectFromOthers){
-			obj.put("collect2div", "yes");
+			obj.put("collect2", "yes");
 		}else{
-			obj.put("collect2div", "no");
+			obj.put("collect2", "no");
 		}
 		if(stateLaw){
 			obj.put("refer", "yes");

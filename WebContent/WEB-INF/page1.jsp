@@ -383,6 +383,15 @@
 								<td><input type="checkbox" name="checkbox" value="Wire Transfer Instructions">
 									Wire Transfer Instructions</td>
 							</tr>
+							<tr>
+								<td><input type="checkbox" name="checkbox" value="Medical Information">
+									Medical Information</td>
+								<td><input type="checkbox" name="checkbox" value="Overdraft History">
+									Overdraft History</td>
+								<td><input type="checkbox" name="checkbox" value="Purchase History">
+									Purchase History</td>
+								<td></td>
+							</tr>
 						</table>
 					</div>
 				</div>
@@ -788,16 +797,50 @@ $(document).ready(function() {
 	<%
 		Boolean uploadFile = false;
 		String json = "";
-		//String json = "'{\"optionsRadio\":\"share\",\"optionsRadio2\":\"one\",\"opt-out\":[true],\"name\":\"new comm\"}'";
 		if(session.getAttribute("questionare") != null){
 			json = "'" + (String)session.getAttribute("questionare") + "'";
 			uploadFile = true;
 		}
 		if(uploadFile){
 	%>
-		alert(<%=json%>);
 		var form1 = jQuery.parseJSON(<%=json%>);
 		$('form').loadJSON(form1);
+		//alert(form1.additionalInfo);
+		if(form1.additionalInfo){
+			document.getElementById("optionalInfo").style.display = "block";
+		}
+		for (var i = 0; i < 3; i++) {
+			var j = i + 1;
+			//alert(j);
+			//alert(form1.share[i]);
+			if(form1.share[i] == "Yes"){
+				//alert("Yes");
+				document.getElementById("question" + j).value = "Yes";
+				if(form1.limit[i] == "Yes"){
+					//document.getElementById("share" + j).value = "Yes";
+					document.getElementById("question" + j + "b").options.selectedIndex = 0;
+				}else{
+					//document.getElementById("no" + j).value = "No";
+					document.getElementById("question" + j + "b").options.selectedIndex = 1;
+				}
+			}else{
+				//alert("No");
+				document.getElementById("question" + j).value = "No";
+				document.getElementById("question" + j + "b").options.selectedIndex = 2;
+				//document.getElementById("noshare" + j).value = "No";
+			}
+		}
+		
+		for (var i = 3; i < form1.share.length; i++) {
+			var j = i + 1;
+			if(form1.share[i] == "Yes"){
+				document.getElementById("question" + j).value = "Yes";
+				document.getElementById("question" + j + "b").options.selectedIndex = 0;
+			}else{
+				document.getElementById("question" + j).value = "No";
+				document.getElementById("question" + j + "b").options.selectedIndex = 1;
+			}
+		}
 	<%
 		}
 	%>
