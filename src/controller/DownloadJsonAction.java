@@ -2,17 +2,8 @@ package controller;
 
 import generator.Questionare;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.w3c.dom.Document;
-
-import document.DocumentBlock;
-import xml.XMLGenerator;
 
 public class DownloadJsonAction extends Action {
 	@Override

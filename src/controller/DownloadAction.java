@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.w3c.dom.Document;
-
 import document.DocumentBlock;
-import xml.XMLGenerator;
 
 public class DownloadAction extends Action {
 	@Override
