@@ -532,6 +532,7 @@
 				<h5 style="color: red;">You need to select at least one of the
 					contact method</h5>
 			</div>
+			
 			<table style="width: 100%">
 				<tr>
 					<td width="15%"><input name="contactMethod" id="phone1"
@@ -556,7 +557,10 @@
 					</tr>
 				</table>
 				<h4>What's your phone number for opt-out?</h4>
-				<input type="text" class="form-control" placeholder="Phone number for opt-out" name="phoneOptOut">
+				<div id="errorPhone" style="display: none">
+				<h5 style="color: red;">The field could not be empty</h5>
+				</div>
+				<input type="text" class="form-control" placeholder="Phone number for opt-out" id = "phonephone" name="phoneOptOut">
 			</div>
 			<br/>
 		</c:if>
@@ -569,7 +573,10 @@
 					</tr>
 				</table>
 				<h4>What's your website for opt-out?</h4>
-				<input type="text" class="form-control" placeholder="Website for opt-out" name="websiteOptOut">
+				<div id="errorWebsite" style="display: none">
+				<h5 style="color: red;">The field could not be empty</h5>
+				</div>
+				<input type="text" class="form-control" placeholder="Website for opt-out" id = "websitewebsite" name="websiteOptOut">
 			</div>
 			<br/>
 		</c:if>
@@ -582,7 +589,10 @@
 					</tr>
 				</table>
 				<h4>What's your link for cookie-based opt-out?</h4>
-				<input type="text" class="form-control" placeholder="Link for cookie-base opt-out" name="cookieOptOut">
+				<div id="errorCookie" style="display: none">
+				<h5 style="color: red;">The field could not be empty</h5>
+				</div>
+				<input type="text" class="form-control" placeholder="Link for cookie-base opt-out" name="cookieOptOut" id = "cookiecookie">
 			</div>
 			<br/>
 		</c:if>
@@ -595,7 +605,10 @@
 					</tr>
 				</table>
 				<h4>What's your link for Do-Not-Track-based opt-out?</h4>
-				<input type="text" class="form-control" placeholder="Link for Do-Not-Track-based opt-out" name="doNotTrackOptOut">
+				<div id="errorTrack" style="display: none">
+				<h5 style="color: red;">The field could not be empty</h5>
+				</div>
+				<input type="text" class="form-control" placeholder="Link for Do-Not-Track-based opt-out" name="doNotTrackOptOut" id = "tracktrack">
 			</div>
 			<br/>
 		</c:if>
@@ -624,12 +637,15 @@
 				</div>
 				<br />
 				<h4>The mail-in opt-out form should be mailed to:</h4>
+				<div id="errorMail" style="display: none">
+				<h5 style="color: red;">The field could not be empty</h5>
+				</div>
 				<table style="width:100%">
 					<tr>
 						<td>Street:</td>
-						<td>&nbsp;&nbsp;<input name="street" type="text"></td>
+						<td>&nbsp;&nbsp;<input name="street" type="text" id = "streetstreet"></td>
 						<td>City:</td>
-						<td>&nbsp;&nbsp;<input name="city" type="text"></td>
+						<td>&nbsp;&nbsp;<input name="city" type="text" id = "citycity"></td>
 					</tr>
 					<tr>
 						<td>State:</td>
@@ -688,7 +704,7 @@
 						</select>
 						</td>
 						<td>Zip:</td>
-						<td>&nbsp;&nbsp;<input type="text" name="zip"></td>
+						<td>&nbsp;&nbsp;<input type="text" name="zip" id = "zipzip"></td>
 					</tr>
 				</table>
 				<br />
@@ -916,7 +932,99 @@ if (sum1 > 5) {
 			} else {
 				document.getElementById("error5").style.display = "none";
 			}
-
+		<%
+		boolean ifPhone1 = session.getAttribute("opt_phone") == null ? false : true;
+		%>
+		var ifPhone = <%=ifPhone1%>;
+		
+		if (ifPhone) {
+		var phoneNum = document.getElementById('phonephone').value;
+		
+		
+		
+		if (ifPhone && (phoneNum == null || phoneNum == "")) {
+				document.getElementById('errorPhone').style.display = "block";
+				flag = false;
+				
+			} else {
+				document.getElementById('errorPhone').style.display = "none";
+			} 
+		
+		}
+		<%
+		boolean ifWebsite1 = session.getAttribute("opt_website") == null ? false : true;
+		%>
+		var ifWebsite = <%=ifWebsite1%>;
+		if (ifWebsite) {
+		var websiteAdd = document.getElementById('websitewebsite').value;
+		
+		
+		if (ifWebsite && (websiteAdd == null || websiteAdd == "")) {
+				document.getElementById('errorWebsite').style.display = "block";
+				flag = false;
+				
+			} else {
+				document.getElementById('errorWebsite').style.display = "none";
+			} 
+		}
+		
+		<%
+		boolean ifMailin1 = session.getAttribute("opt_mail") == null ? false : true;
+		%>
+		var ifMailin = <%=ifMailin1%>;
+		if (ifMailin) {
+		var mailinStreet = document.getElementById('streetstreet').value;
+		var mailinCity = document.getElementById('citycity').value;
+		var mailinZip = document.getElementById('zipzip').value;
+		
+		
+		if (ifMailin && ((mailinStreet == null || mailinStreet == "") || (mailinCity == null || mailinCity == "") || (mailinZip == null || mailinZip == ""))) {
+				document.getElementById('errorMail').style.display = "block";
+				flag = false;
+				
+			} else {
+				document.getElementById('errorMail').style.display = "none";
+			} 
+		}
+		<%
+		boolean ifCookie1 = session.getAttribute("opt_cookie") == null ? false : true;
+		%>
+		var ifCookie = <%=ifCookie1%>;
+		
+		if (ifCookie) {
+		var cookieAdd = document.getElementById('cookiecookie').value;
+		
+		
+		
+		if (ifCookie && (cookieAdd == null || cookieAdd == "")) {
+				document.getElementById('errorCookie').style.display = "block";
+				flag = false;
+				
+			} else {
+				document.getElementById('errorCookie').style.display = "none";
+			} 
+		
+		}
+		
+		<%
+		boolean ifTrack1 = session.getAttribute("opt_doNotTrack") == null ? false : true;
+		%>
+		var ifTrack = <%=ifTrack1%>;
+		
+		if (ifTrack) {
+		var trackAdd = document.getElementById('tracktrack').value;
+		
+		
+		
+		if (ifTrack && (trackAdd == null || trackAdd == "")) {
+				document.getElementById('errorTrack').style.display = "block";
+				flag = false;
+				
+			} else {
+				document.getElementById('errorTrack').style.display = "none";
+			} 
+		
+		}
 			if (flag) {
 				return true;
 			} else {
