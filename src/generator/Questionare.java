@@ -530,8 +530,7 @@ public class Questionare {
 		obj.put("question6", nonAff);
 		obj.put("question8", otherInfo);
 		obj.put("question7", jointPartners);
-		return obj.toString();
-		
+		return obj.toString().replace("'", "\\'");	
 	}
 
 	public void populate(String jsonString) throws ParseException {

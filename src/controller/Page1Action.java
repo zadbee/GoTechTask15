@@ -28,7 +28,6 @@ public class Page1Action extends Action {
 		
 		String[] shared = request.getParameterValues("checkbox");
 		if (shared != null) {
-			System.out.println("checkbox " + shared.length);
 			for (String s : shared)
 				q.sharedInfo.add(s);									// sharedInfo
 		}
